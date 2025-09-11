@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Attar Lahore | Luxury Perfumes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/public/styles/shop.css">
+
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="/" class="text-3xl font-light text-white cormorant tracking-wider">
+                        <span class="text-amber-400 font-medium">ATTAR</span>
+                        <span class="text-gray-300 mx-2">·</span>
+                        <span class="font-light">LAHORE</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-12">
+                        <a href="home.html" class="text-white hover:text-amber-400 transition-all duration-300 text-sm font-light tracking-widest uppercase">Home</a>
+                        <a href="shop.html" class="text-gray-300 hover:text-amber-400 transition-all duration-300 text-sm font-light tracking-widest uppercase">Shop</a>
+                        <a href="about.html" class="text-gray-300 hover:text-amber-400 transition-all duration-300 text-sm font-light tracking-widest uppercase">About Us</a>
+                        <a href="heritage.html" class="text-gray-300 hover:text-amber-400 transition-all duration-300 text-sm font-light tracking-widest uppercase">Heritage</a>
+                        <a href="contact.html" class="text-gray-300 hover:text-amber-400 transition-all duration-300 text-sm font-light tracking-widest uppercase">Contact Us</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <button class="text-white hover:text-amber-400 transition-all duration-300 p-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                    <button class="text-white hover:text-amber-400 transition-all duration-300 p-2 relative" id="cartButton">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
+                        </svg>
+                        <span id="cartCount" class="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 text-black text-xs rounded-full flex items-center justify-center font-medium">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
+        <!-- Luxury Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div class="luxury-float absolute top-32 left-16 w-1 h-1 bg-amber-400 rounded-full opacity-30"></div>
+            <div class="luxury-float-delayed absolute top-48 right-24 w-1 h-1 bg-amber-300 rounded-full opacity-20"></div>
+            <div class="luxury-float absolute bottom-40 left-1/3 w-0.5 h-0.5 bg-amber-500 rounded-full opacity-40"></div>
+            <div class="luxury-float-delayed absolute top-1/2 right-1/4 w-1 h-1 bg-amber-400 rounded-full opacity-15"></div>
+        </div>
+        
+        <!-- Geometric Pattern Overlay -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="luxury-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <rect x="0" y="0" width="1" height="1" fill="#d4af37"/>
+                        <rect x="10" y="10" width="1" height="1" fill="#b8860b"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#luxury-pattern)"/>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center text-white pt-20">
+                <div class="mb-8 fade-in">
+                    <div class="text-sm font-light tracking-[0.3em] text-amber-400 uppercase mb-6">Luxury Collections</div>
+                    <h1 class="text-6xl md:text-8xl font-light cormorant mb-6 text-shadow-luxury leading-tight">
+                        Exquisite
+                        <span class="text-amber-400 block font-normal italic">Fragrances</span>
+                    </h1>
+                </div>
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 fade-in-delay-1 font-light leading-relaxed max-w-4xl mx-auto">
+                    Discover our curated collection of premium attars and eau de parfums, each crafted with the finest ingredients and traditional techniques passed down through generations.
+                </p>
+                <div class="fade-in-delay-2">
+                    <button class="backdrop-luxury border border-amber-400 text-amber-400 px-12 py-4 font-light tracking-wider uppercase text-sm hover:bg-amber-400 hover:text-black transition-all duration-500" onclick="document.getElementById('products-section').scrollIntoView({behavior: 'smooth'})">
+                        Explore Collection
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="py-8 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <nav class="breadcrumb">
+                <a href="/" class="hover:text-amber-600 transition-colors">Home</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-900">Products</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products-section" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Filters Sidebar -->
+                <div class="lg:w-1/4">
+                    <div class="sticky top-24">
+                        <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                            <h3 class="text-xl font-light text-gray-900 mb-6 cormorant">Filter Products</h3>
+                            
+                            <!-- Search -->
+                            <div class="mb-8">
+                                <label class="block text-sm font-light text-gray-700 mb-3 tracking-wider uppercase">Search</label>
+                                <input type="text" id="searchInput" placeholder="Search fragrances..." class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-all duration-300 font-light">
+                            </div>
+                            
+                            <!-- Collection Filter -->
+                            <div class="mb-8">
+                                <label class="block text-sm font-light text-gray-700 mb-3 tracking-wider uppercase">Collection</label>
+                                <div class="space-y-2">
+                                    <button class="filter-btn w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-filter="all">All Collections</button>
+                                    <button class="filter-btn w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-filter="traditional">Traditional Attar</button>
+                                    <button class="filter-btn w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-filter="modern">Modern Collection</button>
+                                    <button class="filter-btn w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-filter="limited">Limited Edition</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Price Filter -->
+                            <div class="mb-8">
+                                <label class="block text-sm font-light text-gray-700 mb-3 tracking-wider uppercase">Price Range</label>
+                                <div class="space-y-2">
+                                    <button class="price-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-price="all">All Prices</button>
+                                    <button class="price-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-price="0-5000">Under PKR 5,000</button>
+                                    <button class="price-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-price="5000-15000">PKR 5,000 - 15,000</button>
+                                    <button class="price-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-price="15000+">Above PKR 15,000</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Fragrance Notes -->
+                            <div class="mb-8">
+                                <label class="block text-sm font-light text-gray-700 mb-3 tracking-wider uppercase">Fragrance Notes</label>
+                                <div class="space-y-2">
+                                    <button class="note-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-note="rose">Rose</button>
+                                    <button class="note-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-note="oud">Oud</button>
+                                    <button class="note-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-note="sandalwood">Sandalwood</button>
+                                    <button class="note-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-note="jasmine">Jasmine</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="lg:w-3/4">
+                    <div class="flex justify-between items-center mb-8">
+                        <div>
+                            <h2 class="text-3xl font-light text-gray-900 cormorant">Our Collections</h2>
+                            <p class="text-gray-600 font-light mt-2" id="productCount">Showing 12 products</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <label class="text-sm font-light text-gray-700 tracking-wider uppercase">Sort by:</label>
+                            <select id="sortSelect" class="px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-amber-400 font-light">
+                                <option value="name">Name</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest First</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="productsGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+                        <!-- Products will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="fixed inset-0 z-50 hidden">
+        <div class="modal-backdrop absolute inset-0" onclick="closeModal()"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+                <button onclick="closeModal()" class="absolute top-6 right-6 z-10 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                
+                <div id="modalContent" class="p-8">
+                    <!-- Modal content will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-black to-gray-900 text-white py-24 relative">
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="footer-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <path d="M 0 50 Q 25 25 50 50 T 100 50" fill="none" stroke="#d4af37" stroke-width="0.5" opacity="0.3"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#footer-pattern)"/>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <div class="text-3xl font-light cormorant mb-6 tracking-wider">
+                        <span class="text-amber-400 font-medium">ATTAR</span>
+                        <span class="text-gray-300 mx-3">·</span>
+                        <span class="font-light">LAHORE</span>
+                    </div>
+                    <p class="text-gray-400 mb-8 font-light leading-relaxed max-w-md">
+                        Where tradition meets luxury. Crafting exceptional fragrances that tell the story of Lahore's rich heritage and timeless elegance.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 p-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 p-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 p-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91-.11-.937-.227-2.482.025-3.566.217-.932 1.405-5.956 1.405-5.956s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.653 2.567-.99 3.99-.281 1.191.597 2.163 1.774 2.163 2.129 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.532 3.571.532 6.354 0 11.5-5.146 11.5-11.5C24 5.896 18.854.75 12.5.75z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 p-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91-.11-.937-.227-2.482.025-3.566.217-.932 1.405-5.956 1.405-5.956s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.653 2.567-.99 3.99-.281 1.191.597 2.163 1.774 2.163 2.129 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.532 3.571.532 6.354 0 11.5-5.146 11.5-11.5C24 5.896 18.854.75 12.5.75z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-light mb-6 cormorant tracking-wider">Navigation</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/" class="text-gray-400 hover:text-amber-400 transition-all duration-300 font-light text-sm">Home</a></li>
+                        <li><a href="#" class="text-amber-400 font-light text-sm">Collections</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 font-light text-sm">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 font-light text-sm">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 font-light text-sm">Bespoke Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-light mb-6 cormorant tracking-wider">Atelier</h3>
+                    <div class="space-y-3 text-gray-400 font-light text-sm">
+                        <p>Liberty Market, Gulberg III</p>
+                        <p>Lahore, Punjab 54000</p>
+                        <p>Pakistan</p>
+                        <div class="pt-4">
+                            <p>+92 42 3587 4521</p>
+                            <p>atelier@attarlahore.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 font-light text-sm">
+                <p>&copy; 2024 Attar Lahore. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-amber-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-amber-400 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data
+        const products = [
+            {
+                id: 1,
+                name: "Royal Rose Attar",
+                collection: "traditional",
+                price: 8500,
+                image: "rose-attar",
+                description: "A timeless blend of Bulgarian roses and traditional sandalwood, crafted using ancient distillation methods.",
+                notes: ["rose", "sandalwood"],
+                size: "12ml",
+                longevity: "8-12 hours",
+                sillage: "Moderate",
+                featured: true
+            },
+            {
+                id: 2,
+                name: "Mystic Oud",
+                collection: "traditional",
+                price: 18500,
+                image: "mystic-oud",
+                description: "Premium Cambodian oud aged for 15 years, offering an intense and sophisticated fragrance experience.",
+                notes: ["oud"],
+                size: "6ml",
+                longevity: "12+ hours",
+                sillage: "Strong",
+                featured: true
+            },
+            {
+                id: 3,
+                name: "Jasmine Nights",
+                collection: "modern",
+                price: 6500,
+                image: "jasmine-nights",
+                description: "A contemporary interpretation of traditional jasmine, perfect for evening wear.",
+                notes: ["jasmine"],
+                size: "50ml",
+                longevity: "6-8 hours",
+                sillage: "Moderate",
+                featured: false
+            },
+            {
+                id: 4,
+                name: "Sandalwood Serenity",
+                collection: "traditional",
+                price: 7200,
+                image: "sandalwood-serenity",
+                description: "Pure Indian sandalwood oil, known for its calming and meditative properties.",
+                notes: ["sandalwood"],
+                size: "12ml",
+                longevity: "10+ hours",
+                sillage: "Soft",
+                featured: false
+            },
+            {
+                id: 5,
+                name: "Golden Amber",
+                collection: "limited",
+                price: 22000,
+                image: "golden-amber",
+                description: "Limited edition amber blend with rare spices, only 100 bottles produced.",
+                notes: ["amber", "spices"],
+                size: "15ml",
+                longevity: "12+ hours",
+                sillage: "Strong",
+                featured: true
+            },
+            {
+                id: 6,
+                name: "Modern Musk",
+                collection: "modern",
+                price: 4500,
+                image: "modern-musk",
+                description: "A clean, contemporary musk perfect for daily wear.",
+                notes: ["musk"],
+                size: "50ml",
+                longevity: "6-8 hours",
+                sillage: "Light",
+                featured: false
+            },
+            {
+                id: 7,
+                name: "Heritage Rose",
+                collection: "limited",
+                price: 15500,
+                image: "heritage-rose",
+                description: "Celebrating 75 years of perfumery with our signature rose blend.",
+                notes: ["rose"],
+                size: "25ml",
+                longevity: "10+ hours",
+                sillage: "Moderate",
+                featured: true
+            },
+            {
+                id: 8,
+                name: "Citrus Breeze",
+                collection: "modern",
+                price: 3800,
+                image: "citrus-breeze",
+                description: "Fresh and invigorating citrus blend for the modern lifestyle.",
+                notes: ["citrus"],
+                size: "50ml",
+                longevity: "4-6 hours",
+                sillage: "Light",
+                featured: false
+            },
+            {
+                id: 9,
+                name: "Velvet Oud",
+                collection: "limited",
+                price: 28000,
+                image: "velvet-oud",
+                description: "The finest oud from our private reserve, aged 20 years.",
+                notes: ["oud"],
+                size: "3ml",
+                longevity: "15+ hours",
+                sillage: "Very Strong",
+                featured: true
+            },
+            {
+                id: 10,
+                name: "Floral Symphony",
+                collection: "modern",
+                price: 5200,
+                image: "floral-symphony",
+                description: "A harmonious blend of multiple floral notes for the contemporary woman.",
+                notes: ["rose", "jasmine"],
+                size: "50ml",
+                longevity: "6-8 hours",
+                sillage: "Moderate",
+                featured: false
+            },
+            {
+                id: 11,
+                name: "Spiced Sandalwood",
+                collection: "traditional",
+                price: 9200,
+                image: "spiced-sandalwood",
+                description: "Traditional sandalwood enhanced with exotic spices from the subcontinent.",
+                notes: ["sandalwood"],
+                size: "12ml",
+                longevity: "10+ hours",
+                sillage: "Moderate",
+                featured: false
+            },
+            {
+                id: 12,
+                name: "Platinum Edition",
+                collection: "limited",
+                price: 35000,
+                image: "platinum-edition",
+                description: "Our most exclusive fragrance, available only to select clientele.",
+                notes: ["oud", "rose"],
+                size: "10ml",
+                longevity: "20+ hours",
+                sillage: "Exceptional",
+                featured: true
+            }
+        ];
+
+        let filteredProducts = [...products];
+        let cart = [];
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            setupEventListeners();
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-blur');
+            } else {
+                navbar.classList.remove('nav-blur');
+            }
+        });
+
+        function setupEventListeners() {
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-active'));
+                    this.classList.add('filter-active');
+                    filterProducts();
+                });
+            });
+
+            // Price filter buttons
+            document.querySelectorAll('.price-filter').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.price-filter').forEach(b => b.classList.remove('filter-active'));
+                    this.classList.add('filter-active');
+                    filterProducts();
+                });
+            });
+
+            // Note filter buttons
+            document.querySelectorAll('.note-filter').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('filter-active');
+                    filterProducts();
+                });
+            });
+
+            // Search input
+            document.getElementById('searchInput').addEventListener('input', filterProducts);
+
+            // Sort select
+            document.getElementById('sortSelect').addEventListener('change', sortProducts);
+        }
+
+        function filterProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const activeCollection = document.querySelector('.filter-btn.filter-active')?.dataset.filter || 'all';
+            const activePriceRange = document.querySelector('.price-filter.filter-active')?.dataset.price || 'all';
+            const activeNotes = Array.from(document.querySelectorAll('.note-filter.filter-active')).map(btn => btn.dataset.note);
+
+            filteredProducts = products.filter(product => {
+                // Search filter
+                const matchesSearch = product.name.toLowerCase().includes(searchTerm) || 
+                                    product.description.toLowerCase().includes(searchTerm);
+
+                // Collection filter
+                const matchesCollection = activeCollection === 'all' || product.collection === activeCollection;
+
+                // Price filter
+                let matchesPrice = true;
+                if (activePriceRange !== 'all') {
+                    const [min, max] = activePriceRange.split('-').map(p => p.replace('+', ''));
+                    if (max) {
+                        matchesPrice = product.price >= parseInt(min) && product.price <= parseInt(max);
+                    } else {
+                        matchesPrice = product.price >= parseInt(min);
+                    }
+                }
+
+                // Notes filter
+                const matchesNotes = activeNotes.length === 0 || 
+                                   activeNotes.some(note => product.notes.includes(note));
+
+                return matchesSearch && matchesCollection && matchesPrice && matchesNotes;
+            });
+
+            renderProducts();
+        }
+
+        function sortProducts() {
+            const sortBy = document.getElementById('sortSelect').value;
+            
+            filteredProducts.sort((a, b) => {
+                switch(sortBy) {
+                    case 'name':
+                        return a.name.localeCompare(b.name);
+                    case 'price-low':
+                        return a.price - b.price;
+                    case 'price-high':
+                        return b.price - a.price;
+                    case 'newest':
+                        return b.id - a.id;
+                    default:
+                        return 0;
+                }
+            });
+
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const count = document.getElementById('productCount');
+            
+            count.textContent = `Showing ${filteredProducts.length} products`;
+
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16">
+                        <div class="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
+                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-light text-gray-900 mb-2 cormorant">No products found</h3>
+                        <p class="text-gray-600 font-light">Try adjusting your filters or search terms.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card bg-white rounded-2xl overflow-hidden scroll-reveal" onclick="openProductModal(${product.id})">
+                    <div class="product-image h-64 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-amber-100 to-amber-50 rounded-full flex items-center justify-center">
+                                    <svg class="w-10 h-10 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                                    </svg>
+                                </div>
+                                <div class="text-xs text-gray-500 font-light">${product.size}</div>
+                            </div>
+                        </div>
+                        ${product.featured ? '<div class="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded-full text-xs font-medium">Featured</div>' : ''}
+                        <div class="absolute top-4 right-4">
+                            <div class="collection-badge">${product.collection.charAt(0).toUpperCase() + product.collection.slice(1)}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-light text-gray-900 mb-2 cormorant">${product.name}</h3>
+                        <p class="text-gray-600 text-sm font-light mb-4 line-clamp-2">${product.description}</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="price-badge">PKR ${product.price.toLocaleString()}</div>
+                            <div class="text-xs text-gray-500 font-light">${product.longevity}</div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${product.notes.map(note => `
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-light">${note}</span>
+                            `).join('')}
+                        </div>
+                        
+                        <button onclick="event.stopPropagation(); addToCart(${product.id})" class="add-to-cart-btn w-full text-white py-3 rounded-lg font-medium text-sm tracking-wider uppercase">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            // Re-observe new elements
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        function openProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            const modal = document.getElementById('productModal');
+            const content = document.getElementById('modalContent');
+
+            content.innerHTML = `
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="product-image h-96 rounded-xl relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-amber-100 to-amber-50 rounded-full flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                                    </svg>
+                                </div>
+                                <div class="text-sm text-gray-600 font-light">${product.size}</div>
+                            </div>
+                        </div>
+                        ${product.featured ? '<div class="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded-full text-xs font-medium">Featured</div>' : ''}
+                    </div>
+                    
+                    <div>
+                        <div class="collection-badge mb-4">${product.collection.charAt(0).toUpperCase() + product.collection.slice(1)} Collection</div>
+                        <h2 class="text-4xl font-light text-gray-900 mb-4 cormorant">${product.name}</h2>
+                        <div class="text-3xl font-light text-amber-600 mb-6 cormorant">PKR ${product.price.toLocaleString()}</div>
+                        
+                        <p class="text-gray-600 font-light leading-relaxed mb-8">${product.description}</p>
+                        
+                        <div class="space-y-6 mb-8">
+                            <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                                <span class="text-gray-700 font-light">Size</span>
+                                <span class="text-gray-900 font-medium">${product.size}</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                                <span class="text-gray-700 font-light">Longevity</span>
+                                <span class="text-gray-900 font-medium">${product.longevity}</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                                <span class="text-gray-700 font-light">Sillage</span>
+                                <span class="text-gray-900 font-medium">${product.sillage}</span>
+                            </div>
+                            <div class="py-3">
+                                <span class="text-gray-700 font-light block mb-3">Fragrance Notes</span>
+                                <div class="flex flex-wrap gap-2">
+                                    ${product.notes.map(note => `
+                                        <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-sm font-light border border-amber-200">${note}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="addToCart(${product.id}); closeModal();" class="add-to-cart-btn w-full text-white py-4 rounded-lg font-medium text-sm tracking-wider uppercase mb-4">
+                            Add to Cart - PKR ${product.price.toLocaleString()}
+                        </button>
+                        
+                        <div class="text-center">
+                            <button class="text-amber-600 hover:text-amber-700 text-sm font-light transition-colors">
+                                Need help choosing? Contact our fragrance consultant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartCount();
+            showCartNotification(product.name);
+        }
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+
+        function showCartNotification(productName) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-24 right-6 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+            notification.innerHTML = `
+                <div class="flex items-center space-x-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="font-light">Added "${productName}" to cart</span>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+
+            // Animate out and remove
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Initialize first filter as active
+        document.querySelector('.filter-btn[data-filter="all"]').classList.add('filter-active');
+        document.querySelector('.price-filter[data-price="all"]').classList.add('filter-active');
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97d01de40545a830',t:'MTc1NzUxOTgwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
