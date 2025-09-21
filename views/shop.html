@@ -1,765 +1,655 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Attar Lahore | Luxury Perfumes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/public/styles/shop.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Products — Attar Lahore</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <link rel="stylesheet" href="/public/styles/shop.css"> -->
+   <style>
 
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap');
+
+    :root{ --gold:#d4af37; --gold-deep:#b8860b; --ink:#0a0a0a; }
+    *{ box-sizing:border-box }
+    body{ font-family:'Montserrat',sans-serif; letter-spacing:.2px; overflow-x:hidden; background:#fff; }
+
+    .cormorant{ font-family:'Cormorant Garamond',serif }
+
+    /* Header styling and stability on scroll */
+    .nav-blur{ backdrop-filter:blur(14px); background:rgba(12,12,12,.78); border-bottom:1px solid rgba(212,175,55,.15) }
+
+    /* Hero */
+    .hero-gradient{
+      background: radial-gradient(1100px 520px at 10% 10%, rgba(212,175,55,.12), transparent 60%),
+                  radial-gradient(900px 480px at 90% 20%, rgba(184,134,11,.10), transparent 60%),
+                  linear-gradient(135deg, #0b0b0b 0%, #111111 55%, #1a1a1a 100%);
+      position:relative;
+    }
+    .hero-pattern:before{
+      content:''; position:absolute; inset:0; pointer-events:none; opacity:.25;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140"><g fill="%23d4af37" fill-opacity=".08"><circle cx="20" cy="20" r="1.2"/><circle cx="80" cy="40" r="1"/><circle cx="40" cy="120" r="1"/><circle cx="120" cy="80" r="1"/></g></svg>') repeat;
+    }
+
+    /* Cards and chips */
+    .product-card{ transition:transform .4s cubic-bezier(.25,.46,.45,.94), box-shadow .4s; border:1px solid rgba(184,134,11,.12) }
+    .product-card:hover{ transform:translateY(-5px); box-shadow:0 18px 38px rgba(0,0,0,.12) }
+    .price-badge{ background:linear-gradient(135deg, var(--gold), var(--gold-deep)); color:#111 }
+    .chip{ background:rgba(212,175,55,.12); color:#a07807; border:1px solid rgba(212,175,55,.25) }
+
+    /* CTA */
+    .gold-btn{ background:linear-gradient(135deg, var(--gold), var(--gold-deep)); color:#111; transition:transform .2s, box-shadow .2s }
+    .gold-btn:hover{ transform:translateY(-2px); box-shadow:0 12px 24px rgba(212,175,55,.25) }
+
+    /* Mobile filter sheet */
+    .sheet-backdrop{ background:rgba(0,0,0,.55); backdrop-filter:blur(6px) }
+    .sheet{ transform:translateY(100%); transition:transform .28s ease }
+    .sheet.open{ transform:translateY(0) }
+
+    /* Toast */
+    .toast{ transform:translateX(120%); transition:transform .25s ease }
+    .toast.show{ transform:translateX(0) }
+
+    #mobileMenu{
+        margin-right: 20px;
+    }
+    /* Mobile menu animation */
+.mobile-panel {
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: transform .3s ease, opacity .3s ease, max-height .3s ease;
+}
+
+.mobile-panel.open {
+    transform: scaleY(1);
+    opacity: 1;
+    max-height: 500px; /* adjust if menu is taller */
+    pointer-events: auto;
+}
+  </style> 
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <a href="/" class="text-3xl font-light text-white cormorant tracking-wider">
-                        <span class="text-amber-400 font-medium">ATTAR</span>
-                        <span class="text-gray-300 mx-2">·</span>
-                        <span class="font-light">LAHORE</span>
-                    </a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="flex items-center space-x-12">
-                        <a href="home.html" class="text-white hover:text-amber-400 transition-all duration-300 text-sm font-light tracking-widest uppercase">Home</a>
-                        <a href="shop.html" class="text-gray-300 hover:text-amber-400 transition-all duration-300 text-sm font-light tracking-widest uppercase">Shop</a>
-                        <a href="about.html" class="text-gray-300 hover:text-amber-400 transition-all duration-300 text-sm font-light tracking-widest uppercase">About Us</a>
-                        <a href="heritage.html" class="text-gray-300 hover:text-amber-400 transition-all duration-300 text-sm font-light tracking-widest uppercase">Heritage</a>
-                        <a href="contact.html" class="text-gray-300 hover:text-amber-400 transition-all duration-300 text-sm font-light tracking-widest uppercase">Contact Us</a>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-6">
-                    <button class="text-white hover:text-amber-400 transition-all duration-300 p-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </button>
-                    <button class="text-white hover:text-amber-400 transition-all duration-300 p-2 relative" id="cartButton">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
-                        </svg>
-                        <span id="cartCount" class="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 text-black text-xs rounded-full flex items-center justify-center font-medium">0</span>
-                    </button>
-                </div>
+<body>
+
+  <!-- Navbar -->
+  <header class="fixed inset-x-0 top-0 z-50">
+    <nav id="navbar" class="transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 sm:h-20 items-center justify-between">
+          <!-- Brand -->
+          <a href="#" class="flex items-center gap-2">
+            <span class="text-xl sm:text-2xl cormorant tracking-wider text-white">
+              <span class="text-[color:var(--gold)] font-semibold">ATTAR</span>
+              <span class="text-gray-300 mx-1">·</span>
+              <span class="font-light">LAHORE</span>
+            </span>
+          </a>
+
+          <!-- Desktop menu -->
+          <div class="hidden md:flex items-center gap-8">
+            <a href="home.html" class="text-sm tracking-widest uppercase text-white hover:text-[color:var(--gold)] transition">Home</a>
+            <a href="shop.html" class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">Shop</a>
+            <a href="about.html" class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">About</a>
+            <a href="contact.html" class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">Contact</a>
             </div>
+
+          <!-- Actions -->
+          <div class="flex items-center gap-3">
+            <button aria-label="search" class="p-2 text-white hover:text-[color:var(--gold)] transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.8-4.8M10.5 18a7.5 7.5 0 110-15 7.5 7.5 0 010 15z"></path>
+              </svg>
+            </button>
+            <button id="cartBtn" class="p-2 text-white hover:text-[color:var(--gold)] transition relative" aria-label="cart">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.75 3m0 0L7 13h9.5l2.25-7.5H5.75zM7 13l-1.2 4.2A1.5 1.5 0 007.26 19.5h9.48a1.5 1.5 0 001.46-2.3L17 13M10 21.5a.5.5 0 100-1 .5.5 0 000 1zm6 0a.5.5 0 100-1 .5.5 0 000 1z"/>
+              </svg>
+              <span id="cartCount" class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[color:var(--gold)] text-[11px] font-semibold text-black grid place-items-center">0</span>
+            </button>
+
+            <!-- Mobile menu button -->
+            <button id="menuToggle" class="md:hidden p-2 text-white hover:text-[color:var(--gold)]" aria-label="menu">
+              <svg id="menuIconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+              <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
         </div>
+
+        <!-- Mobile menu -->
+        <!-- Mobile menu -->
+<div id="mobileMenu" class="md:hidden mobile-panel pb-6">
+  <div class="mt-3 space-y-2 rounded-xl border border-white/10 bg-black/40 backdrop-blur p-4">
+    <a href="home.html" target="_blank" class="block px-3 py-2 rounded-lg text-white hover:text-[color:var(--gold)] hover:bg-white/5">Home</a>
+    <a href="shop.html" target="_blank" class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">Shop</a>
+    <a href="about.html" target="_blank" class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">About</a>
+    <a href="contact.html" target="_blank" class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">Contact</a>
+  </div>
+</div>
+
+        </div>
+      </div>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
-        <!-- Luxury Background Elements -->
-        <div class="absolute inset-0 z-0">
-            <div class="luxury-float absolute top-32 left-16 w-1 h-1 bg-amber-400 rounded-full opacity-30"></div>
-            <div class="luxury-float-delayed absolute top-48 right-24 w-1 h-1 bg-amber-300 rounded-full opacity-20"></div>
-            <div class="luxury-float absolute bottom-40 left-1/3 w-0.5 h-0.5 bg-amber-500 rounded-full opacity-40"></div>
-            <div class="luxury-float-delayed absolute top-1/2 right-1/4 w-1 h-1 bg-amber-400 rounded-full opacity-15"></div>
-        </div>
-        
-        <!-- Geometric Pattern Overlay -->
-        <div class="absolute inset-0 opacity-5">
-            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <defs>
-                    <pattern id="luxury-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="1" height="1" fill="#d4af37"/>
-                        <rect x="10" y="10" width="1" height="1" fill="#b8860b"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#luxury-pattern)"/>
-            </svg>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-            <div class="text-center text-white pt-20">
-                <div class="mb-8 fade-in">
-                    <div class="text-sm font-light tracking-[0.3em] text-amber-400 uppercase mb-6">Luxury Collections</div>
-                    <h1 class="text-6xl md:text-8xl font-light cormorant mb-6 text-shadow-luxury leading-tight">
-                        Exquisite
-                        <span class="text-amber-400 block font-normal italic">Fragrances</span>
-                    </h1>
-                </div>
-                <p class="text-xl md:text-2xl text-gray-300 mb-12 fade-in-delay-1 font-light leading-relaxed max-w-4xl mx-auto">
-                    Discover our curated collection of premium attars and eau de parfums, each crafted with the finest ingredients and traditional techniques passed down through generations.
-                </p>
-                <div class="fade-in-delay-2">
-                    <button class="backdrop-luxury border border-amber-400 text-amber-400 px-12 py-4 font-light tracking-wider uppercase text-sm hover:bg-amber-400 hover:text-black transition-all duration-500" onclick="document.getElementById('products-section').scrollIntoView({behavior: 'smooth'})">
-                        Explore Collection
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Breadcrumb -->
-    <section class="py-8 bg-white border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <nav class="breadcrumb">
-                <a href="/" class="hover:text-amber-600 transition-colors">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-gray-900">Products</span>
-            </nav>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products-section" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row gap-12">
-                <!-- Filters Sidebar -->
-                <div class="lg:w-1/4">
-                    <div class="sticky top-24">
-                        <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-                            <h3 class="text-xl font-light text-gray-900 mb-6 cormorant">Filter Products</h3>
-                            
-                            <!-- Search -->
-                            <div class="mb-8">
-                                <label class="block text-sm font-light text-gray-700 mb-3 tracking-wider uppercase">Search</label>
-                                <input type="text" id="searchInput" placeholder="Search fragrances..." class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-all duration-300 font-light">
-                            </div>
-                            
-                            <!-- Collection Filter -->
-                            <div class="mb-8">
-                                <label class="block text-sm font-light text-gray-700 mb-3 tracking-wider uppercase">Collection</label>
-                                <div class="space-y-2">
-                                    <button class="filter-btn w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-filter="all">All Collections</button>
-                                    <button class="filter-btn w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-filter="traditional">Traditional Attar</button>
-                                    <button class="filter-btn w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-filter="modern">Modern Collection</button>
-                                    <button class="filter-btn w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-filter="limited">Limited Edition</button>
-                                </div>
-                            </div>
-                            
-                            <!-- Price Filter -->
-                            <div class="mb-8">
-                                <label class="block text-sm font-light text-gray-700 mb-3 tracking-wider uppercase">Price Range</label>
-                                <div class="space-y-2">
-                                    <button class="price-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-price="all">All Prices</button>
-                                    <button class="price-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-price="0-5000">Under PKR 5,000</button>
-                                    <button class="price-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-price="5000-15000">PKR 5,000 - 15,000</button>
-                                    <button class="price-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-price="15000+">Above PKR 15,000</button>
-                                </div>
-                            </div>
-                            
-                            <!-- Fragrance Notes -->
-                            <div class="mb-8">
-                                <label class="block text-sm font-light text-gray-700 mb-3 tracking-wider uppercase">Fragrance Notes</label>
-                                <div class="space-y-2">
-                                    <button class="note-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-note="rose">Rose</button>
-                                    <button class="note-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-note="oud">Oud</button>
-                                    <button class="note-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-note="sandalwood">Sandalwood</button>
-                                    <button class="note-filter w-full text-left px-4 py-2 rounded-lg border border-gray-200 hover:border-amber-400 transition-all duration-300 font-light text-sm" data-note="jasmine">Jasmine</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Products Grid -->
-                <div class="lg:w-3/4">
-                    <div class="flex justify-between items-center mb-8">
-                        <div>
-                            <h2 class="text-3xl font-light text-gray-900 cormorant">Our Collections</h2>
-                            <p class="text-gray-600 font-light mt-2" id="productCount">Showing 12 products</p>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <label class="text-sm font-light text-gray-700 tracking-wider uppercase">Sort by:</label>
-                            <select id="sortSelect" class="px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-amber-400 font-light">
-                                <option value="name">Name</option>
-                                <option value="price-low">Price: Low to High</option>
-                                <option value="price-high">Price: High to Low</option>
-                                <option value="newest">Newest First</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div id="productsGrid" class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-                        <!-- Products will be dynamically loaded here -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Modal -->
-    <div id="productModal" class="fixed inset-0 z-50 hidden">
-        <div class="modal-backdrop absolute inset-0" onclick="closeModal()"></div>
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
-                <button onclick="closeModal()" class="absolute top-6 right-6 z-10 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-                
-                <div id="modalContent" class="p-8">
-                    <!-- Modal content will be dynamically loaded -->
-                </div>
-            </div>
-        </div>
+  <!-- Hero -->
+  <section class="hero-gradient hero-pattern pt-24 sm:pt-32 pb-8 sm:pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <p class="uppercase tracking-[0.35em] text-[color:var(--gold)] text-xs sm:text-sm mb-4">Our Collection</p>
+      <h1 class="cormorant text-4xl sm:text-6xl md:text-7xl leading-[1.05] mb-4">Exquisite <span class="text-[color:var(--gold)] italic">Fragrances</span></h1>
+      <p class="text-gray-300 max-w-3xl mx-auto">Explore our attars and eau de parfums crafted with timeless artistry and modern elegance.</p>
+      <div class="mt-7">
+        <button class="border border-[color:var(--gold)] text-[color:var(--gold)] hover:bg-[color:var(--gold)] hover:text-black transition rounded-full px-7 py-3 text-sm" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Collection</button>
+      </div>
     </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-b from-black to-gray-900 text-white py-24 relative">
-        <div class="absolute inset-0 opacity-5">
-            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <defs>
-                    <pattern id="footer-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                        <path d="M 0 50 Q 25 25 50 50 T 100 50" fill="none" stroke="#d4af37" stroke-width="0.5" opacity="0.3"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#footer-pattern)"/>
+  <!-- Controls (mobile-first) -->
+  <section class="bg-white border-b border-gray-100 pt-2">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+      <div class="flex flex-col gap-3 sm:gap-4">
+        <!-- Row 1: Search -->
+        <div class="flex gap-3">
+          <input id="searchInput" type="text" placeholder="Search fragrances..." class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[color:var(--gold)] focus:border-[color:var(--gold)] text-gray-800 placeholder-gray-400"/>
+          <!-- Mobile filter trigger -->
+          <button id="openFilters" class="sm:hidden px-4 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-gray-700">Filters</button>
+        </div>
+        <!-- Row 2: Sort + Count -->
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <label for="sortSelect" class="text-xs sm:text-sm text-gray-600 uppercase tracking-wider">Sort</label>
+            <select id="sortSelect" class="px-3 py-2 rounded-md border border-gray-200 focus:ring-2 focus:ring-[color:var(--gold)] focus:border-[color:var(--gold)] text-sm">
+              <option value="name">Name</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+          <div id="productCount" class="text-sm text-gray-600">Showing 0</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <main class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Desktop Filters -->
+        <aside class="hidden lg:block lg:w-64 flex-shrink-0">
+          <div class="sticky top-24 bg-white border border-gray-100 rounded-2xl p-6">
+            <h3 class="cormorant text-2xl text-gray-900 mb-4">Filters</h3>
+            <!-- Collection -->
+            <div class="mb-6">
+              <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Collection</div>
+              <div class="grid grid-cols-2 gap-2">
+                <button class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="all">All</button>
+                <button class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="traditional">Traditional</button>
+                <button class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="modern">Modern</button>
+                <button class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="limited">Limited</button>
+              </div>
+            </div>
+            <!-- Price -->
+            <div class="mb-6">
+              <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Price</div>
+              <div class="grid grid-cols-2 gap-2">
+                <button class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="all">All</button>
+                <button class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="0-5000">Under 5k</button>
+                <button class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="5000-15000">5k–15k</button>
+                <button class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="15000+">15k+</button>
+              </div>
+            </div>
+            <!-- Notes -->
+            <div>
+              <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Notes</div>
+              <div class="flex flex-wrap gap-2">
+                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="rose">rose</button>
+                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="oud">oud</button>
+                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="sandalwood">sandalwood</button>
+                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="jasmine">jasmine</button>
+                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="citrus">citrus</button>
+                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="amber">amber</button>
+                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="musk">musk</button>
+              </div>
+            </div>
+            <div class="mt-6 flex gap-2">
+              <button id="clearDesktop" class="px-4 py-2 rounded-lg border border-gray-200 text-gray-700 text-sm hover:border-gray-300">Clear</button>
+              <button id="applyDesktop" class="px-4 py-2 rounded-lg gold-btn text-sm">Apply</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Products Grid -->
+        <section id="products" class="flex-1">
+          <!-- Grid: 2 columns on mobile -->
+          <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5">
+            <!-- rendered via JS -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Filter Sheet -->
+  <div id="filterSheet" class="fixed inset-0 z-50 hidden">
+    <div class="sheet-backdrop absolute inset-0" id="closeSheet"></div>
+    <div class="absolute inset-x-0 bottom-0 bg-white rounded-t-2xl sheet">
+      <div class="p-5 border-b border-gray-100 flex items-center justify-between">
+        <h3 class="cormorant text-2xl text-gray-900">Filters</h3>
+        <button id="closeSheetBtn" class="px-3 py-1 rounded-md border border-gray-200">Close</button>
+      </div>
+      <div class="p-5 space-y-6 max-h-[65vh] overflow-y-auto">
+        <div>
+          <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Collection</div>
+          <div class="grid grid-cols-2 gap-2">
+            <button class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="all">All</button>
+            <button class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="traditional">Traditional</button>
+            <button class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="modern">Modern</button>
+            <button class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="limited">Limited</button>
+          </div>
+        </div>
+        <div>
+          <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Price</div>
+          <div class="grid grid-cols-2 gap-2">
+            <button class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="all">All</button>
+            <button class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="0-5000">Under 5k</button>
+            <button class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="5000-15000">5k–15k</button>
+            <button class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="15000+">15k+</button>
+          </div>
+        </div>
+        <div>
+          <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Notes</div>
+          <div class="flex flex-wrap gap-2">
+            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="rose">rose</button>
+            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="oud">oud</button>
+            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="sandalwood">sandalwood</button>
+            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="jasmine">jasmine</button>
+            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="citrus">citrus</button>
+            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="amber">amber</button>
+            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="musk">musk</button>
+          </div>
+        </div>
+      </div>
+      <div class="p-5 border-t border-gray-100 flex items-center gap-3">
+        <button id="clearMobile" class="px-4 py-3 rounded-lg border border-gray-200 text-gray-700 text-sm flex-1">Clear</button>
+        <button id="applyMobile" class="px-4 py-3 rounded-lg gold-btn text-sm flex-1">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Modal -->
+  <div id="productModal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="closeModal"></div>
+    <div class="absolute inset-0 p-4 sm:p-8 grid place-items-center">
+      <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative">
+        <button id="xModal" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 grid place-items-center">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div id="modalContent" class="p-6 sm:p-8"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast fixed top-24 right-4 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg z-50">Added to cart</div>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div class="grid md:grid-cols-4 gap-10">
+        <div class="md:col-span-2">
+          <div class="text-2xl cormorant tracking-wider text-white">
+            <span class="text-[color:var(--gold)] font-semibold">ATTAR</span>
+            <span class="text-gray-300 mx-2">·</span>
+            <span class="font-light">LAHORE</span>
+          </div>
+          <p class="text-gray-400 mt-4 max-w-md">Where tradition meets luxury. Crafted in Lahore with an unwavering commitment to excellence.</p>
+        </div>
+        <div>
+          <h4 class="cormorant text-white text-lg">Explore</h4>
+          <ul class="mt-3 space-y-2 text-gray-400">
+            <li><a href="home.html" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--gold)]">Home</a></li>
+            <li><a href="shop.html" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--gold)]">Shop</a></li>
+            <li><a href="about.html" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--gold)]">About</a></li>
+            <li><a href="contact.html" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--gold)]">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="cormorant text-white text-lg">Atelier</h4>
+          <ul class="mt-3 space-y-1 text-gray-400">
+            <li>Liberty Market, Gulberg III</li>
+            <li>Lahore, Punjab 54000</li>
+            <li>Pakistan</li>
+            <li class="mt-2">+92 42 3587 4521</li>
+            <li>atelier@attarlahore.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-gray-500 text-sm mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between">
+        <p>© 2024 Attar Lahore. All rights reserved.</p>
+        <div class="mt-3 sm:mt-0 space-x-5">
+          <a href="#" class="hover:text-[color:var(--gold)]">Privacy</a>
+          <a href="#" class="hover:text-[color:var(--gold)]">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header stability
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      // Always keep a solid style and never shrink the header height
+      nav.classList.add('nav-blur');
+    });
+
+ // Mobile menu
+    const toggle = document.getElementById('menuToggle');
+const menu = document.getElementById('mobileMenu');
+const iconOpen = document.getElementById('menuIconOpen');
+const iconClose = document.getElementById('menuIconClose');
+
+toggle.addEventListener('click', () => {
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    menu.classList.remove('open');
+  } else {
+    menu.classList.add('open');
+  }
+  iconOpen.classList.toggle('hidden', !isOpen);
+  iconClose.classList.toggle('hidden', isOpen);
+});
+
+// Close mobile menu on link click
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  menu.classList.remove('open');
+  iconOpen.classList.remove('hidden');
+  iconClose.classList.add('hidden');
+}));
+
+    // Data
+    const products = [
+      {id:1, name:"Royal Rose Attar",   collection:"traditional", price:8500,  description:"Bulgarian rose with sandalwood in classic attar style.", notes:["rose","sandalwood"], size:"12ml", longevity:"8-12h", featured:true},
+      {id:2, name:"Mystic Oud",         collection:"traditional", price:18500, description:"Aged Cambodian oud with deep, resinous warmth.",       notes:["oud"], size:"6ml", longevity:"12+h", featured:true},
+      {id:3, name:"Jasmine Nights",     collection:"modern",      price:6500,  description:"Night-blooming jasmine with a soft amber base.",      notes:["jasmine"], size:"50ml", longevity:"6-8h", featured:false},
+      {id:4, name:"Sandalwood Serenity",collection:"traditional", price:7200,  description:"Creamy Indian sandalwood, calming and elegant.",       notes:["sandalwood"], size:"12ml", longevity:"10+h", featured:false},
+      {id:5, name:"Golden Amber",       collection:"limited",     price:22000, description:"Limited amber blend with spices, numbered release.",  notes:["amber","spices"], size:"15ml", longevity:"12+h", featured:true},
+      {id:6, name:"Modern Musk",        collection:"modern",      price:4500,  description:"Clean musk with a contemporary, airy trail.",         notes:["musk"], size:"50ml", longevity:"6-8h", featured:false},
+      {id:7, name:"Heritage Rose",      collection:"limited",     price:15500, description:"Signature rose anniversary edition.",                 notes:["rose"], size:"25ml", longevity:"10+h", featured:true},
+      {id:8, name:"Citrus Breeze",      collection:"modern",      price:3800,  description:"Fresh citrus, mint and white tea clarity.",           notes:["citrus"], size:"50ml", longevity:"4-6h", featured:false},
+      {id:9, name:"Velvet Oud",         collection:"limited",     price:28000, description:"Private reserve oud, velvet-smooth and powerful.",    notes:["oud"], size:"3ml", longevity:"15+h", featured:true},
+      {id:10,name:"Floral Symphony",    collection:"modern",      price:5200,  description:"Floral harmony of rose and jasmine.",                 notes:["rose","jasmine"], size:"50ml", longevity:"6-8h", featured:false},
+      {id:11,name:"Spiced Sandalwood",  collection:"traditional", price:9200,  description:"Sandalwood enhanced with exotic spices.",             notes:["sandalwood"], size:"12ml", longevity:"10+h", featured:false},
+      {id:12,name:"Platinum Edition",   collection:"limited",     price:35000, description:"Most exclusive release, exceptional depth.",          notes:["oud","rose"], size:"10ml", longevity:"20+h", featured:true}
+    ];
+
+    let filteredProducts = [...products];
+    let cartCount = 0;
+
+    // State
+    const state = {
+      search: '',
+      collection: 'all',
+      price: 'all',
+      notes: new Set(),
+      sort: 'name',
+    };
+
+    // Elements
+    const grid = document.getElementById('productsGrid');
+    const countEl = document.getElementById('productCount');
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const toast = document.getElementById('toast');
+
+    // Render
+    function renderProducts(){
+      const items = filteredProducts.map(p => {
+        const collectionLabel = p.collection.charAt(0).toUpperCase() + p.collection.slice(1);
+        return `
+        <article class="product-card bg-white rounded-xl overflow-hidden flex flex-col" onclick="openProductModal(${p.id})">
+          <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 aspect-square">
+            <div class="absolute top-2 left-2">
+              ${p.featured ? '<span class="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium bg-[color:var(--gold)] text-black">Featured</span>' : ''}
+            </div>
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium chip">${collectionLabel}</span>
+            </div>
+            <div class="absolute inset-0 grid place-items-center">
+              <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-100 grid place-items-center">
+                <svg class="w-6 h-6 sm:w-7 sm:h-7 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 sm:p-4 flex-1 flex flex-col">
+            <h3 class="cormorant text-base sm:text-lg text-gray-900 leading-snug">${p.name}</h3>
+            <p class="text-gray-600 text-[11px] sm:text-sm mt-1 line-clamp-2">${p.description}</p>
+            <div class="mt-2 sm:mt-3 flex items-center justify-between">
+              <span class="price-badge px-2.5 py-1 rounded-full text-[11px] sm:text-sm">PKR ${p.price.toLocaleString()}</span>
+              <span class="text-[11px] text-gray-500">${p.size}</span>
+            </div>
+            <div class="mt-2 sm:mt-3 flex flex-wrap gap-1">
+              ${p.notes.map(n=>`<span class="px-2 py-0.5 text-[10px] sm:text-[11px] rounded-full bg-gray-100 text-gray-600">${n}</span>`).join('')}
+            </div>
+            <button class="gold-btn w-full mt-3 sm:mt-4 py-2 rounded-lg text-sm font-semibold" onclick="event.stopPropagation(); addToCart(${p.id})">Add to Cart</button>
+          </div>
+        </article>`;
+      }).join('');
+
+      grid.innerHTML = items || `
+        <div class="col-span-full text-center py-14">
+          <div class="w-16 h-16 mx-auto rounded-full bg-gray-100 grid place-items-center mb-4">
+            <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
+          </div>
+          <p class="cormorant text-xl text-gray-900">No products found</p>
+          <p class="text-gray-600 text-sm">Try adjusting your filters.</p>
         </div>
-        
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
-            <div class="grid md:grid-cols-4 gap-12">
-                <div class="md:col-span-2">
-                    <div class="text-3xl font-light cormorant mb-6 tracking-wider">
-                        <span class="text-amber-400 font-medium">ATTAR</span>
-                        <span class="text-gray-300 mx-3">·</span>
-                        <span class="font-light">LAHORE</span>
-                    </div>
-                    <p class="text-gray-400 mb-8 font-light leading-relaxed max-w-md">
-                        Where tradition meets luxury. Crafting exceptional fragrances that tell the story of Lahore's rich heritage and timeless elegance.
-                    </p>
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 p-2">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 p-2">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 p-2">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91-.11-.937-.227-2.482.025-3.566.217-.932 1.405-5.956 1.405-5.956s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.653 2.567-.99 3.99-.281 1.191.597 2.163 1.774 2.163 2.129 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.532 3.571.532 6.354 0 11.5-5.146 11.5-11.5C24 5.896 18.854.75 12.5.75z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 p-2">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91-.11-.937-.227-2.482.025-3.566.217-.932 1.405-5.956 1.405-5.956s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.653 2.567-.99 3.99-.281 1.191.597 2.163 1.774 2.163 2.129 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.532 3.571.532 6.354 0 11.5-5.146 11.5-11.5C24 5.896 18.854.75 12.5.75z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-light mb-6 cormorant tracking-wider">Navigation</h3>
-                    <ul class="space-y-3">
-                        <li><a href="/" class="text-gray-400 hover:text-amber-400 transition-all duration-300 font-light text-sm">Home</a></li>
-                        <li><a href="#" class="text-amber-400 font-light text-sm">Collections</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 font-light text-sm">About</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 font-light text-sm">Contact</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-all duration-300 font-light text-sm">Bespoke Service</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-light mb-6 cormorant tracking-wider">Atelier</h3>
-                    <div class="space-y-3 text-gray-400 font-light text-sm">
-                        <p>Liberty Market, Gulberg III</p>
-                        <p>Lahore, Punjab 54000</p>
-                        <p>Pakistan</p>
-                        <div class="pt-4">
-                            <p>+92 42 3587 4521</p>
-                            <p>atelier@attarlahore.com</p>
-                        </div>
-                    </div>
-                </div>
+      `;
+
+      countEl.textContent = `Showing ${filteredProducts.length}`;
+    }
+
+    function applyFilters(){
+      const term = state.search.toLowerCase().trim();
+      filteredProducts = products.filter(p=>{
+        const matchesSearch = !term || p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term);
+        const matchesCollection = state.collection === 'all' || p.collection === state.collection;
+        let matchesPrice = true;
+        if(state.price !== 'all'){
+          const [a,bRaw] = state.price.split('-');
+          const aNum = parseInt(a), bNum = bRaw?.includes('+') ? Infinity : parseInt(bRaw);
+          matchesPrice = p.price >= aNum && p.price <= (bNum ?? Infinity);
+        }
+        const matchesNotes = state.notes.size === 0 || [...state.notes].some(n => p.notes.includes(n));
+        return matchesSearch && matchesCollection && matchesPrice && matchesNotes;
+      });
+      sortProducts();
+    }
+
+    function sortProducts(){
+      const s = state.sort;
+      filteredProducts.sort((a,b)=>{
+        if(s==='name') return a.name.localeCompare(b.name);
+        if(s==='price-low') return a.price - b.price;
+        if(s==='price-high') return b.price - a.price;
+        if(s==='newest') return b.id - a.id;
+        return 0;
+      });
+      renderProducts();
+    }
+
+    // UI helpers
+    function setActive(btns, btn){
+      btns.forEach(b=>b.classList.remove('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'));
+      if(btn){ btn.classList.add('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'); }
+    }
+
+    // Events
+    function setupEvents(){
+      // Search
+      searchInput.addEventListener('input', (e)=>{
+        state.search = e.target.value;
+        applyFilters();
+      });
+      // Sort
+      sortSelect.addEventListener('change', (e)=>{
+        state.sort = e.target.value;
+        sortProducts();
+      });
+
+      // Desktop filter buttons
+      const colBtns = document.querySelectorAll('aside .filter-btn');
+      const priceBtns = document.querySelectorAll('aside .price-filter');
+      const noteBtns = document.querySelectorAll('aside .note-filter');
+
+      colBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+        state.collection = btn.dataset.filter;
+        setActive(colBtns, btn);
+      }));
+      priceBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+        state.price = btn.dataset.price;
+        setActive(priceBtns, btn);
+      }));
+      noteBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+        const n = btn.dataset.note;
+        if(state.notes.has(n)){ state.notes.delete(n); btn.classList.remove('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'); }
+        else { state.notes.add(n); btn.classList.add('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'); }
+      }));
+      document.getElementById('applyDesktop').addEventListener('click', applyFilters);
+      document.getElementById('clearDesktop').addEventListener('click', ()=>{
+        state.collection='all'; state.price='all'; state.notes.clear();
+        setActive(colBtns, null); setActive(priceBtns, null); noteBtns.forEach(n=>n.classList.remove('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'));
+        applyFilters();
+      });
+
+      // Mobile sheet
+      const sheet = document.getElementById('filterSheet');
+      const openFilters = document.getElementById('openFilters');
+      const closeSheet = document.getElementById('closeSheet');
+      const closeSheetBtn = document.getElementById('closeSheetBtn');
+      const sheetPanel = sheet.querySelector('.sheet');
+
+      function openSheet(){
+        sheet.classList.remove('hidden');
+        requestAnimationFrame(()=> sheetPanel.classList.add('open'));
+        document.body.style.overflow='hidden';
+      }
+      function hideSheet(){
+        sheetPanel.classList.remove('open');
+        setTimeout(()=> sheet.classList.add('hidden'), 250);
+        document.body.style.overflow='auto';
+      }
+      openFilters.addEventListener('click', openSheet);
+      closeSheet.addEventListener('click', hideSheet);
+      closeSheetBtn.addEventListener('click', hideSheet);
+
+      // Mobile filters
+      const mColBtns = sheet.querySelectorAll('.m-filter');
+      const mPriceBtns = sheet.querySelectorAll('.m-price');
+      const mNoteBtns = sheet.querySelectorAll('.m-note');
+
+      mColBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+        state.collection = btn.dataset.filter;
+        setActive(mColBtns, btn);
+      }));
+      mPriceBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+        state.price = btn.dataset.price;
+        setActive(mPriceBtns, btn);
+      }));
+      mNoteBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+        const n = btn.dataset.note;
+        if(state.notes.has(n)){ state.notes.delete(n); btn.classList.remove('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'); }
+        else { state.notes.add(n); btn.classList.add('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'); }
+      }));
+      document.getElementById('applyMobile').addEventListener('click', ()=>{ applyFilters(); hideSheet(); });
+      document.getElementById('clearMobile').addEventListener('click', ()=>{
+        state.collection='all'; state.price='all'; state.notes.clear();
+        setActive(mColBtns,null); setActive(mPriceBtns,null); mNoteBtns.forEach(n=>n.classList.remove('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'));
+      });
+
+      // Modal controls
+      document.getElementById('closeModal').addEventListener('click', closeProductModal);
+      document.getElementById('xModal').addEventListener('click', closeProductModal);
+    }
+
+    // Cart
+    function addToCart(id){
+      cartCount += 1;
+      document.getElementById('cartCount').textContent = cartCount;
+      showToast('Added to cart');
+    }
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(()=> {
+        toast.classList.remove('show');
+      }, 1800);
+    }
+
+    // Modal
+    function openProductModal(id){
+      const p = products.find(x=>x.id===id);
+      const content = `
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 aspect-[4/3] relative">
+            ${p.featured ? '<span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[color:var(--gold)] text-black text-xs font-medium">Featured</span>' : ''}
+            <div class="absolute inset-0 grid place-items-center">
+              <div class="w-24 h-24 rounded-full bg-amber-100 grid place-items-center">
+                <svg class="w-12 h-12 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                </svg>
+              </div>
             </div>
-            
-            <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 font-light text-sm">
-                <p>&copy; 2024 Attar Lahore. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-amber-400 transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-amber-400 transition-colors">Terms of Service</a>
-                </div>
+          </div>
+          <div>
+            <span class="chip px-3 py-1 rounded-full text-xs">${p.collection.charAt(0).toUpperCase()+p.collection.slice(1)} Collection</span>
+            <h2 class="cormorant text-3xl text-gray-900 mt-3">${p.name}</h2>
+            <div class="text-[color:var(--gold-deep)] cormorant text-2xl mt-2">PKR ${p.price.toLocaleString()}</div>
+            <p class="text-gray-600 mt-4">${p.description}</p>
+            <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+              <div class="border border-gray-100 rounded-lg p-3">
+                <div class="text-gray-500">Size</div><div class="text-gray-900 font-medium">${p.size}</div>
+              </div>
+              <div class="border border-gray-100 rounded-lg p-3">
+                <div class="text-gray-500">Longevity</div><div class="text-gray-900 font-medium">${p.longevity}</div>
+              </div>
             </div>
-        </div>
-    </footer>
+            <div class="mt-4">
+              <div class="text-gray-500 text-sm mb-1">Notes</div>
+              <div class="flex flex-wrap gap-2">
+                ${p.notes.map(n=>`<span class="px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-sm">${n}</span>`).join('')}
+              </div>
+            </div>
+            <button class="gold-btn w-full mt-6 py-3 rounded-lg text-sm font-semibold" onclick="addToCart(${p.id}); closeProductModal();">Add to Cart — PKR ${p.price.toLocaleString()}</button>
+          </div>
+        </div>`;
+      document.getElementById('modalContent').innerHTML = content;
+      document.getElementById('productModal').classList.remove('hidden');
+      document.body.style.overflow='hidden';
+    }
+    function closeProductModal(){
+      document.getElementById('productModal').classList.add('hidden');
+      document.body.style.overflow='auto';
+    }
 
-    <script>
-        // Product data
-        const products = [
-            {
-                id: 1,
-                name: "Royal Rose Attar",
-                collection: "traditional",
-                price: 8500,
-                image: "rose-attar",
-                description: "A timeless blend of Bulgarian roses and traditional sandalwood, crafted using ancient distillation methods.",
-                notes: ["rose", "sandalwood"],
-                size: "12ml",
-                longevity: "8-12 hours",
-                sillage: "Moderate",
-                featured: true
-            },
-            {
-                id: 2,
-                name: "Mystic Oud",
-                collection: "traditional",
-                price: 18500,
-                image: "mystic-oud",
-                description: "Premium Cambodian oud aged for 15 years, offering an intense and sophisticated fragrance experience.",
-                notes: ["oud"],
-                size: "6ml",
-                longevity: "12+ hours",
-                sillage: "Strong",
-                featured: true
-            },
-            {
-                id: 3,
-                name: "Jasmine Nights",
-                collection: "modern",
-                price: 6500,
-                image: "jasmine-nights",
-                description: "A contemporary interpretation of traditional jasmine, perfect for evening wear.",
-                notes: ["jasmine"],
-                size: "50ml",
-                longevity: "6-8 hours",
-                sillage: "Moderate",
-                featured: false
-            },
-            {
-                id: 4,
-                name: "Sandalwood Serenity",
-                collection: "traditional",
-                price: 7200,
-                image: "sandalwood-serenity",
-                description: "Pure Indian sandalwood oil, known for its calming and meditative properties.",
-                notes: ["sandalwood"],
-                size: "12ml",
-                longevity: "10+ hours",
-                sillage: "Soft",
-                featured: false
-            },
-            {
-                id: 5,
-                name: "Golden Amber",
-                collection: "limited",
-                price: 22000,
-                image: "golden-amber",
-                description: "Limited edition amber blend with rare spices, only 100 bottles produced.",
-                notes: ["amber", "spices"],
-                size: "15ml",
-                longevity: "12+ hours",
-                sillage: "Strong",
-                featured: true
-            },
-            {
-                id: 6,
-                name: "Modern Musk",
-                collection: "modern",
-                price: 4500,
-                image: "modern-musk",
-                description: "A clean, contemporary musk perfect for daily wear.",
-                notes: ["musk"],
-                size: "50ml",
-                longevity: "6-8 hours",
-                sillage: "Light",
-                featured: false
-            },
-            {
-                id: 7,
-                name: "Heritage Rose",
-                collection: "limited",
-                price: 15500,
-                image: "heritage-rose",
-                description: "Celebrating 75 years of perfumery with our signature rose blend.",
-                notes: ["rose"],
-                size: "25ml",
-                longevity: "10+ hours",
-                sillage: "Moderate",
-                featured: true
-            },
-            {
-                id: 8,
-                name: "Citrus Breeze",
-                collection: "modern",
-                price: 3800,
-                image: "citrus-breeze",
-                description: "Fresh and invigorating citrus blend for the modern lifestyle.",
-                notes: ["citrus"],
-                size: "50ml",
-                longevity: "4-6 hours",
-                sillage: "Light",
-                featured: false
-            },
-            {
-                id: 9,
-                name: "Velvet Oud",
-                collection: "limited",
-                price: 28000,
-                image: "velvet-oud",
-                description: "The finest oud from our private reserve, aged 20 years.",
-                notes: ["oud"],
-                size: "3ml",
-                longevity: "15+ hours",
-                sillage: "Very Strong",
-                featured: true
-            },
-            {
-                id: 10,
-                name: "Floral Symphony",
-                collection: "modern",
-                price: 5200,
-                image: "floral-symphony",
-                description: "A harmonious blend of multiple floral notes for the contemporary woman.",
-                notes: ["rose", "jasmine"],
-                size: "50ml",
-                longevity: "6-8 hours",
-                sillage: "Moderate",
-                featured: false
-            },
-            {
-                id: 11,
-                name: "Spiced Sandalwood",
-                collection: "traditional",
-                price: 9200,
-                image: "spiced-sandalwood",
-                description: "Traditional sandalwood enhanced with exotic spices from the subcontinent.",
-                notes: ["sandalwood"],
-                size: "12ml",
-                longevity: "10+ hours",
-                sillage: "Moderate",
-                featured: false
-            },
-            {
-                id: 12,
-                name: "Platinum Edition",
-                collection: "limited",
-                price: 35000,
-                image: "platinum-edition",
-                description: "Our most exclusive fragrance, available only to select clientele.",
-                notes: ["oud", "rose"],
-                size: "10ml",
-                longevity: "20+ hours",
-                sillage: "Exceptional",
-                featured: true
-            }
-        ];
-
-        let filteredProducts = [...products];
-        let cart = [];
-
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            renderProducts();
-            setupEventListeners();
-        });
-
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-blur');
-            } else {
-                navbar.classList.remove('nav-blur');
-            }
-        });
-
-        function setupEventListeners() {
-            // Filter buttons
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-active'));
-                    this.classList.add('filter-active');
-                    filterProducts();
-                });
-            });
-
-            // Price filter buttons
-            document.querySelectorAll('.price-filter').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.price-filter').forEach(b => b.classList.remove('filter-active'));
-                    this.classList.add('filter-active');
-                    filterProducts();
-                });
-            });
-
-            // Note filter buttons
-            document.querySelectorAll('.note-filter').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    this.classList.toggle('filter-active');
-                    filterProducts();
-                });
-            });
-
-            // Search input
-            document.getElementById('searchInput').addEventListener('input', filterProducts);
-
-            // Sort select
-            document.getElementById('sortSelect').addEventListener('change', sortProducts);
-        }
-
-        function filterProducts() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const activeCollection = document.querySelector('.filter-btn.filter-active')?.dataset.filter || 'all';
-            const activePriceRange = document.querySelector('.price-filter.filter-active')?.dataset.price || 'all';
-            const activeNotes = Array.from(document.querySelectorAll('.note-filter.filter-active')).map(btn => btn.dataset.note);
-
-            filteredProducts = products.filter(product => {
-                // Search filter
-                const matchesSearch = product.name.toLowerCase().includes(searchTerm) || 
-                                    product.description.toLowerCase().includes(searchTerm);
-
-                // Collection filter
-                const matchesCollection = activeCollection === 'all' || product.collection === activeCollection;
-
-                // Price filter
-                let matchesPrice = true;
-                if (activePriceRange !== 'all') {
-                    const [min, max] = activePriceRange.split('-').map(p => p.replace('+', ''));
-                    if (max) {
-                        matchesPrice = product.price >= parseInt(min) && product.price <= parseInt(max);
-                    } else {
-                        matchesPrice = product.price >= parseInt(min);
-                    }
-                }
-
-                // Notes filter
-                const matchesNotes = activeNotes.length === 0 || 
-                                   activeNotes.some(note => product.notes.includes(note));
-
-                return matchesSearch && matchesCollection && matchesPrice && matchesNotes;
-            });
-
-            renderProducts();
-        }
-
-        function sortProducts() {
-            const sortBy = document.getElementById('sortSelect').value;
-            
-            filteredProducts.sort((a, b) => {
-                switch(sortBy) {
-                    case 'name':
-                        return a.name.localeCompare(b.name);
-                    case 'price-low':
-                        return a.price - b.price;
-                    case 'price-high':
-                        return b.price - a.price;
-                    case 'newest':
-                        return b.id - a.id;
-                    default:
-                        return 0;
-                }
-            });
-
-            renderProducts();
-        }
-
-        function renderProducts() {
-            const grid = document.getElementById('productsGrid');
-            const count = document.getElementById('productCount');
-            
-            count.textContent = `Showing ${filteredProducts.length} products`;
-
-            if (filteredProducts.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-16">
-                        <div class="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
-                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-light text-gray-900 mb-2 cormorant">No products found</h3>
-                        <p class="text-gray-600 font-light">Try adjusting your filters or search terms.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            grid.innerHTML = filteredProducts.map(product => `
-                <div class="product-card bg-white rounded-2xl overflow-hidden scroll-reveal" onclick="openProductModal(${product.id})">
-                    <div class="product-image h-64 relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-amber-100 to-amber-50 rounded-full flex items-center justify-center">
-                                    <svg class="w-10 h-10 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                                    </svg>
-                                </div>
-                                <div class="text-xs text-gray-500 font-light">${product.size}</div>
-                            </div>
-                        </div>
-                        ${product.featured ? '<div class="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded-full text-xs font-medium">Featured</div>' : ''}
-                        <div class="absolute top-4 right-4">
-                            <div class="collection-badge">${product.collection.charAt(0).toUpperCase() + product.collection.slice(1)}</div>
-                        </div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <h3 class="text-xl font-light text-gray-900 mb-2 cormorant">${product.name}</h3>
-                        <p class="text-gray-600 text-sm font-light mb-4 line-clamp-2">${product.description}</p>
-                        
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="price-badge">PKR ${product.price.toLocaleString()}</div>
-                            <div class="text-xs text-gray-500 font-light">${product.longevity}</div>
-                        </div>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            ${product.notes.map(note => `
-                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-light">${note}</span>
-                            `).join('')}
-                        </div>
-                        
-                        <button onclick="event.stopPropagation(); addToCart(${product.id})" class="add-to-cart-btn w-full text-white py-3 rounded-lg font-medium text-sm tracking-wider uppercase">
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-
-            // Re-observe new elements
-            document.querySelectorAll('.scroll-reveal').forEach(el => {
-                observer.observe(el);
-            });
-        }
-
-        function openProductModal(productId) {
-            const product = products.find(p => p.id === productId);
-            const modal = document.getElementById('productModal');
-            const content = document.getElementById('modalContent');
-
-            content.innerHTML = `
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="product-image h-96 rounded-xl relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-amber-100 to-amber-50 rounded-full flex items-center justify-center">
-                                    <svg class="w-16 h-16 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                                    </svg>
-                                </div>
-                                <div class="text-sm text-gray-600 font-light">${product.size}</div>
-                            </div>
-                        </div>
-                        ${product.featured ? '<div class="absolute top-4 left-4 bg-amber-400 text-black px-3 py-1 rounded-full text-xs font-medium">Featured</div>' : ''}
-                    </div>
-                    
-                    <div>
-                        <div class="collection-badge mb-4">${product.collection.charAt(0).toUpperCase() + product.collection.slice(1)} Collection</div>
-                        <h2 class="text-4xl font-light text-gray-900 mb-4 cormorant">${product.name}</h2>
-                        <div class="text-3xl font-light text-amber-600 mb-6 cormorant">PKR ${product.price.toLocaleString()}</div>
-                        
-                        <p class="text-gray-600 font-light leading-relaxed mb-8">${product.description}</p>
-                        
-                        <div class="space-y-6 mb-8">
-                            <div class="flex justify-between items-center py-3 border-b border-gray-100">
-                                <span class="text-gray-700 font-light">Size</span>
-                                <span class="text-gray-900 font-medium">${product.size}</span>
-                            </div>
-                            <div class="flex justify-between items-center py-3 border-b border-gray-100">
-                                <span class="text-gray-700 font-light">Longevity</span>
-                                <span class="text-gray-900 font-medium">${product.longevity}</span>
-                            </div>
-                            <div class="flex justify-between items-center py-3 border-b border-gray-100">
-                                <span class="text-gray-700 font-light">Sillage</span>
-                                <span class="text-gray-900 font-medium">${product.sillage}</span>
-                            </div>
-                            <div class="py-3">
-                                <span class="text-gray-700 font-light block mb-3">Fragrance Notes</span>
-                                <div class="flex flex-wrap gap-2">
-                                    ${product.notes.map(note => `
-                                        <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-sm font-light border border-amber-200">${note}</span>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <button onclick="addToCart(${product.id}); closeModal();" class="add-to-cart-btn w-full text-white py-4 rounded-lg font-medium text-sm tracking-wider uppercase mb-4">
-                            Add to Cart - PKR ${product.price.toLocaleString()}
-                        </button>
-                        
-                        <div class="text-center">
-                            <button class="text-amber-600 hover:text-amber-700 text-sm font-light transition-colors">
-                                Need help choosing? Contact our fragrance consultant
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('productModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            const existingItem = cart.find(item => item.id === productId);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-
-            updateCartCount();
-            showCartNotification(product.name);
-        }
-
-        function updateCartCount() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cartCount').textContent = totalItems;
-        }
-
-        function showCartNotification(productName) {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = 'fixed top-24 right-6 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
-            notification.innerHTML = `
-                <div class="flex items-center space-x-3">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span class="font-light">Added "${productName}" to cart</span>
-                </div>
-            `;
-
-            document.body.appendChild(notification);
-
-            // Animate in
-            setTimeout(() => {
-                notification.classList.remove('translate-x-full');
-            }, 100);
-
-            // Animate out and remove
-            setTimeout(() => {
-                notification.classList.add('translate-x-full');
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-        }
-
-        // Initialize first filter as active
-        document.querySelector('.filter-btn[data-filter="all"]').classList.add('filter-active');
-        document.querySelector('.price-filter[data-price="all"]').classList.add('filter-active');
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97d01de40545a830',t:'MTc1NzUxOTgwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    // Init
+    (function init(){
+      setupEvents();
+      // Set defaults active
+      document.querySelectorAll('aside .filter-btn[data-filter="all"]').forEach(b=>b.click());
+      document.querySelectorAll('aside .price-filter[data-price="all"]').forEach(b=>b.click());
+      applyFilters();
+    })();
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982a742516c8a7ee',t:'MTc1ODQ2NzA1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
