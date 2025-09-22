@@ -1,76 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Products — Attar Lahore</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- <link rel="stylesheet" href="/public/styles/shop.css"> -->
-   <style>
-
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap');
 
-    :root{ --gold:#d4af37; --gold-deep:#b8860b; --ink:#0a0a0a; }
-    *{ box-sizing:border-box }
-    body{ font-family:'Montserrat',sans-serif; letter-spacing:.2px; overflow-x:hidden; background:#fff; }
+    :root {
+      --gold: #d4af37;
+      --gold-deep: #b8860b;
+      --ink: #0a0a0a;
+    }
 
-    .cormorant{ font-family:'Cormorant Garamond',serif }
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: .2px;
+      overflow-x: hidden;
+      background: #fff;
+    }
+
+    .cormorant {
+      font-family: 'Cormorant Garamond', serif
+    }
 
     /* Header styling and stability on scroll */
-    .nav-blur{ backdrop-filter:blur(14px); background:rgba(12,12,12,.78); border-bottom:1px solid rgba(212,175,55,.15) }
+    .nav-blur {
+      backdrop-filter: blur(14px);
+      background: rgba(12, 12, 12, .78);
+      border-bottom: 1px solid rgba(212, 175, 55, .15)
+    }
 
     /* Hero */
-    .hero-gradient{
-      background: radial-gradient(1100px 520px at 10% 10%, rgba(212,175,55,.12), transparent 60%),
-                  radial-gradient(900px 480px at 90% 20%, rgba(184,134,11,.10), transparent 60%),
-                  linear-gradient(135deg, #0b0b0b 0%, #111111 55%, #1a1a1a 100%);
-      position:relative;
+    .hero-gradient {
+      background: radial-gradient(1100px 520px at 10% 10%, rgba(212, 175, 55, .12), transparent 60%),
+        radial-gradient(900px 480px at 90% 20%, rgba(184, 134, 11, .10), transparent 60%),
+        linear-gradient(135deg, #0b0b0b 0%, #111111 55%, #1a1a1a 100%);
+      position: relative;
     }
-    .hero-pattern:before{
-      content:''; position:absolute; inset:0; pointer-events:none; opacity:.25;
+
+    .hero-pattern:before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .25;
       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140"><g fill="%23d4af37" fill-opacity=".08"><circle cx="20" cy="20" r="1.2"/><circle cx="80" cy="40" r="1"/><circle cx="40" cy="120" r="1"/><circle cx="120" cy="80" r="1"/></g></svg>') repeat;
     }
 
     /* Cards and chips */
-    .product-card{ transition:transform .4s cubic-bezier(.25,.46,.45,.94), box-shadow .4s; border:1px solid rgba(184,134,11,.12) }
-    .product-card:hover{ transform:translateY(-5px); box-shadow:0 18px 38px rgba(0,0,0,.12) }
-    .price-badge{ background:linear-gradient(135deg, var(--gold), var(--gold-deep)); color:#111 }
-    .chip{ background:rgba(212,175,55,.12); color:#a07807; border:1px solid rgba(212,175,55,.25) }
+    .product-card {
+      transition: transform .4s cubic-bezier(.25, .46, .45, .94), box-shadow .4s;
+      border: 1px solid rgba(184, 134, 11, .12)
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, .12)
+    }
+
+    .price-badge {
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: #111
+    }
+
+    .chip {
+      background: rgba(212, 175, 55, .12);
+      color: #a07807;
+      border: 1px solid rgba(212, 175, 55, .25)
+    }
 
     /* CTA */
-    .gold-btn{ background:linear-gradient(135deg, var(--gold), var(--gold-deep)); color:#111; transition:transform .2s, box-shadow .2s }
-    .gold-btn:hover{ transform:translateY(-2px); box-shadow:0 12px 24px rgba(212,175,55,.25) }
+    .gold-btn {
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: #111;
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .gold-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(212, 175, 55, .25)
+    }
 
     /* Mobile filter sheet */
-    .sheet-backdrop{ background:rgba(0,0,0,.55); backdrop-filter:blur(6px) }
-    .sheet{ transform:translateY(100%); transition:transform .28s ease }
-    .sheet.open{ transform:translateY(0) }
+    .sheet-backdrop {
+      background: rgba(0, 0, 0, .55);
+      backdrop-filter: blur(6px)
+    }
+
+    .sheet {
+      transform: translateY(100%);
+      transition: transform .28s ease
+    }
+
+    .sheet.open {
+      transform: translateY(0)
+    }
 
     /* Toast */
-    .toast{ transform:translateX(120%); transition:transform .25s ease }
-    .toast.show{ transform:translateX(0) }
-
-    #mobileMenu{
-        margin-right: 20px;
+    .toast {
+      transform: translateX(120%);
+      transition: transform .25s ease
     }
-    /* Mobile menu animation */
-.mobile-panel {
-    transform-origin: top;
-    transform: scaleY(0);
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: transform .3s ease, opacity .3s ease, max-height .3s ease;
-}
 
-.mobile-panel.open {
-    transform: scaleY(1);
-    opacity: 1;
-    max-height: 500px; /* adjust if menu is taller */
-    pointer-events: auto;
-}
-  </style> 
+    .toast.show {
+      transform: translateX(0)
+    }
+
+    #mobileMenu {
+      margin-right: 20px;
+    }
+
+    /* Mobile menu animation */
+    .mobile-panel {
+      transform-origin: top;
+      transform: scaleY(0);
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: transform .3s ease, opacity .3s ease, max-height .3s ease;
+    }
+
+    .mobile-panel.open {
+      transform: scaleY(1);
+      opacity: 1;
+      max-height: 500px;
+      /* adjust if menu is taller */
+      pointer-events: auto;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -81,36 +148,40 @@
           <!-- Brand -->
           <a href="#" class="flex items-center gap-2">
             <span class="text-xl sm:text-2xl cormorant tracking-wider text-white">
-              <span class="text-[color:var(--gold)] font-semibold">ATTAR</span>
-              <span class="text-gray-300 mx-1">·</span>
-              <span class="font-light">LAHORE</span>
+              <span class="text-[color:var(--gold)] font-semibold">ARJANMAL</span>
+              <span class="font-light">ATTARCHAND</span>
             </span>
           </a>
 
           <!-- Desktop menu -->
           <div class="hidden md:flex items-center gap-8">
-            <a href="index.html" class="text-sm tracking-widest uppercase text-white hover:text-[color:var(--gold)] transition">Home</a>
-            <a href="shop.html" class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">Shop</a>
-            <a href="about.html" class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">About</a>
-            <a href="contact.html" class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">Contact</a>
-            </div>
+            <a href="index.html"
+              class="text-sm tracking-widest uppercase text-white hover:text-[color:var(--gold)] transition">Home</a>
+            <a href="shop.html"
+              class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">Shop</a>
+            <a href="about.html"
+              class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">About</a>
+            <a href="contact.html"
+              class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">Contact</a>
+          </div>
 
           <!-- Actions -->
           <div class="flex items-center gap-3">
             <button aria-label="search" class="p-2 text-white hover:text-[color:var(--gold)] transition">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.8-4.8M10.5 18a7.5 7.5 0 110-15 7.5 7.5 0 010 15z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 21l-4.8-4.8M10.5 18a7.5 7.5 0 110-15 7.5 7.5 0 010 15z"></path>
               </svg>
             </button>
-           
+
 
             <!-- Mobile menu button -->
             <button id="menuToggle" class="md:hidden p-2 text-white hover:text-[color:var(--gold)]" aria-label="menu">
               <svg id="menuIconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
               <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
@@ -118,16 +189,20 @@
 
         <!-- Mobile menu -->
         <!-- Mobile menu -->
-<div id="mobileMenu" class="md:hidden mobile-panel pb-6">
-  <div class="mt-3 space-y-2 rounded-xl border border-white/10 bg-black/40 backdrop-blur p-4">
-    <a href="index.html" target="_blank" class="block px-3 py-2 rounded-lg text-white hover:text-[color:var(--gold)] hover:bg-white/5">Home</a>
-    <a href="shop.html" target="_blank" class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">Shop</a>
-    <a href="about.html" target="_blank" class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">About</a>
-    <a href="contact.html" target="_blank" class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">Contact</a>
-  </div>
-</div>
-
+        <div id="mobileMenu" class="md:hidden mobile-panel pb-6">
+          <div class="mt-3 space-y-2 rounded-xl border border-white/10 bg-black/40 backdrop-blur p-4">
+            <a href="index.html" target="_blank"
+              class="block px-3 py-2 rounded-lg text-white hover:text-[color:var(--gold)] hover:bg-white/5">Home</a>
+            <a href="shop.html" target="_blank"
+              class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">Shop</a>
+            <a href="about.html" target="_blank"
+              class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">About</a>
+            <a href="contact.html" target="_blank"
+              class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">Contact</a>
+          </div>
         </div>
+
+      </div>
       </div>
     </nav>
   </header>
@@ -136,10 +211,14 @@
   <section class="hero-gradient hero-pattern pt-24 sm:pt-32 pb-8 sm:pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
       <p class="uppercase tracking-[0.35em] text-[color:var(--gold)] text-xs sm:text-sm mb-4">Our Collection</p>
-      <h1 class="cormorant text-4xl sm:text-6xl md:text-7xl leading-[1.05] mb-4">Exquisite <span class="text-[color:var(--gold)] italic">Fragrances</span></h1>
-      <p class="text-gray-300 max-w-3xl mx-auto">Explore our attars and eau de parfums crafted with timeless artistry and modern elegance.</p>
+      <h1 class="cormorant text-4xl sm:text-6xl md:text-7xl leading-[1.05] mb-4">Exquisite <span
+          class="text-[color:var(--gold)] italic">Fragrances</span></h1>
+      <p class="text-gray-300 max-w-3xl mx-auto">Explore our attars and eau de parfums crafted with timeless artistry
+        and modern elegance.</p>
       <div class="mt-7">
-        <button class="border border-[color:var(--gold)] text-[color:var(--gold)] hover:bg-[color:var(--gold)] hover:text-black transition rounded-full px-7 py-3 text-sm" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Collection</button>
+        <button
+          class="border border-[color:var(--gold)] text-[color:var(--gold)] hover:bg-[color:var(--gold)] hover:text-black transition rounded-full px-7 py-3 text-sm"
+          onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Collection</button>
       </div>
     </div>
   </section>
@@ -150,15 +229,18 @@
       <div class="flex flex-col gap-3 sm:gap-4">
         <!-- Row 1: Search -->
         <div class="flex gap-3">
-          <input id="searchInput" type="text" placeholder="Search fragrances..." class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[color:var(--gold)] focus:border-[color:var(--gold)] text-gray-800 placeholder-gray-400"/>
+          <input id="searchInput" type="text" placeholder="Search fragrances..."
+            class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[color:var(--gold)] focus:border-[color:var(--gold)] text-gray-800 placeholder-gray-400" />
           <!-- Mobile filter trigger -->
-          <button id="openFilters" class="sm:hidden px-4 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-gray-700">Filters</button>
+          <button id="openFilters"
+            class="sm:hidden px-4 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-gray-700">Filters</button>
         </div>
         <!-- Row 2: Sort + Count -->
         <div class="flex items-center justify-between gap-3">
           <div class="flex items-center gap-2">
             <label for="sortSelect" class="text-xs sm:text-sm text-gray-600 uppercase tracking-wider">Sort</label>
-            <select id="sortSelect" class="px-3 py-2 rounded-md border border-gray-200 focus:ring-2 focus:ring-[color:var(--gold)] focus:border-[color:var(--gold)] text-sm">
+            <select id="sortSelect"
+              class="px-3 py-2 rounded-md border border-gray-200 focus:ring-2 focus:ring-[color:var(--gold)] focus:border-[color:var(--gold)] text-sm">
               <option value="name">Name</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
@@ -183,37 +265,42 @@
             <div class="mb-6">
               <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Collection</div>
               <div class="grid grid-cols-2 gap-2">
-                <button class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="all">All</button>
-                <button class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="traditional">Traditional</button>
-                <button class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="modern">Modern</button>
-                <button class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="limited">Limited</button>
+                <button
+                  class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-filter="all">All</button>
+                <button
+                  class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-filter="traditional">Traditional</button>
+                <button
+                  class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-filter="modern">Modern</button>
+                <button
+                  class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-filter="limited">Limited</button>
               </div>
             </div>
             <!-- Price -->
             <div class="mb-6">
               <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Price</div>
               <div class="grid grid-cols-2 gap-2">
-                <button class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="all">All</button>
-                <button class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="0-5000">Under 5k</button>
-                <button class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="5000-15000">5k–15k</button>
-                <button class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="15000+">15k+</button>
+                <button
+                  class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-price="all">All</button>
+                <button
+                  class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-price="0-5000">Under 5k</button>
+                <button
+                  class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-price="5000-15000">5k–15k</button>
+                <button
+                  class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-price="15000+">15k+</button>
               </div>
             </div>
-            <!-- Notes -->
-            <div>
-              <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Notes</div>
-              <div class="flex flex-wrap gap-2">
-                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="rose">rose</button>
-                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="oud">oud</button>
-                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="sandalwood">sandalwood</button>
-                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="jasmine">jasmine</button>
-                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="citrus">citrus</button>
-                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="amber">amber</button>
-                <button class="note-filter px-3 py-1 rounded-full chip text-xs" data-note="musk">musk</button>
-              </div>
-            </div>
+           
             <div class="mt-6 flex gap-2">
-              <button id="clearDesktop" class="px-4 py-2 rounded-lg border border-gray-200 text-gray-700 text-sm hover:border-gray-300">Clear</button>
+              <button id="clearDesktop"
+                class="px-4 py-2 rounded-lg border border-gray-200 text-gray-700 text-sm hover:border-gray-300">Clear</button>
               <button id="applyDesktop" class="px-4 py-2 rounded-lg gold-btn text-sm">Apply</button>
             </div>
           </div>
@@ -242,36 +329,42 @@
         <div>
           <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Collection</div>
           <div class="grid grid-cols-2 gap-2">
-            <button class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="all">All</button>
-            <button class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="traditional">Traditional</button>
-            <button class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="modern">Modern</button>
-            <button class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-filter="limited">Limited</button>
+            <button
+              class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-filter="all">All</button>
+            <button
+              class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-filter="traditional">Traditional</button>
+            <button
+              class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-filter="modern">Modern</button>
+            <button
+              class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-filter="limited">Limited</button>
           </div>
         </div>
         <div>
           <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Price</div>
           <div class="grid grid-cols-2 gap-2">
-            <button class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="all">All</button>
-            <button class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="0-5000">Under 5k</button>
-            <button class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="5000-15000">5k–15k</button>
-            <button class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm" data-price="15000+">15k+</button>
+            <button
+              class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-price="all">All</button>
+            <button
+              class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-price="0-5000">Under 5k</button>
+            <button
+              class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-price="5000-15000">5k–15k</button>
+            <button
+              class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-price="15000+">15k+</button>
           </div>
         </div>
-        <div>
-          <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Notes</div>
-          <div class="flex flex-wrap gap-2">
-            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="rose">rose</button>
-            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="oud">oud</button>
-            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="sandalwood">sandalwood</button>
-            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="jasmine">jasmine</button>
-            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="citrus">citrus</button>
-            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="amber">amber</button>
-            <button class="m-note note-filter px-3 py-1 rounded-full chip text-xs" data-note="musk">musk</button>
-          </div>
-        </div>
+        
       </div>
       <div class="p-5 border-t border-gray-100 flex items-center gap-3">
-        <button id="clearMobile" class="px-4 py-3 rounded-lg border border-gray-200 text-gray-700 text-sm flex-1">Clear</button>
+        <button id="clearMobile"
+          class="px-4 py-3 rounded-lg border border-gray-200 text-gray-700 text-sm flex-1">Clear</button>
         <button id="applyMobile" class="px-4 py-3 rounded-lg gold-btn text-sm flex-1">Apply</button>
       </div>
     </div>
@@ -282,8 +375,11 @@
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="closeModal"></div>
     <div class="absolute inset-0 p-4 sm:p-8 grid place-items-center">
       <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative">
-        <button id="xModal" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 grid place-items-center">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        <button id="xModal"
+          class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 grid place-items-center">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
         <div id="modalContent" class="p-6 sm:p-8"></div>
       </div>
@@ -291,7 +387,9 @@
   </div>
 
   <!-- Toast -->
-  <div id="toast" class="toast fixed top-24 right-4 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg z-50">Added to cart</div>
+  <div id="toast" class="toast fixed top-24 right-4 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg z-50">Added
+    to cart</div>
+
 
   <!-- Footer -->
   <footer class="bg-black border-t border-white/10">
@@ -299,34 +397,37 @@
       <div class="grid md:grid-cols-4 gap-10">
         <div class="md:col-span-2">
           <div class="text-2xl cormorant tracking-wider text-white">
-            <span class="text-[color:var(--gold)] font-semibold">ATTAR</span>
-            <span class="text-gray-300 mx-2">·</span>
-            <span class="font-light">LAHORE</span>
+            <span class="text-xl sm:text-2xl cormorant tracking-wider text-white">
+              <span class="text-[color:var(--gold)] font-semibold">ARJANMAL</span>
+              <span class="font-light">ATTARCHAND</span>
+            </span>
           </div>
-          <p class="text-gray-400 mt-4 max-w-md">Where tradition meets luxury. Crafted in Lahore with an unwavering commitment to excellence.</p>
+          <p class="text-gray-400 mt-4 max-w-md">
+            Where tradition meets luxury. Crafted in Lahore with an unwavering commitment to excellence.
+          </p>
         </div>
         <div>
           <h4 class="cormorant text-white text-lg">Explore</h4>
           <ul class="mt-3 space-y-2 text-gray-400">
-            <li><a href="index.html" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--gold)]">Home</a></li>
-            <li><a href="shop.html" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--gold)]">Shop</a></li>
-            <li><a href="about.html" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--gold)]">About</a></li>
-            <li><a href="contact.html" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--gold)]">Contact</a></li>
+            <li><a href="index.html" class="hover:text-[color:var(--gold)]">Home</a></li>
+            <li><a href="about.html" class="hover:text-[color:var(--gold)]">About</a></li>
+            <li><a href="shop.html" class="hover:text-[color:var(--gold)]">Shop</a></li>
+            <li><a href="contact.html" class="hover:text-[color:var(--gold)]">Contact</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="cormorant text-white text-lg">Atelier</h4>
+          <h4 class="cormorant text-white text-lg">Trader - Wholesaler/Distributor</h4>
           <ul class="mt-3 space-y-1 text-gray-400">
-            <li>Liberty Market, Gulberg III</li>
-            <li>Lahore, Punjab 54000</li>
-            <li>Pakistan</li>
-            <li class="mt-2">+92 42 3587 4521</li>
-            <li>atelier@attarlahore.com</li>
+            <li>Retail Business, Office / Sale Office, Wholesale Business</li>
+            <li>772, Tilak Bazar, Khari Baoli, New Delhi - 110006, Delhi</li>
+            <li>India</li>
+            <li class="mt-2">+91 9811555255</li>
+            <li>sales@arjanmalattarchand.com</li>
           </ul>
         </div>
       </div>
       <div class="text-gray-500 text-sm mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between">
-        <p>© 2024 Attar Lahore. All rights reserved.</p>
+        <p>© 2025 Attar Lahore. All rights reserved.</p>
         <div class="mt-3 sm:mt-0 space-x-5">
           <a href="#" class="hover:text-[color:var(--gold)]">Privacy</a>
           <a href="#" class="hover:text-[color:var(--gold)]">Terms</a>
@@ -334,7 +435,6 @@
       </div>
     </div>
   </footer>
-
   <script>
     // Header stability
     window.addEventListener('scroll', () => {
@@ -343,44 +443,44 @@
       nav.classList.add('nav-blur');
     });
 
- // Mobile menu
+    // Mobile menu
     const toggle = document.getElementById('menuToggle');
-const menu = document.getElementById('mobileMenu');
-const iconOpen = document.getElementById('menuIconOpen');
-const iconClose = document.getElementById('menuIconClose');
+    const menu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('menuIconOpen');
+    const iconClose = document.getElementById('menuIconClose');
 
-toggle.addEventListener('click', () => {
-  const isOpen = menu.classList.contains('open');
-  if (isOpen) {
-    menu.classList.remove('open');
-  } else {
-    menu.classList.add('open');
-  }
-  iconOpen.classList.toggle('hidden', !isOpen);
-  iconClose.classList.toggle('hidden', isOpen);
-});
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.contains('open');
+      if (isOpen) {
+        menu.classList.remove('open');
+      } else {
+        menu.classList.add('open');
+      }
+      iconOpen.classList.toggle('hidden', !isOpen);
+      iconClose.classList.toggle('hidden', isOpen);
+    });
 
-// Close mobile menu on link click
-menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  menu.classList.remove('open');
-  iconOpen.classList.remove('hidden');
-  iconClose.classList.add('hidden');
-}));
+    // Close mobile menu on link click
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }));
 
     // Data
     const products = [
-      {id:1, name:"Royal Rose Attar",   collection:"traditional", price:8500,  description:"Bulgarian rose with sandalwood in classic attar style.", notes:["rose","sandalwood"], size:"12ml", longevity:"8-12h", featured:true},
-      {id:2, name:"Mystic Oud",         collection:"traditional", price:18500, description:"Aged Cambodian oud with deep, resinous warmth.",       notes:["oud"], size:"6ml", longevity:"12+h", featured:true},
-      {id:3, name:"Jasmine Nights",     collection:"modern",      price:6500,  description:"Night-blooming jasmine with a soft amber base.",      notes:["jasmine"], size:"50ml", longevity:"6-8h", featured:false},
-      {id:4, name:"Sandalwood Serenity",collection:"traditional", price:7200,  description:"Creamy Indian sandalwood, calming and elegant.",       notes:["sandalwood"], size:"12ml", longevity:"10+h", featured:false},
-      {id:5, name:"Golden Amber",       collection:"limited",     price:22000, description:"Limited amber blend with spices, numbered release.",  notes:["amber","spices"], size:"15ml", longevity:"12+h", featured:true},
-      {id:6, name:"Modern Musk",        collection:"modern",      price:4500,  description:"Clean musk with a contemporary, airy trail.",         notes:["musk"], size:"50ml", longevity:"6-8h", featured:false},
-      {id:7, name:"Heritage Rose",      collection:"limited",     price:15500, description:"Signature rose anniversary edition.",                 notes:["rose"], size:"25ml", longevity:"10+h", featured:true},
-      {id:8, name:"Citrus Breeze",      collection:"modern",      price:3800,  description:"Fresh citrus, mint and white tea clarity.",           notes:["citrus"], size:"50ml", longevity:"4-6h", featured:false},
-      {id:9, name:"Velvet Oud",         collection:"limited",     price:28000, description:"Private reserve oud, velvet-smooth and powerful.",    notes:["oud"], size:"3ml", longevity:"15+h", featured:true},
-      {id:10,name:"Floral Symphony",    collection:"modern",      price:5200,  description:"Floral harmony of rose and jasmine.",                 notes:["rose","jasmine"], size:"50ml", longevity:"6-8h", featured:false},
-      {id:11,name:"Spiced Sandalwood",  collection:"traditional", price:9200,  description:"Sandalwood enhanced with exotic spices.",             notes:["sandalwood"], size:"12ml", longevity:"10+h", featured:false},
-      {id:12,name:"Platinum Edition",   collection:"limited",     price:35000, description:"Most exclusive release, exceptional depth.",          notes:["oud","rose"], size:"10ml", longevity:"20+h", featured:true}
+      { id: 1, name: "Royal Rose Attar", collection: "traditional", price: 8500, description: "Bulgarian rose with sandalwood in classic attar style.",  size: "12ml", longevity: "8-12h", featured: true },
+      { id: 2, name: "Mystic Oud", collection: "traditional", price: 18500, description: "Aged Cambodian oud with deep, resinous warmth.", size: "6ml", longevity: "12+h", featured: true },
+      { id: 3, name: "Jasmine Nights", collection: "modern", price: 6500, description: "Night-blooming jasmine with a soft amber base.", size: "50ml", longevity: "6-8h", featured: false },
+      { id: 4, name: "Sandalwood Serenity", collection: "traditional", price: 7200, description: "Creamy Indian sandalwood, calming and elegant.", size: "12ml", longevity: "10+h", featured: false },
+      { id: 5, name: "Golden Amber", collection: "limited", price: 22000, description: "Limited amber blend with spices, numbered release.", size: "15ml", longevity: "12+h", featured: true },
+      { id: 6, name: "Modern Musk", collection: "modern", price: 4500, description: "Clean musk with a contemporary, airy trail.", size: "50ml", longevity: "6-8h", featured: false },
+      { id: 7, name: "Heritage Rose", collection: "limited", price: 15500, description: "Signature rose anniversary edition.", size: "25ml", longevity: "10+h", featured: true },
+      { id: 8, name: "Citrus Breeze", collection: "modern", price: 3800, description: "Fresh citrus, mint and white tea clarity.", size: "50ml", longevity: "4-6h", featured: false },
+      { id: 9, name: "Velvet Oud", collection: "limited", price: 28000, description: "Private reserve oud, velvet-smooth and powerful.", size: "3ml", longevity: "15+h", featured: true },
+      { id: 10, name: "Floral Symphony", collection: "modern", price: 5200, description: "Floral harmony of rose and jasmine.", size: "50ml", longevity: "6-8h", featured: false },
+      { id: 11, name: "Spiced Sandalwood", collection: "traditional", price: 9200, description: "Sandalwood enhanced with exotic spices.", size: "12ml", longevity: "10+h", featured: false },
+      { id: 12, name: "Platinum Edition", collection: "limited", price: 35000, description: "Most exclusive release, exceptional depth.", size: "10ml", longevity: "20+h", featured: true }
     ];
 
     let filteredProducts = [...products];
@@ -403,7 +503,7 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     const toast = document.getElementById('toast');
 
     // Render
-    function renderProducts(){
+    function renderProducts() {
       const items = filteredProducts.map(p => {
         const collectionLabel = p.collection.charAt(0).toUpperCase() + p.collection.slice(1);
         return `
@@ -415,26 +515,22 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
             <div class="absolute top-2 right-2">
               <span class="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium chip">${collectionLabel}</span>
             </div>
-            <div class="absolute inset-0 grid place-items-center">
-              <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-100 grid place-items-center">
-                <svg class="w-6 h-6 sm:w-7 sm:h-7 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-            </div>
+            <div class="absolute inset-0">
+  <img src="public/images/product-${p.id}.jpg" 
+       alt="${p.name}" 
+       class="w-full h-full object-cover"/>
+</div>
+
           </div>
           <div class="p-3 sm:p-4 flex-1 flex flex-col">
             <h3 class="cormorant text-base sm:text-lg text-gray-900 leading-snug">${p.name}</h3>
             <p class="text-gray-600 text-[11px] sm:text-sm mt-1 line-clamp-2">${p.description}</p>
             <div class="mt-2 sm:mt-3 flex items-center justify-between">
-              <span class="price-badge px-2.5 py-1 rounded-full text-[11px] sm:text-sm">PKR ${p.price.toLocaleString()}</span>
               <span class="text-[11px] text-gray-500">${p.size}</span>
             </div>
-            <div class="mt-2 sm:mt-3 flex flex-wrap gap-1">
-              ${p.notes.map(n=>`<span class="px-2 py-0.5 text-[10px] sm:text-[11px] rounded-full bg-gray-100 text-gray-600">${n}</span>`).join('')}
-            </div><a href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20${p.name}" 
+           <a href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20${p.name}" 
    target="_blank"
-   class="gold-btn w-full mt-3 sm:mt-4 py-2 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+   class=" gold-btn w-full mt-3 sm:mt-4 py-2 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-white">
       <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.83.74 5.59 2.15 8.02L.5 31.5l7.7-2.07C10.35 30.27 13.12 31 16 31c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28c-2.5 0-4.94-.67-7.06-1.93l-.5-.29-4.57 1.23 1.23-4.57-.29-.5C3.67 20.94 3 18.5 3 16 3 8.82 8.82 3 16 3s13 5.82 13 13-5.82 13-13 13zm7.2-9.98c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.63-.2-.9.2s-1.03 1.26-1.27 1.52c-.23.26-.47.29-.86.1-.39-.2-1.63-.6-3.1-1.92-1.15-1.02-1.92-2.3-2.15-2.69-.23-.39-.02-.6.17-.79.17-.17.39-.46.59-.69.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.69-.1-.2-.9-2.17-1.24-2.97-.33-.8-.67-.69-.9-.7h-.77c-.26 0-.69.1-1.05.49-.36.39-1.37 1.34-1.37 3.26s1.4 3.77 1.59 4.03c.2.26 2.75 4.2 6.67 5.89.93.4 1.65.64 2.21.82.93.3 1.78.26 2.45.16.75-.11 2.3-.94 2.62-1.84.33-.9.33-1.67.23-1.84-.1-.17-.36-.26-.75-.46z"/>
    </svg>
@@ -461,14 +557,14 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       countEl.textContent = `Showing ${filteredProducts.length}`;
     }
 
-    function applyFilters(){
+    function applyFilters() {
       const term = state.search.toLowerCase().trim();
-      filteredProducts = products.filter(p=>{
+      filteredProducts = products.filter(p => {
         const matchesSearch = !term || p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term);
         const matchesCollection = state.collection === 'all' || p.collection === state.collection;
         let matchesPrice = true;
-        if(state.price !== 'all'){
-          const [a,bRaw] = state.price.split('-');
+        if (state.price !== 'all') {
+          const [a, bRaw] = state.price.split('-');
           const aNum = parseInt(a), bNum = bRaw?.includes('+') ? Infinity : parseInt(bRaw);
           matchesPrice = p.price >= aNum && p.price <= (bNum ?? Infinity);
         }
@@ -478,33 +574,33 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       sortProducts();
     }
 
-    function sortProducts(){
+    function sortProducts() {
       const s = state.sort;
-      filteredProducts.sort((a,b)=>{
-        if(s==='name') return a.name.localeCompare(b.name);
-        if(s==='price-low') return a.price - b.price;
-        if(s==='price-high') return b.price - a.price;
-        if(s==='newest') return b.id - a.id;
+      filteredProducts.sort((a, b) => {
+        if (s === 'name') return a.name.localeCompare(b.name);
+        if (s === 'price-low') return a.price - b.price;
+        if (s === 'price-high') return b.price - a.price;
+        if (s === 'newest') return b.id - a.id;
         return 0;
       });
       renderProducts();
     }
 
     // UI helpers
-    function setActive(btns, btn){
-      btns.forEach(b=>b.classList.remove('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'));
-      if(btn){ btn.classList.add('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'); }
+    function setActive(btns, btn) {
+      btns.forEach(b => b.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'));
+      if (btn) { btn.classList.add('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'); }
     }
 
     // Events
-    function setupEvents(){
+    function setupEvents() {
       // Search
-      searchInput.addEventListener('input', (e)=>{
+      searchInput.addEventListener('input', (e) => {
         state.search = e.target.value;
         applyFilters();
       });
       // Sort
-      sortSelect.addEventListener('change', (e)=>{
+      sortSelect.addEventListener('change', (e) => {
         state.sort = e.target.value;
         sortProducts();
       });
@@ -514,23 +610,23 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       const priceBtns = document.querySelectorAll('aside .price-filter');
       const noteBtns = document.querySelectorAll('aside .note-filter');
 
-      colBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+      colBtns.forEach(btn => btn.addEventListener('click', () => {
         state.collection = btn.dataset.filter;
         setActive(colBtns, btn);
       }));
-      priceBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+      priceBtns.forEach(btn => btn.addEventListener('click', () => {
         state.price = btn.dataset.price;
         setActive(priceBtns, btn);
       }));
-      noteBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+      noteBtns.forEach(btn => btn.addEventListener('click', () => {
         const n = btn.dataset.note;
-        if(state.notes.has(n)){ state.notes.delete(n); btn.classList.remove('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'); }
-        else { state.notes.add(n); btn.classList.add('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'); }
+        if (state.notes.has(n)) { state.notes.delete(n); btn.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'); }
+        else { state.notes.add(n); btn.classList.add('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'); }
       }));
       document.getElementById('applyDesktop').addEventListener('click', applyFilters);
-      document.getElementById('clearDesktop').addEventListener('click', ()=>{
-        state.collection='all'; state.price='all'; state.notes.clear();
-        setActive(colBtns, null); setActive(priceBtns, null); noteBtns.forEach(n=>n.classList.remove('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'));
+      document.getElementById('clearDesktop').addEventListener('click', () => {
+        state.collection = 'all'; state.price = 'all'; state.notes.clear();
+        setActive(colBtns, null); setActive(priceBtns, null); noteBtns.forEach(n => n.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'));
         applyFilters();
       });
 
@@ -541,15 +637,15 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       const closeSheetBtn = document.getElementById('closeSheetBtn');
       const sheetPanel = sheet.querySelector('.sheet');
 
-      function openSheet(){
+      function openSheet() {
         sheet.classList.remove('hidden');
-        requestAnimationFrame(()=> sheetPanel.classList.add('open'));
-        document.body.style.overflow='hidden';
+        requestAnimationFrame(() => sheetPanel.classList.add('open'));
+        document.body.style.overflow = 'hidden';
       }
-      function hideSheet(){
+      function hideSheet() {
         sheetPanel.classList.remove('open');
-        setTimeout(()=> sheet.classList.add('hidden'), 250);
-        document.body.style.overflow='auto';
+        setTimeout(() => sheet.classList.add('hidden'), 250);
+        document.body.style.overflow = 'auto';
       }
       openFilters.addEventListener('click', openSheet);
       closeSheet.addEventListener('click', hideSheet);
@@ -560,23 +656,23 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       const mPriceBtns = sheet.querySelectorAll('.m-price');
       const mNoteBtns = sheet.querySelectorAll('.m-note');
 
-      mColBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+      mColBtns.forEach(btn => btn.addEventListener('click', () => {
         state.collection = btn.dataset.filter;
         setActive(mColBtns, btn);
       }));
-      mPriceBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+      mPriceBtns.forEach(btn => btn.addEventListener('click', () => {
         state.price = btn.dataset.price;
         setActive(mPriceBtns, btn);
       }));
-      mNoteBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+      mNoteBtns.forEach(btn => btn.addEventListener('click', () => {
         const n = btn.dataset.note;
-        if(state.notes.has(n)){ state.notes.delete(n); btn.classList.remove('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'); }
-        else { state.notes.add(n); btn.classList.add('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'); }
+        if (state.notes.has(n)) { state.notes.delete(n); btn.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'); }
+        else { state.notes.add(n); btn.classList.add('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'); }
       }));
-      document.getElementById('applyMobile').addEventListener('click', ()=>{ applyFilters(); hideSheet(); });
-      document.getElementById('clearMobile').addEventListener('click', ()=>{
-        state.collection='all'; state.price='all'; state.notes.clear();
-        setActive(mColBtns,null); setActive(mPriceBtns,null); mNoteBtns.forEach(n=>n.classList.remove('ring-2','ring-[color:var(--gold)]','border-[color:var(--gold)]'));
+      document.getElementById('applyMobile').addEventListener('click', () => { applyFilters(); hideSheet(); });
+      document.getElementById('clearMobile').addEventListener('click', () => {
+        state.collection = 'all'; state.price = 'all'; state.notes.clear();
+        setActive(mColBtns, null); setActive(mPriceBtns, null); mNoteBtns.forEach(n => n.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'));
       });
 
       // Modal controls
@@ -585,81 +681,98 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     }
 
     // Cart
-    function addToCart(id){
+    function addToCart(id) {
       cartCount += 1;
       document.getElementById('cartCount').textContent = cartCount;
       showToast('Added to cart');
     }
 
-    function showToast(msg){
+    function showToast(msg) {
       toast.textContent = msg;
       toast.classList.add('show');
-      setTimeout(()=> {
+      setTimeout(() => {
         toast.classList.remove('show');
       }, 1800);
     }
 
     // Modal
-    function openProductModal(id){
-      const p = products.find(x=>x.id===id);
-      const content = `
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 aspect-[4/3] relative">
-            ${p.featured ? '<span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[color:var(--gold)] text-black text-xs font-medium">Featured</span>' : ''}
-            <div class="absolute inset-0 grid place-items-center">
-              <div class="w-24 h-24 rounded-full bg-amber-100 grid place-items-center">
-                <svg class="w-12 h-12 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-            </div>
+function openProductModal(id) {
+  const p = products.find(x => x.id === id);
+
+  const content = `
+    <div class="flex flex-col md:grid md:grid-cols-2 gap-6">
+
+      
+      <!-- Image -->
+      <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100  w-full">
+        ${p.featured ? '<span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[color:var(--gold)] text-black text-xs font-medium">Featured</span>' : ''}
+        <img src="public/images/product-${p.id}.jpg"
+             alt="${p.name}"
+             class="w-full h-full object-cover aspect-[4/3]"/>
+      </div>
+
+      <!-- Product Details -->
+      <div class="w-full">
+        <span class="chip px-3 py-1 rounded-full text-xs">${p.collection.charAt(0).toUpperCase() + p.collection.slice(1)} Collection</span>
+        <h2 class="cormorant text-3xl text-gray-900 mt-3">${p.name}</h2>
+        <p class="text-gray-600 mt-4">${p.description}</p>
+
+        <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+          <div class="border border-gray-100 rounded-lg p-3">
+            <div class="text-gray-500">Size</div>
+            <div class="text-gray-900 font-medium">${p.size}</div>
           </div>
-          <div>
-            <span class="chip px-3 py-1 rounded-full text-xs">${p.collection.charAt(0).toUpperCase()+p.collection.slice(1)} Collection</span>
-            <h2 class="cormorant text-3xl text-gray-900 mt-3">${p.name}</h2>
-            <div class="text-[color:var(--gold-deep)] cormorant text-2xl mt-2">PKR ${p.price.toLocaleString()}</div>
-            <p class="text-gray-600 mt-4">${p.description}</p>
-            <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
-              <div class="border border-gray-100 rounded-lg p-3">
-                <div class="text-gray-500">Size</div><div class="text-gray-900 font-medium">${p.size}</div>
-              </div>
-              <div class="border border-gray-100 rounded-lg p-3">
-                <div class="text-gray-500">Longevity</div><div class="text-gray-900 font-medium">${p.longevity}</div>
-              </div>
-            </div>
-            <div class="mt-4">
-              <div class="text-gray-500 text-sm mb-1">Notes</div>
-              <div class="flex flex-wrap gap-2">
-                ${p.notes.map(n=>`<span class="px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-sm">${n}</span>`).join('')}
-              </div>
-            </div>
-            <a href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20${p.name}%20—%20PKR%20${p.price.toLocaleString()}" 
-   target="_blank"
-   class="gold-btn w-full mt-6 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
-   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-white">
-      <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.83.74 5.59 2.15 8.02L.5 31.5l7.7-2.07C10.35 30.27 13.12 31 16 31c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28c-2.5 0-4.94-.67-7.06-1.93l-.5-.29-4.57 1.23 1.23-4.57-.29-.5C3.67 20.94 3 18.5 3 16 3 8.82 8.82 3 16 3s13 5.82 13 13-5.82 13-13 13zm7.2-9.98c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.63-.2-.9.2s-1.03 1.26-1.27 1.52c-.23.26-.47.29-.86.1-.39-.2-1.63-.6-3.1-1.92-1.15-1.02-1.92-2.3-2.15-2.69-.23-.39-.02-.6.17-.79.17-.17.39-.46.59-.69.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.69-.1-.2-.9-2.17-1.24-2.97-.33-.8-.67-.69-.9-.7h-.77c-.26 0-.69.1-1.05.49-.36.39-1.37 1.34-1.37 3.26s1.4 3.77 1.59 4.03c.2.26 2.75 4.2 6.67 5.89.93.4 1.65.64 2.21.82.93.3 1.78.26 2.45.16.75-.11 2.3-.94 2.62-1.84.33-.9.33-1.67.23-1.84-.1-.17-.36-.26-.75-.46z"/>
-   </svg>
-   WhatsApp — PKR ${p.price.toLocaleString()}
-</a>
-</div>
-        </div>`;
-      document.getElementById('modalContent').innerHTML = content;
-      document.getElementById('productModal').classList.remove('hidden');
-      document.body.style.overflow='hidden';
-    }
-    function closeProductModal(){
+          <div class="border border-gray-100 rounded-lg p-3">
+            <div class="text-gray-500">Longevity</div>
+            <div class="text-gray-900 font-medium">${p.longevity}</div>
+          </div>
+        </div>
+
+       
+        <div class="px-4">
+        <a href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20${p.name}" 
+           target="_blank"
+           class="gold-btn w-full mt-6 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-white">
+            <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.83.74 5.59 2.15 8.02L.5 31.5l7.7-2.07C10.35 30.27 13.12 31 16 31c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28c-2.5 0-4.94-.67-7.06-1.93l-.5-.29-4.57 1.23 1.23-4.57-.29-.5C3.67 20.94 3 18.5 3 16 3 8.82 8.82 3 16 3s13 5.82 13 13-5.82 13-13 13zm7.2-9.98c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.63-.2-.9.2s-1.03 1.26-1.27 1.52c-.23.26-.47.29-.86.1-.39-.2-1.63-.6-3.1-1.92-1.15-1.02-1.92-2.3-2.15-2.69-.23-.39-.02-.6.17-.79.17-.17.39-.46.59-.69.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.69-.1-.2-.9-2.17-1.24-2.97-.33-.8-.67-.69-.9-.7h-.77c-.26 0-.69.1-1.05.49-.36.39-1.37 1.34-1.37 3.26s1.4 3.77 1.59 4.03c.2.26 2.75 4.2 6.67 5.89.93.4 1.65.64 2.21.82.93.3 1.78.26 2.45.16.75-.11 2.3-.94 2.62-1.84.33-.9.33-1.67.23-1.84-.1-.17-.36-.26-.75-.46z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  `;
+
+  const modal = document.getElementById('productModal');
+  document.getElementById('modalContent').innerHTML = content;
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+
+  // Use the main modal wrapper's cross button
+  const closeBtn = modal.querySelector('.close-btn');
+  if (closeBtn) {
+    
+    closeBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  }
+}
+
+    function closeProductModal() {
       document.getElementById('productModal').classList.add('hidden');
-      document.body.style.overflow='auto';
+      document.body.style.overflow = 'auto';
     }
 
     // Init
-    (function init(){
+    (function init() {
       setupEvents();
       // Set defaults active
-      document.querySelectorAll('aside .filter-btn[data-filter="all"]').forEach(b=>b.click());
-      document.querySelectorAll('aside .price-filter[data-price="all"]').forEach(b=>b.click());
+      document.querySelectorAll('aside .filter-btn[data-filter="all"]').forEach(b => b.click());
+      document.querySelectorAll('aside .price-filter[data-price="all"]').forEach(b => b.click());
       applyFilters();
     })();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982a742516c8a7ee',t:'MTc1ODQ2NzA1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'982a742516c8a7ee',t:'MTc1ODQ2NzA1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
 </html>
