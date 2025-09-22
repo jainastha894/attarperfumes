@@ -258,7 +258,7 @@
         <div class="reveal">
           <h2 class="h2-fluid cormorant text-gray-900">Our Heritage</h2>
           <p class="mt-4 text-gray-600 leading-relaxed">
-           Since 1947, [Your Brand Name] has celebrated the art of fine glassware. Born in Lahore and now flourishing in Delhi, we craft bottles and jars that merge timeless techniques with contemporary design.
+           Since 1904, Arjanmalattarchand has celebrated the art of fine glassware. Born in Lahore and now flourishing in Delhi, we craft bottles and jars that merge timeless techniques with contemporary design.
           </p>
           <p class="mt-4 text-gray-600 leading-relaxed">
            Each piece is meticulously hand‑finished and thoughtfully designed, ensuring every bottle and jar is both functional and a statement of elegance.
@@ -274,7 +274,7 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                   </div>
-                  <p class="text-amber-800 font-medium">Est. 1947 — Lahore</p>
+                  <p class="text-amber-800 font-medium">Est. 1904 — Lahore</p>
                 </div>
               </div>
             </div>
@@ -287,7 +287,44 @@
     </div>
   </section>
 
-  
+  <!-- map section -->
+  <div id="map-body">
+  <div style="background-image: url( 'public/images/map-image.jpg');" class="map-container">
+    
+    <svg id="map-svg" viewBox="0 0 1365 668" preserveAspectRatio="none">
+      <path id="motionPath" class="debug-path"
+        d="M 270 260 S 274 265, 280 270 S 420 350, 520 380 S 1120 530, 1225 507" />
+      <path id="motionPath2" class="debug-path"
+        d="M 300 250 S 304 255, 310 260 S 450 340, 550 370 S 1150 520, 1255 497" />
+
+      <image href="public/images/footprints.png" width="30" height="30" opacity="1">
+        <animateMotion dur="8s" repeatCount="indefinite" begin="0s" rotate="auto">
+          <mpath href="#motionPath" />
+        </animateMotion>
+      </image>
+      <image href="public/images/footprints.png" width="30" height="30" opacity="0.6">
+        <animateMotion dur="8s" repeatCount="indefinite" begin="0.4s" rotate="auto">
+          <mpath href="#motionPath" />
+        </animateMotion>
+      </image>
+      <image href="public/images/footprints.png" width="30" height="30" opacity="0.3">
+        <animateMotion dur="8s" repeatCount="indefinite" begin="0.8s" rotate="auto">
+          <mpath href="#motionPath" />
+        </animateMotion>
+      </image>
+
+      <image href="public/images/bottle-image1.png" width="80" height="80">
+        <animateMotion dur="8s" repeatCount="indefinite" rotate="no">
+          <mpath href="#motionPath2" />
+        </animateMotion>
+      </image>
+    </svg>
+
+    <div class="map_text-overlay">(1904)</div>
+    <div class="map_text-overlay2">(1951)</div>
+  </div>
+</div>
+
   <!-- Footer -->
   <footer class="bg-black border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
