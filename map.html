@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline</title>
+    <link rel="stylesheet" href="public/styles/map.css">
+    </head>
+<div id="map-body">
+  <div style="background-image: url( 'public/images/map-image.jpg');" class="map-container">
+    
+    <svg id="map-svg" viewBox="0 0 1365 668" preserveAspectRatio="none">
+      <path id="motionPath" class="debug-path"
+        d="M 270 260 S 274 265, 280 270 S 420 350, 520 380 S 1120 530, 1225 507" />
+      <path id="motionPath2" class="debug-path"
+        d="M 300 250 S 304 255, 310 260 S 450 340, 550 370 S 1150 520, 1255 497" />
+
+      <image href="public/images/footprints.png" width="30" height="30" opacity="1">
+        <animateMotion dur="8s" repeatCount="indefinite" begin="0s" rotate="auto">
+          <mpath href="#motionPath" />
+        </animateMotion>
+      </image>
+      <image href="public/images/footprints.png" width="30" height="30" opacity="0.6">
+        <animateMotion dur="8s" repeatCount="indefinite" begin="0.4s" rotate="auto">
+          <mpath href="#motionPath" />
+        </animateMotion>
+      </image>
+      <image href="public/images/footprints.png" width="30" height="30" opacity="0.3">
+        <animateMotion dur="8s" repeatCount="indefinite" begin="0.8s" rotate="auto">
+          <mpath href="#motionPath" />
+        </animateMotion>
+      </image>
+
+      <image href="public/images/bottle-image1.png" width="80" height="80">
+        <animateMotion dur="8s" repeatCount="indefinite" rotate="no">
+          <mpath href="#motionPath2" />
+        </animateMotion>
+      </image>
+    </svg>
+
+    <div class="map_text-overlay">(1904)</div>
+    <div class="map_text-overlay2">(1951)</div>
+  </div>
+</div>
+</html>
