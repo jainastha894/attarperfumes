@@ -47,16 +47,7 @@
                                     d="M21 21l-4.8-4.8M10.5 18a7.5 7.5 0 110-15 7.5 7.5 0 010 15z"></path>
                             </svg>
                         </button>
-                        <button id="cartBtn" class="p-2 text-white hover:text-[color:var(--gold)] transition relative"
-                            aria-label="cart">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 3h2l.75 3m0 0L7 13h9.5l2.25-7.5H5.75zM7 13l-1.2 4.2A1.5 1.5 0 007.26 19.5h9.48a1.5 1.5 0 001.46-2.3L17 13M10 21.5a.5.5 0 100-1 .5.5 0 000 1zm6 0a.5.5 0 100-1 .5.5 0 000 1z" />
-                            </svg>
-                            <span id="cartCount"
-                                class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[color:var(--gold)] text-[11px] font-semibold text-black grid place-items-center">0</span>
-                        </button>
+                        
 
                         <!-- Mobile menu button -->
                         <button id="menuToggle" class="md:hidden p-2 text-white hover:text-[color:var(--gold)]"
@@ -136,7 +127,7 @@
                     into timeless masterpieces that capture the soul of Lahore.
                 </p>
                 <div class="fade-in-delay-2">
-                    <button
+                    <button onclick="window.location.href='#timelines'"
                         class="backdrop-luxury border border-amber-400 text-amber-400 px-12 py-4 font-light tracking-wider uppercase text-sm hover:bg-amber-400 hover:text-black transition-all duration-500">
                         Discover Our Journey
                     </button>
@@ -248,7 +239,7 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="py-32 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative">
+    <section id="timelines" class="py-32 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative">
         <div class="absolute inset-0 opacity-10">
             <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
