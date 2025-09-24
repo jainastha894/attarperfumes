@@ -97,6 +97,13 @@
       max-width: 1365px;
       aspect-ratio: 1365 / 668;
     }
+    .map-container {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-color: #fff; /* or any fallback color for empty space */
+}
+
     .map-image {
       width: 100%;
       height: 100%;
@@ -128,3 +135,21 @@
       left: 92%;
       transform: translate(-50%, -50%) rotate(-7deg);
     }
+    .timeline-container {
+  position: relative;
+  width: 90vw;
+  max-width: 1365px;
+  aspect-ratio: 1365 / 668;
+  max-height: 80vh;
+  }
+  @media (max-width: 600px) {
+  .text-overlay,
+  .text-overlay2 {
+    font-size: 14px;
+    }
+
+  }
+
+  .timeline-container {
+  max-height: 60vh;
+  }
