@@ -19,8 +19,8 @@
 
     /* Hero */
     .hero-gradient{
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(212,175,55,.12), transparent 60%),
-                  radial-gradient(1000px 500px at 90% 20%, rgba(184,134,11,.10), transparent 60%),
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(212,175,55,.12), transparent 80%),
+                  radial-gradient(1000px 500px at 90% 20%, rgba(184,134,11,.10), transparent 80%),
                   linear-gradient(135deg, #0b0b0b 0%, #111111 55%, #1a1a1a 100%);
       position:relative;
     }

@@ -104,16 +104,6 @@
       transform: translateY(0)
     }
 
-    /* Toast */
-    .toast {
-      transform: translateX(120%);
-      transition: transform .25s ease
-    }
-
-    .toast.show {
-      transform: translateX(0)
-    }
-
     #mobileMenu {
       margin-right: 20px;
     }
@@ -210,9 +200,9 @@
   <!-- Hero -->
   <section class="hero-gradient hero-pattern pt-24 sm:pt-32 pb-8 sm:pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-      <p class="uppercase tracking-[0.35em] text-[color:var(--gold)] text-xs sm:text-sm mb-4">Our Collection</p>
-      <h1 class="cormorant text-4xl sm:text-6xl md:text-7xl leading-[1.05] mb-4">Exquisite <span
-          class="text-[color:var(--gold)] italic">Fragrances</span></h1>
+      <p class="uppercase tracking-[0.35em] text-[color:var(--gold)] text-xs sm:text-sm mb-4">Shop here...</p>
+      <h1 class="cormorant text-4xl sm:text-6xl md:text-7xl leading-[1.05] mb-4">Our<span
+          class="text-[color:var(--gold)] italic"> Exclusive Products</span></h1>
       <p class="text-gray-300 max-w-3xl mx-auto">Explore our attars and eau de parfums crafted with timeless artistry
         and modern elegance.</p>
       <div class="mt-7">
@@ -261,22 +251,31 @@
         <aside class="hidden lg:block lg:w-64 flex-shrink-0">
           <div class="sticky top-24 bg-white border border-gray-100 rounded-2xl p-6">
             <h3 class="cormorant text-2xl text-gray-900 mb-4">Filters</h3>
-            <!-- Collection -->
+            <!-- Jars And Bottles -->
             <div class="mb-6">
-              <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Collection</div>
+              <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Jars And Bottles</div>
               <div class="grid grid-cols-2 gap-2">
                 <button
                   class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
                   data-filter="all">All</button>
                 <button
                   class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-                  data-filter="traditional">Traditional</button>
+                  data-filter="Ittar Bottles">Ittar Bottles</button>
                 <button
                   class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-                  data-filter="modern">Modern</button>
+                  data-filter="Perfume Bottles">Perfume Bottles</button>
                 <button
                   class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-                  data-filter="limited">Limited</button>
+                  data-filter="Clear Glass Bottles">Clear Glass Bottles</button>
+                  <button
+                  class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-filter="Clear Glass Jars">Clear Glass Jars</button>
+                  <button
+                  class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-filter="Amber Glass Jars">Amber Glass Jars</button>
+                  <button
+                  class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-filter="Amber Glass Bottles">Amber Glass Bottles</button>
               </div>
             </div>
             <!-- Price -->
@@ -327,20 +326,29 @@
       </div>
       <div class="p-5 space-y-6 max-h-[65vh] overflow-y-auto">
         <div>
-          <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Collection</div>
+          <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Jars And Bottles</div>
           <div class="grid grid-cols-2 gap-2">
             <button
               class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
               data-filter="all">All</button>
             <button
               class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-              data-filter="traditional">Traditional</button>
+              data-filter="Ittar Bottles">Ittar Bottles</button>
             <button
               class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-              data-filter="modern">Modern</button>
+              data-filter="Perfume Bottles">Perfume Bottles</button>
             <button
               class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-              data-filter="limited">Limited</button>
+              data-filter="Clear Glass Bottles">Clear Glass Bottles</button>
+              <button
+              class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-filter="Clear Glass Jars">Clear Glass Jars </button>
+              <button
+              class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-filter="Amber Glass Jars">Amber Glass Jars</button>
+              <button
+              class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-filter="Amber Glass Bottles">Amber Glass Bottles</button>
           </div>
         </div>
         <div>
@@ -385,10 +393,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Toast -->
-  <div id="toast" class="toast fixed top-24 right-4 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg z-50">Added
-    to cart</div>
 
 
   <!-- Footer -->
@@ -469,27 +473,27 @@
 
     // Data
     const products = [
-      { id: 1, name: "Royal Rose Attar", collection: "traditional", price: 8500, description: "Bulgarian rose with sandalwood in classic attar style.",  size: "12ml", longevity: "8-12h", featured: true },
-      { id: 2, name: "Mystic Oud", collection: "traditional", price: 18500, description: "Aged Cambodian oud with deep, resinous warmth.", size: "6ml", longevity: "12+h", featured: true },
-      { id: 3, name: "Jasmine Nights", collection: "modern", price: 6500, description: "Night-blooming jasmine with a soft amber base.", size: "50ml", longevity: "6-8h", featured: false },
-      { id: 4, name: "Sandalwood Serenity", collection: "traditional", price: 7200, description: "Creamy Indian sandalwood, calming and elegant.", size: "12ml", longevity: "10+h", featured: false },
-      { id: 5, name: "Golden Amber", collection: "limited", price: 22000, description: "Limited amber blend with spices, numbered release.", size: "15ml", longevity: "12+h", featured: true },
-      { id: 6, name: "Modern Musk", collection: "modern", price: 4500, description: "Clean musk with a contemporary, airy trail.", size: "50ml", longevity: "6-8h", featured: false },
-      { id: 7, name: "Heritage Rose", collection: "limited", price: 15500, description: "Signature rose anniversary edition.", size: "25ml", longevity: "10+h", featured: true },
-      { id: 8, name: "Citrus Breeze", collection: "modern", price: 3800, description: "Fresh citrus, mint and white tea clarity.", size: "50ml", longevity: "4-6h", featured: false },
-      { id: 9, name: "Velvet Oud", collection: "limited", price: 28000, description: "Private reserve oud, velvet-smooth and powerful.", size: "3ml", longevity: "15+h", featured: true },
-      { id: 10, name: "Floral Symphony", collection: "modern", price: 5200, description: "Floral harmony of rose and jasmine.", size: "50ml", longevity: "6-8h", featured: false },
-      { id: 11, name: "Spiced Sandalwood", collection: "traditional", price: 9200, description: "Sandalwood enhanced with exotic spices.", size: "12ml", longevity: "10+h", featured: false },
-      { id: 12, name: "Platinum Edition", collection: "limited", price: 35000, description: "Most exclusive release, exceptional depth.", size: "10ml", longevity: "20+h", featured: true }
+      { id: 1, name: "Royal Rose Attar", JarsAndBottles: "Ittar Bottles", price: 8500, description: "Bulgarian rose with sandalwood in classic attar style.",  size: "12ml", longevity: "8-12h", featured: true },
+      { id: 2, name: "Mystic Oud", JarsAndBottles: "Amber Glass Bottles", price: 18500, description: "Aged Cambodian oud with deep, resinous warmth.", size: "6ml", longevity: "12+h", featured: true },
+      { id: 3, name: "Jasmine Nights", JarsAndBottles: "Amber Glass Jars", price: 6500, description: "Night-blooming jasmine with a soft amber base.", size: "50ml", longevity: "6-8h", featured: false },
+      { id: 4, name: "Sandalwood Serenity", JarsAndBottles: "Clear Glass Jars", price: 7200, description: "Creamy Indian sandalwood, calming and elegant.", size: "12ml", longevity: "10+h", featured: false },
+      { id: 5, name: "Golden Amber", JarsAndBottles: "Clear Glass Bottles", price: 22000, description: "Limited amber blend with spices, numbered release.", size: "15ml", longevity: "12+h", featured: true },
+      { id: 6, name: "Modern Musk", JarsAndBottles: "Perfume Bottles", price: 4500, description: "Clean musk with a contemporary, airy trail.", size: "50ml", longevity: "6-8h", featured: false },
+      { id: 7, name: "Heritage Rose", JarsAndBottles: "Clear Glass Bottles", price: 15500, description: "Signature rose anniversary edition.", size: "25ml", longevity: "10+h", featured: true },
+      { id: 8, name: "Citrus Breeze", JarsAndBottles: "Perfume Bottles", price: 3800, description: "Fresh citrus, mint and white tea clarity.", size: "50ml", longevity: "4-6h", featured: false },
+      { id: 9, name: "Velvet Oud", JarsAndBottles: "Amber Glass Bottles", price: 28000, description: "Private reserve oud, velvet-smooth and powerful.", size: "3ml", longevity: "15+h", featured: true },
+      { id: 10, name: "Floral Symphony", JarsAndBottles: "Perfume Bottles", price: 5200, description: "Floral harmony of rose and jasmine.", size: "50ml", longevity: "6-8h", featured: false },
+      { id: 11, name: "Spiced Sandalwood", JarsAndBottles: "Ittar Bottles", price: 9200, description: "Sandalwood enhanced with exotic spices.", size: "12ml", longevity: "10+h", featured: false },
+      { id: 12, name: "Platinum Edition", JarsAndBottles: "Clear Glass Bottles", price: 35000, description: "Most exclusive release, exceptional depth.", size: "10ml", longevity: "20+h", featured: true }
     ];
 
     let filteredProducts = [...products];
-    let cartCount = 0;
+    // let cartCount = 0;
 
     // State
     const state = {
       search: '',
-      collection: 'all',
+      JarsAndBottles: 'all',
       price: 'all',
       notes: new Set(),
       sort: 'name',
@@ -500,12 +504,12 @@
     const countEl = document.getElementById('productCount');
     const searchInput = document.getElementById('searchInput');
     const sortSelect = document.getElementById('sortSelect');
-    const toast = document.getElementById('toast');
 
     // Render
     function renderProducts() {
-      const items = filteredProducts.map(p => {
-        const collectionLabel = p.collection.charAt(0).toUpperCase() + p.collection.slice(1);
+      const items = filteredProducts.map(p => 
+      {
+        const JarsAndBottlesLabel = p.JarsAndBottles.charAt(0).toUpperCase() + p.JarsAndBottles.slice(1);
         return `
         <article class="product-card bg-white rounded-xl overflow-hidden flex flex-col" onclick="openProductModal(${p.id})">
           <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 aspect-square">
@@ -513,7 +517,7 @@
               ${p.featured ? '<span class="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium bg-[color:var(--gold)] text-black">Featured</span>' : ''}
             </div>
             <div class="absolute top-2 right-2">
-              <span class="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium chip">${collectionLabel}</span>
+              <span class="chip px-1 py-1 rounded-full text-xs">${JarsAndBottlesLabel}</span>
             </div>
             <div class="absolute inset-0">
   <img src="public/images/product-${p.id}.jpg" 
@@ -561,7 +565,7 @@
       const term = state.search.toLowerCase().trim();
       filteredProducts = products.filter(p => {
         const matchesSearch = !term || p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term);
-        const matchesCollection = state.collection === 'all' || p.collection === state.collection;
+        const matchesJarsAndBottles = state.JarsAndBottles === 'all' || p.JarsAndBottles === state.JarsAndBottles;
         let matchesPrice = true;
         if (state.price !== 'all') {
           const [a, bRaw] = state.price.split('-');
@@ -569,7 +573,7 @@
           matchesPrice = p.price >= aNum && p.price <= (bNum ?? Infinity);
         }
         const matchesNotes = state.notes.size === 0 || [...state.notes].some(n => p.notes.includes(n));
-        return matchesSearch && matchesCollection && matchesPrice && matchesNotes;
+        return matchesSearch && matchesJarsAndBottles && matchesPrice && matchesNotes;
       });
       sortProducts();
     }
@@ -611,7 +615,7 @@
       const noteBtns = document.querySelectorAll('aside .note-filter');
 
       colBtns.forEach(btn => btn.addEventListener('click', () => {
-        state.collection = btn.dataset.filter;
+        state.JarsAndBottles = btn.dataset.filter;
         setActive(colBtns, btn);
       }));
       priceBtns.forEach(btn => btn.addEventListener('click', () => {
@@ -625,7 +629,7 @@
       }));
       document.getElementById('applyDesktop').addEventListener('click', applyFilters);
       document.getElementById('clearDesktop').addEventListener('click', () => {
-        state.collection = 'all'; state.price = 'all'; state.notes.clear();
+        state.JarsAndBottles = 'all'; state.price = 'all'; state.notes.clear();
         setActive(colBtns, null); setActive(priceBtns, null); noteBtns.forEach(n => n.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'));
         applyFilters();
       });
@@ -657,7 +661,7 @@
       const mNoteBtns = sheet.querySelectorAll('.m-note');
 
       mColBtns.forEach(btn => btn.addEventListener('click', () => {
-        state.collection = btn.dataset.filter;
+        state.JarsAndBottles = btn.dataset.filter;
         setActive(mColBtns, btn);
       }));
       mPriceBtns.forEach(btn => btn.addEventListener('click', () => {
@@ -671,7 +675,7 @@
       }));
       document.getElementById('applyMobile').addEventListener('click', () => { applyFilters(); hideSheet(); });
       document.getElementById('clearMobile').addEventListener('click', () => {
-        state.collection = 'all'; state.price = 'all'; state.notes.clear();
+        state.JarsAndBottles = 'all'; state.price = 'all'; state.notes.clear();
         setActive(mColBtns, null); setActive(mPriceBtns, null); mNoteBtns.forEach(n => n.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'));
       });
 
@@ -679,22 +683,6 @@
       document.getElementById('closeModal').addEventListener('click', closeProductModal);
       document.getElementById('xModal').addEventListener('click', closeProductModal);
     }
-
-    // Cart
-    function addToCart(id) {
-      cartCount += 1;
-      document.getElementById('cartCount').textContent = cartCount;
-      showToast('Added to cart');
-    }
-
-    function showToast(msg) {
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 1800);
-    }
-
     // Modal
 function openProductModal(id) {
   const p = products.find(x => x.id === id);
@@ -713,7 +701,7 @@ function openProductModal(id) {
 
       <!-- Product Details -->
       <div class="w-full">
-        <span class="chip px-3 py-1 rounded-full text-xs">${p.collection.charAt(0).toUpperCase() + p.collection.slice(1)} Collection</span>
+        <span class="chip px-3 py-1 rounded-full text-xs">${p.JarsAndBottles.charAt(0).toUpperCase() + p.JarsAndBottles.slice(1)}</span>
         <h2 class="cormorant text-3xl text-gray-900 mt-3">${p.name}</h2>
         <p class="text-gray-600 mt-4">${p.description}</p>
 
