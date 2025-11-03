@@ -473,15 +473,15 @@
 
     // Data
     const products = [
-      { id: 1, name: "Royal Rose Attar", JarsAndBottles: "Ittar Bottles", price: 8500, description: "Bulgarian rose with sandalwood in classic attar style.",  size: "12ml", longevity: "8-12h", featured: true },
-      { id: 2, name: "Mystic Oud", JarsAndBottles: "Amber Glass Bottles", price: 18500, description: "Aged Cambodian oud with deep, resinous warmth.", size: "6ml", longevity: "12+h", featured: true },
-      { id: 3, name: "Jasmine Nights", JarsAndBottles: "Amber Glass Jars", price: 6500, description: "Night-blooming jasmine with a soft amber base.", size: "50ml", longevity: "6-8h", featured: false },
-      { id: 4, name: "Sandalwood Serenity", JarsAndBottles: "Clear Glass Jars", price: 7200, description: "Creamy Indian sandalwood, calming and elegant.", size: "12ml", longevity: "10+h", featured: false },
-      { id: 5, name: "Golden Amber", JarsAndBottles: "Clear Glass Bottles", price: 22000, description: "Limited amber blend with spices, numbered release.", size: "15ml", longevity: "12+h", featured: true },
-      { id: 6, name: "Modern Musk", JarsAndBottles: "Perfume Bottles", price: 4500, description: "Clean musk with a contemporary, airy trail.", size: "50ml", longevity: "6-8h", featured: false },
-      { id: 7, name: "Heritage Rose", JarsAndBottles: "Clear Glass Bottles", price: 15500, description: "Signature rose anniversary edition.", size: "25ml", longevity: "10+h", featured: true },
-      { id: 8, name: "Citrus Breeze", JarsAndBottles: "Perfume Bottles", price: 3800, description: "Fresh citrus, mint and white tea clarity.", size: "50ml", longevity: "4-6h", featured: false },
-      { id: 9, name: "Velvet Oud", JarsAndBottles: "Amber Glass Bottles", price: 28000, description: "Private reserve oud, velvet-smooth and powerful.", size: "3ml", longevity: "15+h", featured: true },
+      { id: 1, name: "Perfume Bottle", image: "fragnances/bottle1.png", JarsAndBottles: "Perfume Bottles", price: 8500, description: "NF: 240",  size: "100ml", longevity: "", featured: true, industry: "Fragnances" },
+      { id: 2, name: "Gustav Women", image: "fragnances/bottle2.png", JarsAndBottles: "Perfume Bottles", price: 18500, description: "Clear Bottle ", size: "100ml", longevity: "", featured: true, industry: "Fragnances"  },
+      { id: 3, name: "Jasmine Nights", image: "fragnances/bottle3.png", JarsAndBottles: "Perfume Bottles", price: 6500, description: "Night-blooming jasmine with a soft amber base.", size: "50ml", longevity: "", featured: false, industry: "Fragnances"  },
+      { id: 4, name: "Sandalwood Serenity", image: "fragnances/bottle4.png", JarsAndBottles: "Perfume Bottles", price: 7200, description: "Creamy Indian sandalwood, calming and elegant.", size: "12ml", longevity: "", featured: false, industry: "Fragnances"  },
+      { id: 5, name: "Golden Amber", image: "fragnances/bottle5.png", JarsAndBottles: "Perfume Bottles", price: 22000, description: "Limited amber blend with spices, numbered release.", size: "15ml", longevity: "", featured: true, industry: "Fragnances"  },
+      { id: 6, name: "Modern Musk", image: "", JarsAndBottles: "Perfume Bottles", price: 4500, description: "Clean musk with a contemporary, airy trail.", size: "50ml", longevity: "", featured: false, industry: "Fragnances"  },
+      { id: 7, name: "Heritage Rose", image: "", JarsAndBottles: "Clear Glass Bottles", price: 15500, description: "Signature rose anniversary edition.", size: "25ml", longevity: "", featured: true, industry: "Fragnances"  },
+      { id: 8, name: "Citrus Breeze", image: "", JarsAndBottles: "Perfume Bottles", price: 3800, description: "Fresh citrus, mint and white tea clarity.", size: "50ml", longevity: "", featured: false, industry: "Fragnances"  },
+      { id: 9, name: "Velvet Oud", image: "", JarsAndBottles: "Amber Glass Bottles", price: 28000, description: "Private reserve oud, velvet-smooth and powerful.", size: "3ml", longevity: "15+h", featured: true, industry: "Fragnances"  },
       { id: 10, name: "Floral Symphony", JarsAndBottles: "Perfume Bottles", price: 5200, description: "Floral harmony of rose and jasmine.", size: "50ml", longevity: "6-8h", featured: false },
       { id: 11, name: "Spiced Sandalwood", JarsAndBottles: "Ittar Bottles", price: 9200, description: "Sandalwood enhanced with exotic spices.", size: "12ml", longevity: "10+h", featured: false },
       { id: 12, name: "Platinum Edition", JarsAndBottles: "Clear Glass Bottles", price: 35000, description: "Most exclusive release, exceptional depth.", size: "10ml", longevity: "20+h", featured: true }
@@ -520,7 +520,7 @@
               <span class="chip px-1 py-1 rounded-full text-xs">${JarsAndBottlesLabel}</span>
             </div>
             <div class="absolute inset-0">
-  <img src="public/images/product-${p.id}.jpg" 
+  <img src="public/images/products/${p.image}" 
        alt="${p.name}" 
        class="w-full h-full object-cover"/>
 </div>
