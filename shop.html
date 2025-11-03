@@ -146,9 +146,9 @@
           <!-- Desktop menu -->
           <div class="hidden md:flex items-center gap-8">
             <a href="index.html"
-              class="text-sm tracking-widest uppercase text-white hover:text-[color:var(--gold)] transition">Home</a>
+              class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">Home</a>
             <a href="shop.html"
-              class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">Shop</a>
+              class="text-sm tracking-widest uppercase text-white hover:text-[color:var(--gold)] transition">Shop</a>
             <a href="about.html"
               class="text-sm tracking-widest uppercase text-gray-300 hover:text-[color:var(--gold)] transition">About</a>
             <a href="contact.html"
@@ -182,9 +182,9 @@
         <div id="mobileMenu" class="md:hidden mobile-panel pb-6">
           <div class="mt-3 space-y-2 rounded-xl border border-white/10 bg-black/40 backdrop-blur p-4">
             <a href="index.html" target="_blank"
-              class="block px-3 py-2 rounded-lg text-white hover:text-[color:var(--gold)] hover:bg-white/5">Home</a>
+              class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">Home</a>
             <a href="shop.html" target="_blank"
-              class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">Shop</a>
+              class="block px-3 py-2 rounded-lg text-white hover:text-[color:var(--gold)] hover:bg-white/5">Shop</a>
             <a href="about.html" target="_blank"
               class="block px-3 py-2 rounded-lg text-gray-300 hover:text-[color:var(--gold)] hover:bg-white/5">About</a>
             <a href="contact.html" target="_blank"
@@ -566,6 +566,8 @@
       filteredProducts = products.filter(p => {
         const matchesSearch = !term || p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term);
         const matchesJarsAndBottles = state.JarsAndBottles === 'all' || p.JarsAndBottles === state.JarsAndBottles;
+        const matchesIndustry = !state.industry || p.industry === state.industry;
+
         let matchesPrice = true;
         if (state.price !== 'all') {
           const [a, bRaw] = state.price.split('-');
@@ -573,7 +575,7 @@
           matchesPrice = p.price >= aNum && p.price <= (bNum ?? Infinity);
         }
         const matchesNotes = state.notes.size === 0 || [...state.notes].some(n => p.notes.includes(n));
-        return matchesSearch && matchesJarsAndBottles && matchesPrice && matchesNotes;
+        return matchesSearch && matchesJarsAndBottles && matchesPrice && matchesNotes && matchesIndustry;
       });
       sortProducts();
     }
@@ -595,6 +597,14 @@
       btns.forEach(b => b.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'));
       if (btn) { btn.classList.add('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'); }
     }
+    // Detect industry filter from URL and apply it globally
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedIndustry = urlParams.get('industry');
+    if (selectedIndustry) {
+    // Lock industry for this page
+    state.industry = selectedIndustry;
+    }
+
 
     // Events
     function setupEvents() {

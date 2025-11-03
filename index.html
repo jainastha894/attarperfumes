@@ -246,7 +246,7 @@
             <h3 class="mt-5 cormorant text-xl sm:text-2xl text-white">Fragrances</h3>
             <p class="text-gray-300/90 mt-2 text-sm">All Fragnances you will love.</p>
             <div class="mt-4 flex items-center justify-between">
-              <button style="margin-left: 35px; padding-left: 60px; padding-right: 60px;"
+              <button onclick="openShop('Fragnances')" style="margin-left: 35px; padding-left: 60px; padding-right: 60px;"
                 class="bg-white text-black px-6 py-3 rounded-xl transition-all duration-300 hover:bg-gray-200 active:bg-gray-500">
                 Shop Fragrances
               </button>
@@ -266,7 +266,7 @@
             <h3 class="mt-5 cormorant text-xl sm:text-2xl text-white">Food processing and Bevearges</h3>
             <p class="text-gray-300/90 mt-2 text-sm">Jars and bottles</p>
             <div class="mt-4 flex items-center justify-between">
-              <button style="margin-left: 50px; padding-left: 60px; padding-right: 60px;"
+              <button onclick="openShop('food')"style="margin-left: 50px; padding-left: 60px; padding-right: 60px;"
                 class="bg-white text-black px-6 py-3 rounded-xl transition-all duration-300 hover:bg-gray-200 active:bg-gray-500">
                 Shop Bottles
               </button>
@@ -284,7 +284,7 @@
             <h3 class="mt-5 cormorant text-xl sm:text-2xl text-white">Pharmaceutical & Chemicals</h3>
             <p class="text-gray-300/90 mt-2 text-sm">Containers</p>
             <div class="mt-4 flex items-center justify-between">
-              <button style="margin-left: 35px; padding-left: 60px; padding-right: 60px;"
+              <button onclick="openShop('pharma')" style="margin-left: 35px; padding-left: 60px; padding-right: 60px;"
                 class="bg-white text-black px-6 py-3 rounded-xl transition-all duration-300 hover:bg-gray-200 active:bg-gray-500">
                 Shop Containers
               </button>
@@ -551,6 +551,9 @@
       nf.reset();
       setTimeout(() => msg.classList.add('hidden'), 3000);
     });
+    function openShop(industry) {
+    window.location.href = `shop.html?industry=${encodeURIComponent(industry)}`;
+    }
 
     // Smooth scroll for hash links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
