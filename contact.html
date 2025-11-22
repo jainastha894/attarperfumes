@@ -161,20 +161,19 @@
             </div>
             <div>
               <label for="phone" class="block text-xs tracking-wider uppercase text-gray-300 mb-2">Phone</label>
-              <input id="phone" name="phone" type="tel" placeholder="+92 300 1234567" class="form-input w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-white/60"/>
+              <input id="phone" name="phone" type="tel" placeholder="+91 9311555255" class="form-input w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-white/60"/>
               <div class="error-message text-red-400 text-sm mt-2 hidden"></div>
             </div>
           </div>
 
           <div>
             <label for="subject" class="block text-xs tracking-wider uppercase text-gray-300 mb-2">Subject</label>
-            <select id="subject" name="subject" required class="form-input w-full px-4 py-3 rounded-lg bg-white/10 text-white">
+            <select id="subject" name="subject" required class="form-input w-full px-4 py-3 rounded-lg bg-gray-900 text-white">
               <option value="">Select a subject</option>
               <option value="general">General Inquiry</option>
-              <option value="bespoke">Bespoke Fragrance Consultation</option>
+              <option value="customer">Customer Support</option>
               <option value="order">Order Support</option>
               <option value="wholesale">Wholesale</option>
-              <option value="press">Press & Media</option>
             </select>
             <div class="error-message text-red-400 text-sm mt-2 hidden"></div>
           </div>
@@ -430,7 +429,7 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 
     // Maps opener (opens in new tab)
     function openMaps(){
-      const q = encodeURIComponent('Arjan Attars, Liberty Market, Gulberg III, Lahore');
+      const q = encodeURIComponent('772, Tilak Bazar, Katra Ghel, Khari Baoli, Chandni Chowk, New Delhi, Delhi, 110006');
       window.open('https://www.google.com/maps/search/?api=1&query=' + q, '_blank');
     }
     window.openMaps = openMaps; // expose for inline handler

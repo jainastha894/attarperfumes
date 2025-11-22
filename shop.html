@@ -203,7 +203,8 @@
       <p class="uppercase tracking-[0.35em] text-[color:var(--gold)] text-xs sm:text-sm mb-4">Shop here...</p>
       <h1 class="cormorant text-4xl sm:text-6xl md:text-7xl leading-[1.05] mb-4">Our<span
           class="text-[color:var(--gold)] italic"> Exclusive Products</span></h1>
-      <p class="text-gray-300 max-w-3xl mx-auto">Explore our Attars and Jars, Bottles and Containers crafted with timeless artistry
+      <p class="text-gray-300 max-w-3xl mx-auto">Explore our Attars and Jars, Bottles and Containers crafted with
+        timeless artistry
         and modern elegance.</p>
       <div class="mt-7">
         <button
@@ -232,8 +233,6 @@
             <select id="sortSelect"
               class="px-3 py-2 rounded-md border border-gray-200 focus:ring-2 focus:ring-[color:var(--gold)] focus:border-[color:var(--gold)] text-sm">
               <option value="name">Name</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
               <option value="newest">Newest</option>
             </select>
           </div>
@@ -267,36 +266,39 @@
                 <button
                   class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
                   data-filter="Clear Glass Bottles">Clear Glass Bottles</button>
-                  <button
+                <button
                   class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
                   data-filter="Clear Glass Jars">Clear Glass Jars</button>
-                  <button
+                <button
                   class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
                   data-filter="Amber Glass Jars">Amber Glass Jars</button>
-                  <button
+                <button
                   class="filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
                   data-filter="Amber Glass Bottles">Amber Glass Bottles</button>
               </div>
             </div>
-            <!-- Price -->
+            <!-- Exquisite Fragnances -->
             <div class="mb-6">
-              <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Price</div>
+              <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Exquisite Fragnances</div>
               <div class="grid grid-cols-2 gap-2">
                 <button
-                  class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-                  data-price="all">All</button>
+                  class="exq-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-exq="all">All</button>
                 <button
-                  class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-                  data-price="0-5000">Under 5k</button>
+                  class="exq-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-exq="Floral">Floral</button>
                 <button
-                  class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-                  data-price="5000-15000">5k–15k</button>
+                  class="exq-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-exq="Citrus">Citrus</button>
                 <button
-                  class="price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-                  data-price="15000+">15k+</button>
+                  class="exq-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-exq="Amber or Musk">Amber or Musk</button>
+                <button
+                  class="exq-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+                  data-exq="Oud">Oud</button>
               </div>
             </div>
-           
+
             <div class="mt-6 flex gap-2">
               <button id="clearDesktop"
                 class="px-4 py-2 rounded-lg border border-gray-200 text-gray-700 text-sm hover:border-gray-300">Clear</button>
@@ -340,35 +342,38 @@
             <button
               class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
               data-filter="Clear Glass Bottles">Clear Glass Bottles</button>
-              <button
+            <button
               class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
               data-filter="Clear Glass Jars">Clear Glass Jars </button>
-              <button
+            <button
               class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
               data-filter="Amber Glass Jars">Amber Glass Jars</button>
-              <button
+            <button
               class="m-filter filter-btn px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
               data-filter="Amber Glass Bottles">Amber Glass Bottles</button>
           </div>
         </div>
         <div>
-          <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Price</div>
+          <div class="text-xs text-gray-600 uppercase tracking-wider mb-2">Exquisite Fragnances</div>
           <div class="grid grid-cols-2 gap-2">
             <button
-              class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-              data-price="all">All</button>
+              class="m-exq exq-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-exq="all">All</button>
             <button
-              class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-              data-price="0-5000">Under 5k</button>
+              class="m-exq exq-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-exq="Floral">Floral</button>
             <button
-              class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-              data-price="5000-15000">5k–15k</button>
+              class="m-exq exq-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-exq="Citrus">Citrus</button>
             <button
-              class="m-price price-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
-              data-price="15000+">15k+</button>
+              class="m-exq exq-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-exq="Amber or Musk">Amber or Musk</button>
+            <button
+              class="m-exq exq-filter px-3 py-2 rounded-lg border border-gray-200 hover:border-[color:var(--gold)] text-sm"
+              data-exq="Oud">Oud</button>
           </div>
         </div>
-        
+
       </div>
       <div class="p-5 border-t border-gray-100 flex items-center gap-3">
         <button id="clearMobile"
@@ -473,18 +478,21 @@
 
     // Data
     const products = [
-      { id: 1, name: "Perfume Bottle", image: "fragnances/bottle1.png", JarsAndBottles: "Perfume Bottles", price: 8500, description: "NF: 240",  size: "100ml", longevity: "", featured: true, industry: "Fragnances" },
-      { id: 2, name: "Gustav Women", image: "fragnances/bottle2.png", JarsAndBottles: "Perfume Bottles", price: 18500, description: "Clear Bottle ", size: "100ml", longevity: "", featured: true, industry: "Fragnances"  },
-      { id: 3, name: "Patti bottle", image: "fragnances/bottle3.jpeg", JarsAndBottles: "Perfume Bottles", price: 6500, description: "2ml lota cap patti bottle", size: "2ml", longevity: "", featured: false, industry: "Fragnances"  },
-      { id: 4, name: "Patti Bottle", image: "fragnances/bottle4.jpeg", JarsAndBottles: "Perfume Bottles", price: 7200, description: "3ml lota cap patti bottle", size: "3ml", longevity: "", featured: false, industry: "Fragnances"  },
-      { id: 5, name: "Patti Bottle", image: "fragnances/bottle5.jpeg", JarsAndBottles: "Perfume Bottles", price: 22000, description: "6ml lota cap patti bottle", size: "6ml", longevity: "", featured: true, industry: "Fragnances"  },
-      { id: 6, name: "Colorful Car Hanging", image: "fragnances/colorfulCarHanging.jpeg", JarsAndBottles: "Ittar Bottles", price: 4500, description: "Colorful Car hanging bottles for ittars", size: "", longevity: "", featured: false, industry: "Fragnances"  },
-      { id: 7, name: "Colorful Ittar bottles", image: "fragnances/colorfulIttarBottles.jpeg", JarsAndBottles: "Ittar Bottles", price: 15500, description: "Colorful Ittar bottles for ittars", size: "15ml", longevity: "", featured: true, industry: "Fragnances"  },
-      { id: 8, name: "Colorful Ittar bottles 2", image: "fragnances/colorfulIttarBottles2.jpeg", JarsAndBottles: "Ittar Bottles", price: 3800, description: "Colorful Ittar bottles for ittars", size: "20ml", longevity: "", featured: false, industry: "Fragnances"  },
-      { id: 9, name: "Colorful Spary Bottles", image: "fragnances/colorfulSprayBottles.jpeg", JarsAndBottles: "Perfume Bottles", price: 28000, description: "Colorful Spray bottles", size: "50ml", longevity: "", featured: true, industry: "Fragnances"  },
-      { id: 10, name: "Floral Symphony", JarsAndBottles: "Perfume Bottles", price: 5200, description: "Floral harmony of rose and jasmine.", size: "50ml", longevity: "6-8h", featured: false },
-      { id: 11, name: "Spiced Sandalwood", JarsAndBottles: "Ittar Bottles", price: 9200, description: "Sandalwood enhanced with exotic spices.", size: "12ml", longevity: "10+h", featured: false },
-      { id: 12, name: "Platinum Edition", JarsAndBottles: "Clear Glass Bottles", price: 35000, description: "Most exclusive release, exceptional depth.", size: "10ml", longevity: "20+h", featured: true }
+      { id: 1, name: "Perfume Bottle", image: "fragnances/bottle1.png", JarsAndBottles: "Perfume Bottles", description: "NF: 240", size: "100ml",  featured: true, industry: "Fragnances" },
+      { id: 2, name: "Gustav Women", image: "fragnances/bottle2.png", JarsAndBottles: "Perfume Bottles", description: "Clear Bottle ", size: "100ml",  featured: true, industry: "Fragnances" },
+      { id: 3, name: "Colorful Car Hanging", image: "fragnances/colorfulCarHanging.jpeg", JarsAndBottles: "Ittar Bottles", description: "Colorful Car hanging bottles for ittars", size: "", featured: false, industry: "Fragnances" },
+      { id: 4, name: "Pharma 1", image: "pharma/pharma1.jpeg", JarsAndBottles: "Clear Glass Bottles", description: "Clear Glass Bottles for pharma uses.", size: "", featured: false, industry: "pharma" },
+      { id: 5, name: "Pharma 2", image: "pharma/pharma2.jpeg", JarsAndBottles: "Clear Glass Bottles", description: "Clear Glass Bottles for pharma uses.", size: "", featured: false, industry: "pharma" },
+      { id: 6, name: "Pharma 3", image: "pharma/pharma3.jpeg", JarsAndBottles: "Clear Glass Jars", description: "Clear Glass Jars of 50ml for pharma uses.", size: "50ml", featured: true, industry: "pharma" },
+      { id: 7, name: "Floral Fragnance", image: "exquisiteFragnances/Floral.jpeg", JarsAndBottles: "", description: "Soft, fresh fragrances inspired by blooming flowers and natural petals.", size: "", featured: true, industry: "", ExquisiteFragnances: "Floral" },
+      { id: 8, name: "Amber or Musk Fragnance", image: "exquisiteFragnances/Amber.jpeg", JarsAndBottles: "", description: "Warm, deep, and long-lasting scents with a cozy, sensual feel.", size: "", featured: true, industry: "", ExquisiteFragnances: "Amber or Musk" },
+      { id: 9, name: "Citrus Fragnance", image: "exquisiteFragnances/Citrus.jpeg", JarsAndBottles: "", description: "Bright, zesty, and refreshing aromas bursting with lemon, orange, and fresh notes.", size: "", featured: true, industry: "", ExquisiteFragnances: "Citrus" },
+      { id: 10, name: "Oud Fragnance", image: "exquisiteFragnances/Oud.jpeg", JarsAndBottles: "", description: "Rich, smoky, and luxurious woody scent known for its bold and exotic character.", size: "", featured: true, industry: "", ExquisiteFragnances: "Oud" },
+      { id: 11, name: "Matka Jar", image: "food/food1.jpeg", JarsAndBottles: "Clear Glass Jars", description: "recyclable materials, these bottles & jars are not only dishwasher safe", size: "All sizes available", featured: false, industry: "food" },
+      { id: 12, name: "Round Jars", image: "food/food5.png", JarsAndBottles: "Clear Glass Jars", description: "Plastic/Steels caps. dishwasher-safe and recyclable glass", size: "All sizes available", featured: true, industry: "food" },
+      { id: 13, name: "Cylendrical Jars", image: "food/food7.png", JarsAndBottles: "Clear Glass Jars", description: "PLASTIC CAP, Glassfinity's Cylinderical Jars ", size: "All sizes available", featured: false, industry: "food" }
+
+
     ];
 
     let filteredProducts = [...products];
@@ -493,8 +501,10 @@
     // State
     const state = {
       search: '',
-      JarsAndBottles: 'all',
-      price: 'all',
+      // null = no filter applied (show everything). When user clicks a filter it becomes
+      // either a specific value (e.g. "Perfume Bottles") or the explicit "all" token.
+      JarsAndBottles: null,
+      exquisiteFragnances: null,
       notes: new Set(),
       sort: 'name',
     };
@@ -507,17 +517,16 @@
 
     // Render
     function renderProducts() {
-      const items = filteredProducts.map(p => 
-      {
-        const JarsAndBottlesLabel = p.JarsAndBottles.charAt(0).toUpperCase() + p.JarsAndBottles.slice(1);
+      const items = filteredProducts.map(p => {
+        const JarsAndBottlesLabel = p.JarsAndBottles ? (p.JarsAndBottles.charAt(0).toUpperCase() + p.JarsAndBottles.slice(1)) : '';
         return `
-        <article class="product-card bg-white rounded-xl overflow-hidden flex flex-col" onclick="openProductModal(${p.id})">
+         <article class="product-card bg-white rounded-xl overflow-hidden flex flex-col" onclick="openProductModal(${p.id})">
           <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 aspect-square">
             <div class="absolute top-2 left-2">
               ${p.featured ? '<span class="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium bg-[color:var(--gold)] text-black">Featured</span>' : ''}
             </div>
             <div class="absolute top-2 right-2">
-              <span class="chip px-1 py-1 rounded-full text-xs">${JarsAndBottlesLabel}</span>
+             <span class="chip px-1 py-1 rounded-full text-xs">${JarsAndBottlesLabel}</span>
             </div>
             <div class="absolute inset-0">
   <img src="public/images/products/${p.image}" 
@@ -565,17 +574,27 @@
       const term = state.search.toLowerCase().trim();
       filteredProducts = products.filter(p => {
         const matchesSearch = !term || p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term);
-        const matchesJarsAndBottles = state.JarsAndBottles === 'all' || p.JarsAndBottles === state.JarsAndBottles;
-        const matchesIndustry = !state.industry || p.industry === state.industry;
-
-        let matchesPrice = true;
-        if (state.price !== 'all') {
-          const [a, bRaw] = state.price.split('-');
-          const aNum = parseInt(a), bNum = bRaw?.includes('+') ? Infinity : parseInt(bRaw);
-          matchesPrice = p.price >= aNum && p.price <= (bNum ?? Infinity);
-        }
+         const matchesIndustry = !state.industry || p.industry === state.industry;
+        // Exclusive filter logic:
+        // - If neither filter applied (both null) => show everything.
+        // - If JarsAndBottles is not null => apply it and ignore exquisiteFragnances.
+       //    * If JarsAndBottles === 'all' => match any product that has a non-empty JarsAndBottles.
+        // - Else if exquisiteFragnances is not null => apply it and ignore JarsAndBottles.
+        //    * If exquisiteFragnances === 'all' => match any product that has a non-empty ExquisiteFragnances.
+       let matchesJarsAndBottles = true;
+        let matchesExq = true;
+        if (state.JarsAndBottles !== null) {
+         if (state.JarsAndBottles === 'all') matchesJarsAndBottles = !!(p.JarsAndBottles && p.JarsAndBottles.toString().trim() !== '');
+          else matchesJarsAndBottles = p.JarsAndBottles === state.JarsAndBottles;
+          matchesExq = true; // ignore exq
+        } else if (state.exquisiteFragnances !== null) {
+          if (state.exquisiteFragnances === 'all') matchesExq = !!(p.ExquisiteFragnances && p.ExquisiteFragnances.toString().trim() !== '');
+          else matchesExq = (p.ExquisiteFragnances || '').toString() === state.exquisiteFragnances;
+          matchesJarsAndBottles = true; // ignore jars
+        } // else both null -> both remain true (show all)
+         
         const matchesNotes = state.notes.size === 0 || [...state.notes].some(n => p.notes.includes(n));
-        return matchesSearch && matchesJarsAndBottles && matchesPrice && matchesNotes && matchesIndustry;
+        return matchesSearch && matchesJarsAndBottles && matchesExq && matchesNotes && matchesIndustry;
       });
       sortProducts();
     }
@@ -584,8 +603,6 @@
       const s = state.sort;
       filteredProducts.sort((a, b) => {
         if (s === 'name') return a.name.localeCompare(b.name);
-        if (s === 'price-low') return a.price - b.price;
-        if (s === 'price-high') return b.price - a.price;
         if (s === 'newest') return b.id - a.id;
         return 0;
       });
@@ -601,8 +618,8 @@
     const urlParams = new URLSearchParams(window.location.search);
     const selectedIndustry = urlParams.get('industry');
     if (selectedIndustry) {
-    // Lock industry for this page
-    state.industry = selectedIndustry;
+      // Lock industry for this page
+      state.industry = selectedIndustry;
     }
 
 
@@ -621,16 +638,32 @@
 
       // Desktop filter buttons
       const colBtns = document.querySelectorAll('aside .filter-btn');
-      const priceBtns = document.querySelectorAll('aside .price-filter');
+      const exqBtns = document.querySelectorAll('aside .exq-filter');
       const noteBtns = document.querySelectorAll('aside .note-filter');
+           function setFilterButtonState(btns, disabled) {
+        btns.forEach(b => {
+          b.disabled = disabled;
+          b.classList.toggle('opacity-50', disabled);
+          b.classList.toggle('pointer-events-none', disabled);
+        });
+      }
+
 
       colBtns.forEach(btn => btn.addEventListener('click', () => {
+     // apply jars filter (including explicit "all") and disable Exquisite Fragnances
         state.JarsAndBottles = btn.dataset.filter;
+        state.exquisiteFragnances = null;
         setActive(colBtns, btn);
+        setActive(exqBtns, null);
+        setFilterButtonState(exqBtns, true);
       }));
-      priceBtns.forEach(btn => btn.addEventListener('click', () => {
-        state.price = btn.dataset.price;
-        setActive(priceBtns, btn);
+      exqBtns.forEach(btn => btn.addEventListener('click', () => {
+        // apply exq filter and disable JarsAndBottles
+        state.exquisiteFragnances = btn.dataset.exq;
+        state.JarsAndBottles = null;
+        setActive(exqBtns, btn);
+        setActive(colBtns, null);
+        setFilterButtonState(colBtns, true);
       }));
       noteBtns.forEach(btn => btn.addEventListener('click', () => {
         const n = btn.dataset.note;
@@ -639,8 +672,14 @@
       }));
       document.getElementById('applyDesktop').addEventListener('click', applyFilters);
       document.getElementById('clearDesktop').addEventListener('click', () => {
-        state.JarsAndBottles = 'all'; state.price = 'all'; state.notes.clear();
-        setActive(colBtns, null); setActive(priceBtns, null); noteBtns.forEach(n => n.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'));
+      // reset all filters -> show everything
+        state.JarsAndBottles = null;
+        state.exquisiteFragnances = null;
+        state.notes.clear();
+        setActive(colBtns, null); setActive(exqBtns, null);
+        setFilterButtonState(colBtns, false);
+        setFilterButtonState(exqBtns, false);
+        noteBtns.forEach(n => n.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'));
         applyFilters();
       });
 
@@ -667,16 +706,22 @@
 
       // Mobile filters
       const mColBtns = sheet.querySelectorAll('.m-filter');
-      const mPriceBtns = sheet.querySelectorAll('.m-price');
+      const mExqBtns = sheet.querySelectorAll('.m-exq');
       const mNoteBtns = sheet.querySelectorAll('.m-note');
 
       mColBtns.forEach(btn => btn.addEventListener('click', () => {
         state.JarsAndBottles = btn.dataset.filter;
+        state.exquisiteFragnances = null;
         setActive(mColBtns, btn);
+        setActive(mExqBtns, null);
+        setFilterButtonState(mExqBtns, true);
       }));
-      mPriceBtns.forEach(btn => btn.addEventListener('click', () => {
-        state.price = btn.dataset.price;
-        setActive(mPriceBtns, btn);
+      mExqBtns.forEach(btn => btn.addEventListener('click', () => {
+         state.exquisiteFragnances = btn.dataset.exq;
+        state.JarsAndBottles = null;
+        setActive(mExqBtns, btn);
+        setActive(mColBtns, null);
+        setFilterButtonState(mColBtns, true);
       }));
       mNoteBtns.forEach(btn => btn.addEventListener('click', () => {
         const n = btn.dataset.note;
@@ -685,8 +730,14 @@
       }));
       document.getElementById('applyMobile').addEventListener('click', () => { applyFilters(); hideSheet(); });
       document.getElementById('clearMobile').addEventListener('click', () => {
-        state.JarsAndBottles = 'all'; state.price = 'all'; state.notes.clear();
-        setActive(mColBtns, null); setActive(mPriceBtns, null); mNoteBtns.forEach(n => n.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'));
+        state.JarsAndBottles = null;
+        state.exquisiteFragnances = null;
+        state.notes.clear();
+        setActive(mColBtns, null); setActive(mExqBtns, null);
+        setFilterButtonState(mColBtns, false);
+        setFilterButtonState(mExqBtns, false);
+        mNoteBtns.forEach(n => n.classList.remove('ring-2', 'ring-[color:var(--gold)]', 'border-[color:var(--gold)]'));
+        applyFilters();
       });
 
       // Modal controls
@@ -694,19 +745,19 @@
       document.getElementById('xModal').addEventListener('click', closeProductModal);
     }
     // Modal
-function openProductModal(id) {
-  const p = products.find(x => x.id === id);
+    function openProductModal(id) {
+      const p = products.find(x => x.id === id);
 
-  const content = `
+      const content = `
     <div class="flex flex-col md:grid md:grid-cols-2 gap-6">
 
       
       <!-- Image -->
       <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100  w-full">
         ${p.featured ? '<span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[color:var(--gold)] text-black text-xs font-medium">Featured</span>' : ''}
-        <img src="public/images/product-${p.id}.jpg"
+         <img src="public/images/products/${p.image}"
              alt="${p.name}"
-             class="w-full h-full object-cover aspect-[4/3]"/>
+             class="w-full h-full object-cover aspect-[2.5/3]"/>
       </div>
 
       <!-- Product Details -->
@@ -720,9 +771,6 @@ function openProductModal(id) {
             <div class="text-gray-500">Size</div>
             <div class="text-gray-900 font-medium">${p.size}</div>
           </div>
-          <div class="border border-gray-100 rounded-lg p-3">
-            <div class="text-gray-500">Longevity</div>
-            <div class="text-gray-900 font-medium">${p.longevity}</div>
           </div>
         </div>
 
@@ -740,21 +788,21 @@ function openProductModal(id) {
     </div>
   `;
 
-  const modal = document.getElementById('productModal');
-  document.getElementById('modalContent').innerHTML = content;
-  modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+      const modal = document.getElementById('productModal');
+      document.getElementById('modalContent').innerHTML = content;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
 
-  // Use the main modal wrapper's cross button
-  const closeBtn = modal.querySelector('.close-btn');
-  if (closeBtn) {
-    
-    closeBtn.addEventListener('click', () => {
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
-    });
-  }
-}
+      // Use the main modal wrapper's cross button
+      const closeBtn = modal.querySelector('.close-btn');
+      if (closeBtn) {
+
+        closeBtn.addEventListener('click', () => {
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+        });
+      }
+    }
 
     function closeProductModal() {
       document.getElementById('productModal').classList.add('hidden');
@@ -763,10 +811,13 @@ function openProductModal(id) {
 
     // Init
     (function init() {
-      setupEvents();
-      // Set defaults active
-      document.querySelectorAll('aside .filter-btn[data-filter="all"]').forEach(b => b.click());
-      document.querySelectorAll('aside .price-filter[data-price="all"]').forEach(b => b.click());
+     setupEvents();
+      // No default filter active on load -> show all products
+      // ensure all buttons enabled and none visually active
+      document.querySelectorAll('aside .filter-btn, aside .exq-filter, .sheet .m-filter, .sheet .m-exq').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('opacity-50', 'pointer-events-none');
+      });
       applyFilters();
     })();
   </script>
