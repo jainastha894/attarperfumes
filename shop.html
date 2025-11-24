@@ -4,7 +4,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Products — Arjan Attars</title>
+  <title>Shop Luxury Attars | Arjanmal Attarchand Perfume Oils</title>
+
+  <meta name="description"
+    content="Browse handcrafted attars, mukhallats, and perfume oils from Arjanmal Attarchand. Detailed notes, prices, and quick add-to-cart experience." />
+
+  <meta name="keywords"
+    content="attars shop, perfume oil store, Arjanmal Attarchand, oud perfume, musk, fragrance collection" />
+
+  <meta property="og:type" content="website" />
+
+  <meta property="og:title" content="Shop Luxury Attars | Arjanmal Attarchand Perfume Oils" />
+
+  <meta property="og:description"
+    content="Browse handcrafted attars, mukhallats, and perfume oils from Arjanmal Attarchand. Detailed notes, prices, and quick add-to-cart experience." />
+
+  <meta property="og:url" content="shop.html" />
+
+  <meta property="og:image" content="public/images/favicon.ico" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- <link rel="stylesheet" href="/public/styles/shop.css"> -->
   <style>
@@ -125,6 +145,49 @@
       /* adjust if menu is taller */
       pointer-events: auto;
     }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 9999px;
+      background: #25D366;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      z-index: 70;
+      opacity: 0.95;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+      opacity: 1;
+    }
+
+    .whatsapp-float img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    @media (max-width: 640px) {
+      .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .whatsapp-float img {
+        width: 24px;
+        height: 24px;
+      }
+    }
   </style>
 </head>
 
@@ -136,7 +199,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 sm:h-20 items-center justify-between">
           <!-- Brand -->
-          <a href="#" class="flex items-center gap-2">
+          <a href="/" class="flex items-center gap-2">
             <span class="text-xl sm:text-2xl cormorant tracking-wider text-white">
               <span class="text-[color:var(--gold)] font-semibold">ARJANMAL</span>
               <span class="font-light">ATTARCHAND</span>
@@ -478,8 +541,8 @@
 
     // Data
     const products = [
-      { id: 1, name: "Perfume Bottle", image: "fragnances/bottle1.png", JarsAndBottles: "Perfume Bottles", description: "NF: 240", size: "100ml",  featured: true, industry: "Fragnances" },
-      { id: 2, name: "Gustav Women", image: "fragnances/bottle2.png", JarsAndBottles: "Perfume Bottles", description: "Clear Bottle ", size: "100ml",  featured: true, industry: "Fragnances" },
+      { id: 1, name: "Perfume Bottle", image: "fragnances/bottle1.png", JarsAndBottles: "Perfume Bottles", description: "NF: 240", size: "100ml", featured: true, industry: "Fragnances" },
+      { id: 2, name: "Gustav Women", image: "fragnances/bottle2.png", JarsAndBottles: "Perfume Bottles", description: "Clear Bottle ", size: "100ml", featured: true, industry: "Fragnances" },
       { id: 3, name: "Colorful Car Hanging", image: "fragnances/colorfulCarHanging.jpeg", JarsAndBottles: "Ittar Bottles", description: "Colorful Car hanging bottles for ittars", size: "", featured: false, industry: "Fragnances" },
       { id: 4, name: "Pharma 1", image: "pharma/pharma1.jpeg", JarsAndBottles: "Clear Glass Bottles", description: "Clear Glass Bottles for pharma uses.", size: "", featured: false, industry: "pharma" },
       { id: 5, name: "Pharma 2", image: "pharma/pharma2.jpeg", JarsAndBottles: "Clear Glass Bottles", description: "Clear Glass Bottles for pharma uses.", size: "", featured: false, industry: "pharma" },
@@ -574,17 +637,17 @@
       const term = state.search.toLowerCase().trim();
       filteredProducts = products.filter(p => {
         const matchesSearch = !term || p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term);
-         const matchesIndustry = !state.industry || p.industry === state.industry;
+        const matchesIndustry = !state.industry || p.industry === state.industry;
         // Exclusive filter logic:
         // - If neither filter applied (both null) => show everything.
         // - If JarsAndBottles is not null => apply it and ignore exquisiteFragnances.
-       //    * If JarsAndBottles === 'all' => match any product that has a non-empty JarsAndBottles.
+        //    * If JarsAndBottles === 'all' => match any product that has a non-empty JarsAndBottles.
         // - Else if exquisiteFragnances is not null => apply it and ignore JarsAndBottles.
         //    * If exquisiteFragnances === 'all' => match any product that has a non-empty ExquisiteFragnances.
-       let matchesJarsAndBottles = true;
+        let matchesJarsAndBottles = true;
         let matchesExq = true;
         if (state.JarsAndBottles !== null) {
-         if (state.JarsAndBottles === 'all') matchesJarsAndBottles = !!(p.JarsAndBottles && p.JarsAndBottles.toString().trim() !== '');
+          if (state.JarsAndBottles === 'all') matchesJarsAndBottles = !!(p.JarsAndBottles && p.JarsAndBottles.toString().trim() !== '');
           else matchesJarsAndBottles = p.JarsAndBottles === state.JarsAndBottles;
           matchesExq = true; // ignore exq
         } else if (state.exquisiteFragnances !== null) {
@@ -592,7 +655,7 @@
           else matchesExq = (p.ExquisiteFragnances || '').toString() === state.exquisiteFragnances;
           matchesJarsAndBottles = true; // ignore jars
         } // else both null -> both remain true (show all)
-         
+
         const matchesNotes = state.notes.size === 0 || [...state.notes].some(n => p.notes.includes(n));
         return matchesSearch && matchesJarsAndBottles && matchesExq && matchesNotes && matchesIndustry;
       });
@@ -640,7 +703,7 @@
       const colBtns = document.querySelectorAll('aside .filter-btn');
       const exqBtns = document.querySelectorAll('aside .exq-filter');
       const noteBtns = document.querySelectorAll('aside .note-filter');
-           function setFilterButtonState(btns, disabled) {
+      function setFilterButtonState(btns, disabled) {
         btns.forEach(b => {
           b.disabled = disabled;
           b.classList.toggle('opacity-50', disabled);
@@ -650,7 +713,7 @@
 
 
       colBtns.forEach(btn => btn.addEventListener('click', () => {
-     // apply jars filter (including explicit "all") and disable Exquisite Fragnances
+        // apply jars filter (including explicit "all") and disable Exquisite Fragnances
         state.JarsAndBottles = btn.dataset.filter;
         state.exquisiteFragnances = null;
         setActive(colBtns, btn);
@@ -672,7 +735,7 @@
       }));
       document.getElementById('applyDesktop').addEventListener('click', applyFilters);
       document.getElementById('clearDesktop').addEventListener('click', () => {
-      // reset all filters -> show everything
+        // reset all filters -> show everything
         state.JarsAndBottles = null;
         state.exquisiteFragnances = null;
         state.notes.clear();
@@ -717,7 +780,7 @@
         setFilterButtonState(mExqBtns, true);
       }));
       mExqBtns.forEach(btn => btn.addEventListener('click', () => {
-         state.exquisiteFragnances = btn.dataset.exq;
+        state.exquisiteFragnances = btn.dataset.exq;
         state.JarsAndBottles = null;
         setActive(mExqBtns, btn);
         setActive(mColBtns, null);
@@ -811,7 +874,7 @@
 
     // Init
     (function init() {
-     setupEvents();
+      setupEvents();
       // No default filter active on load -> show all products
       // ensure all buttons enabled and none visually active
       document.querySelectorAll('aside .filter-btn, aside .exq-filter, .sheet .m-filter, .sheet .m-exq').forEach(b => {
@@ -821,6 +884,10 @@
       applyFilters();
     })();
   </script>
+  <a href="https://wa.me/919811555255?text=I%20want%20to%20know%20more%20about%20Glass%20products"
+    class="whatsapp-float" target="_blank" rel="nofollow noopener" aria-label="Chat on WhatsApp">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
+  </a>
   <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'982a742516c8a7ee',t:'MTc1ODQ2NzA1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
 

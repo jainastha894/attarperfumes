@@ -1,45 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Timeline</title>
+  <title>Arjanmal Attarchand Map & Heritage Trail</title>
+
+  <meta name="description"
+    content="Explore the heritage trail and boutique map for Arjanmal Attarchand, highlighting key locations and signature fragrance moments." />
+
+  <meta name="keywords" content="Arjanmal Attarchand map, heritage trail, perfume journey, boutique locations" />
+
+  <meta property="og:type" content="website" />
+
+  <meta property="og:title" content="Arjanmal Attarchand Map & Heritage Trail" />
+
+  <meta property="og:description"
+    content="Explore the heritage trail and boutique map for Arjanmal Attarchand, highlighting key locations and signature fragrance moments." />
+
+  <meta property="og:url" content="map.html" />
+
+  <meta property="og:image" content="public/images/favicon.ico" />
+
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="public/styles/map.css">
+  <style>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 9999px;
+      background: #25D366;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      z-index: 70;
+      opacity: 0.95;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+      opacity: 1;
+    }
+
+    .whatsapp-float img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    @media (max-width: 640px) {
+      .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .whatsapp-float img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  </style>
 </head>
-<div id="map-body">
-  <div style="background-image: url( 'public/images/map-image.jpg');" class="map-container">
 
-    <svg id="map-svg" viewBox="0 0 1365 668" preserveAspectRatio="none">
-      <path id="motionPath" class="debug-path"
-        d="M 270 260 S 274 265, 280 270 S 420 350, 520 380 S 1120 530, 1225 507" />
-      <path id="motionPath2" class="debug-path"
-        d="M 300 250 S 304 255, 310 260 S 450 340, 550 370 S 1150 520, 1255 497" />
+<body>
+  <div id="map-body">
+    <div style="background-image: url( 'public/images/map-image.jpg');" class="map-container">
 
-      <image href="public/images/footprints.png" width="30" height="30" opacity="1">
-        <animateMotion dur="8s" repeatCount="indefinite" begin="0s" rotate="auto">
-          <mpath href="#motionPath" />
-        </animateMotion>
-      </image>
-      <image href="public/images/footprints.png" width="30" height="30" opacity="0.6">
-        <animateMotion dur="8s" repeatCount="indefinite" begin="0.4s" rotate="auto">
-          <mpath href="#motionPath" />
-        </animateMotion>
-      </image>
-      <image href="public/images/footprints.png" width="30" height="30" opacity="0.3">
-        <animateMotion dur="8s" repeatCount="indefinite" begin="0.8s" rotate="auto">
-          <mpath href="#motionPath" />
-        </animateMotion>
-      </image>
+      <svg id="map-svg" viewBox="0 0 1365 668" preserveAspectRatio="none">
+        <path id="motionPath" class="debug-path"
+          d="M 270 260 S 274 265, 280 270 S 420 350, 520 380 S 1120 530, 1225 507" />
+        <path id="motionPath2" class="debug-path"
+          d="M 300 250 S 304 255, 310 260 S 450 340, 550 370 S 1150 520, 1255 497" />
 
-      <image href="public/images/bottle-image1.png" width="80" height="80">
-        <animateMotion dur="8s" repeatCount="indefinite" rotate="no">
-          <mpath href="#motionPath2" />
-        </animateMotion>
-      </image>
-    </svg>
+        <image href="public/images/footprints.png" width="30" height="30" opacity="1">
+          <animateMotion dur="8s" repeatCount="indefinite" begin="0s" rotate="auto">
+            <mpath href="#motionPath" />
+          </animateMotion>
+        </image>
+        <image href="public/images/footprints.png" width="30" height="30" opacity="0.6">
+          <animateMotion dur="8s" repeatCount="indefinite" begin="0.4s" rotate="auto">
+            <mpath href="#motionPath" />
+          </animateMotion>
+        </image>
+        <image href="public/images/footprints.png" width="30" height="30" opacity="0.3">
+          <animateMotion dur="8s" repeatCount="indefinite" begin="0.8s" rotate="auto">
+            <mpath href="#motionPath" />
+          </animateMotion>
+        </image>
 
-    <div class="map_text-overlay">(1904)</div>
-    <div class="map_text-overlay2">(1951)</div>
+        <image href="public/images/bottle-image1.png" width="80" height="80">
+          <animateMotion dur="8s" repeatCount="indefinite" rotate="no">
+            <mpath href="#motionPath2" />
+          </animateMotion>
+        </image>
+      </svg>
+
+      <div class="map_text-overlay">(1904)</div>
+      <div class="map_text-overlay2">(1951)</div>
+    </div>
   </div>
-</div>
+  <a href="https://wa.me/919811555255?text=I%20want%20to%20know%20more%20about%20Glass%20products"
+    class="whatsapp-float" target="_blank" rel="nofollow noopener" aria-label="Chat on WhatsApp">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
+  </a>
+</body>
+
 </html>

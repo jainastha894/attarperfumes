@@ -4,9 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Arjan Attars | Luxury Perfumes</title>
+    <title>About Arjanmal Attarchand | Crafting Heritage Attars & Perfume Oils</title>
+
+    <meta name="description"
+        content="Learn about the perfumery heritage of Arjanmal Attarchand, artisan distillation, and the craft behind signature attars and oils." />
+
+    <meta name="keywords"
+        content="about Arjanmal Attarchand, heritage attars, perfume oil craftsmanship, artisan fragrances" />
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:title" content="About Arjanmal Attarchand | Crafting Heritage Attars & Perfume Oils" />
+
+    <meta property="og:description"
+        content="Learn about the perfumery heritage of Arjanmal Attarchand, artisan distillation, and the craft behind signature attars and oils." />
+
+    <meta property="og:url" content="about.html" />
+
+    <meta property="og:image" content="public/images/favicon.ico" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="public/styles/about.css">
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 58px;
+            height: 58px;
+            border-radius: 9999px;
+            background: #25D366;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            z-index: 70;
+            opacity: 0.95;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+            opacity: 1;
+        }
+
+        .whatsapp-float img {
+            width: 28px;
+            height: 28px;
+            filter: brightness(0) invert(1);
+        }
+
+        @media (max-width: 640px) {
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+                bottom: 16px;
+                right: 16px;
+            }
+
+            .whatsapp-float img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
 
 </head>
 
@@ -18,7 +82,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 sm:h-20 items-center justify-between">
                     <!-- Brand -->
-                    <a href="#" class="flex items-center gap-2">
+                    <a href="/" class="flex items-center gap-2">
                         <span class="text-xl sm:text-2xl cormorant tracking-wider text-white">
                             <span class="text-[color:var(--gold)] font-semibold">ARJANMAL</span>
                             <span class="font-light">ATTARCHAND</span>
@@ -359,7 +423,9 @@
                     <h3 class="text-2xl font-light text-white mb-2 cormorant">Sh Kuldip kumar</h3>
                     <div class="text-amber-400 text-sm font-light tracking-wider uppercase mb-4">Founder</div>
                     <p class="text-gray-300 font-light leading-relaxed text-sm">
-                        Arjanmal is a trusted name in the industry, providing high-quality glass bottles and perfumes to clients across the globe. Kuldip Kumar is the founder of the company who bought the business in 1904 and laid the foundation of a
+                        Arjanmal is a trusted name in the industry, providing high-quality glass bottles and perfumes to
+                        clients across the globe. Kuldip Kumar is the founder of the company who bought the business in
+                        1904 and laid the foundation of a
                         legacy that continues to thrive today, blending traditional craftsmanship with modern innovation
                     </p>
                 </div>
@@ -370,9 +436,15 @@
                         MA
                     </div>
                     <h3 class="text-2xl font-light text-white mb-2 cormorant">Mr Manish Arora</h3>
-                    <div class="text-amber-400 text-sm font-light tracking-wider uppercase mb-4">Owner and Sales Leader</div>
+                    <div class="text-amber-400 text-sm font-light tracking-wider uppercase mb-4">Owner and Sales Leader
+                    </div>
                     <p class="text-gray-300 font-light leading-relaxed text-sm">
-                    Under Manish Arora's leadership, the company has established itself as a reputable trader and supplier of premium fragrances and packaging solutions. With a strong focus on customer satisfaction and timely delivery, Arjanmal has built long-lasting relationships with its clients. Manish Arora's expertise and dedication have been instrumental in driving the company's growth and success. Arjanmal continues to innovate and expand its product portfolio, catering to the evolving needs of the industry.
+                        Under Manish Arora's leadership, the company has established itself as a reputable trader and
+                        supplier of premium fragrances and packaging solutions. With a strong focus on customer
+                        satisfaction and timely delivery, Arjanmal has built long-lasting relationships with its
+                        clients. Manish Arora's expertise and dedication have been instrumental in driving the company's
+                        growth and success. Arjanmal continues to innovate and expand its product portfolio, catering to
+                        the evolving needs of the industry.
                     </p>
                 </div>
             </div>
@@ -516,6 +588,10 @@
             </div>
         </div>
     </footer>
+    <a href="https://wa.me/919811555255?text=I%20want%20to%20know%20more%20about%20Glass%20products"
+        class="whatsapp-float" target="_blank" rel="nofollow noopener" aria-label="Chat on WhatsApp">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
+    </a>
     <script>
         // Mobile menu
         const toggle = document.getElementById('menuToggle');
