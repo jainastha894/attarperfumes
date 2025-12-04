@@ -27,6 +27,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/x-icon" href="public/images/favicon.ico">
+  <script src="public/products.js"></script>
 
   <script type="application/ld+json">
   {
@@ -661,32 +662,7 @@
     }));
 
     // Data
-    const products = [
-      { id: 1, name: "Perfume Bottle", image: "fragnances/bottle1.png", JarsAndBottles: "Perfume Bottles", description: "NF: 240", size: "100ml", featured: true, industry: "Fragnances" },
-      { id: 2, name: "Gustav Women", image: "fragnances/bottle2.png", JarsAndBottles: "Perfume Bottles", description: "Clear Bottle ", size: "100ml", featured: true, industry: "Fragnances" },
-      { id: 3, name: "Colorful Car Hanging", image: "fragnances/colorfulCarHanging.jpeg", JarsAndBottles: "Ittar Bottles", description: "Colorful Car hanging bottles for ittars", size: "", featured: false, industry: "Fragnances" },
-      { id: 4, name: "Pharma 1", image: "pharma/pharma1.jpeg", JarsAndBottles: "Clear Glass Bottles", description: "Clear Glass Bottles for pharma uses.", size: "", featured: false, industry: "pharma" },
-      { id: 5, name: "Pharma 2", image: "pharma/pharma2.jpeg", JarsAndBottles: "Clear Glass Bottles", description: "Clear Glass Bottles for pharma uses.", size: "", featured: false, industry: "pharma" },
-      { id: 6, name: "Pharma 3", image: "pharma/pharma3.jpeg", JarsAndBottles: "Clear Glass Jars", description: "Clear Glass Jars of 50ml for pharma uses.", size: "50ml", featured: true, industry: "pharma" },
-      { id: 7, name: "Floral Fragnance", image: "exquisiteFragnances/Floral.jpeg", JarsAndBottles: "", description: "Soft, fresh fragrances inspired by blooming flowers and natural petals.", size: "", featured: true, industry: "", ExquisiteFragnances: "Floral" },
-      { id: 8, name: "Amber or Musk Fragnance", image: "exquisiteFragnances/Amber.jpeg", JarsAndBottles: "", description: "Warm, deep, and long-lasting scents with a cozy, sensual feel.", size: "", featured: true, industry: "", ExquisiteFragnances: "Amber or Musk" },
-      { id: 9, name: "Citrus Fragnance", image: "exquisiteFragnances/Citrus.jpeg", JarsAndBottles: "", description: "Bright, zesty, and refreshing aromas bursting with lemon, orange, and fresh notes.", size: "", featured: true, industry: "", ExquisiteFragnances: "Citrus" },
-      { id: 10, name: "Oud Fragnance", image: "exquisiteFragnances/Oud.jpeg", JarsAndBottles: "", description: "Rich, smoky, and luxurious woody scent known for its bold and exotic character.", size: "", featured: true, industry: "", ExquisiteFragnances: "Oud" },
-      { id: 11, name: "Matka Jar", image: "food/food1.jpeg", JarsAndBottles: "Clear Glass Jars", description: "recyclable materials, these bottles & jars are not only dishwasher safe", size: "All sizes available", featured: false, industry: "food" },
-      { id: 12, name: "Round Jars", image: "food/food5.png", JarsAndBottles: "Clear Glass Jars", description: "Plastic/Steels caps. dishwasher-safe and recyclable glass", size: "All sizes available", featured: true, industry: "food" },
-      { id: 13, name: "Cylendrical Jars", image: "food/food7.png", JarsAndBottles: "Clear Glass Jars", description: "PLASTIC CAP, Glassfinity's Cylinderical Jars ", size: "All sizes available", featured: false, industry: "food" },
-      { id: 14, name: "Inverted Diamond Jars", image: "fragnances/bottle8.jpg", JarsAndBottles: "Clear Glass Jars", description: "Glassfinity's Diamond Jars (JK4) in Cartoon of 48 Pieces", size: "150ml", featured: false, industry: "Fragnances" },
-      { id: 15, name: "Star Jars", image: "fragnances/bottle9.jpg", JarsAndBottles: "Clear Glass Jars", description: "Glassfinity's Star Jars With Crown", size: "", featured: false, industry: "Fragnances" },
-      { id: 16, name: "Amber Cylindrical Jars", image: "fragnances/bottle10.jpg", JarsAndBottles: "Amber Glass Bottles", description: "Amber Cylindrical Jars with Bulb for Spraying of in Piece Cartoon (QN 2)", size: "24 ml", featured: false, industry: "Fragnances" },
-      { id: 17, name: "Amber Cuboid Jars", image: "fragnances/bottle11.jpg", JarsAndBottles: "Amber Glass Jars", description: "Amber Cuboid Jars with Bulb for Spraying in 48 Piece Cartoon (QN 1)", size: "24 ml", featured: false, industry: "Fragnances" },
-      { id: 18, name: "Cylendrical Viles", image: "fragnances/bottle12.jpg", JarsAndBottles: "Amber Glass Jars", description: "Small Cylindrical Viles with Seperated Chamber and Colored Bottom made of Amber Glass in 100 Piece Cartoon (YNP 6ml)", size: "6 ml", featured: false, industry: "Fragnances" },
-      { id: 19, name: "Perfume Bottle Gold Cap", image: "fragnances/bottle13.jpg", JarsAndBottles: "Clear Glass Jars", description: "Elegant Perfume Bottle with Gold Cap and 4 Sides Vertical Strips in Different Sizes (BJP 2) \n3ml in 960 Piece Cartoon\n6ml in 720 Piece Cartoon\n12ml in 480 Piece Cartoon", size: "All sizes available", featured: false, industry: "Fragnances"
-      }
-      
 
-
-
-    ];
 
     let filteredProducts = [...products];
     // let cartCount = 0;
@@ -711,57 +687,79 @@
     // Render
     function renderProducts() {
       const items = filteredProducts.map(p => {
-        const JarsAndBottlesLabel = p.JarsAndBottles ? (p.JarsAndBottles.charAt(0).toUpperCase() + p.JarsAndBottles.slice(1)) : '';
+        const JarsAndBottlesLabel = p.JarsAndBottles
+          ? p.JarsAndBottles.charAt(0).toUpperCase() + p.JarsAndBottles.slice(1)
+          : '';
+
+        // support multi-images: use p.images[0] if exists, else p.image
+        const thumb = Array.isArray(p.images) && p.images.length
+          ? p.images[0]
+          : p.image;
+
         return `
-         <article class="product-card bg-white rounded-xl overflow-hidden flex flex-col" onclick="openProductModal(${p.id})">
+        <article class="product-card bg-white rounded-xl overflow-hidden flex flex-col" onclick='openProduct(${p.id})'>
           <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 aspect-square">
             <div class="absolute top-2 left-2">
-              ${p.featured ? '<span class="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium bg-[color:var(--gold)] text-black">Featured</span>' : ''}
+              ${p.featured
+            ? '<span class="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium bg-[color:var(--gold)] text-black">Featured</span>'
+            : ''
+          }
             </div>
             <div class="absolute top-2 right-2">
-             <span class="chip px-1 py-1 rounded-full text-xs">${JarsAndBottlesLabel}</span>
+              <span class="chip px-1 py-1 rounded-full text-xs">${JarsAndBottlesLabel}</span>
             </div>
             <div class="absolute inset-0">
-  <img src="public/images/products/${p.image}" 
-       alt="${p.name}" 
-       class="w-full h-full object-cover"/>
-</div>
-
+              <img src="public/images/products/${thumb}"
+                   alt="${p.name}"
+                   class="w-full h-full object-cover"/>
+            </div>
           </div>
           <div class="p-3 sm:p-4 flex-1 flex flex-col">
             <h3 class="cormorant text-base sm:text-lg text-gray-900 leading-snug">${p.name}</h3>
             <p class="text-gray-600 text-[11px] sm:text-sm mt-1 line-clamp-2">${p.description}</p>
             <div class="mt-2 sm:mt-3 flex items-center justify-between">
-              <span class="text-[11px] text-gray-500">${p.size}</span>
+              <span class="text-[11px] text-gray-500">${p.size || ''}</span>
             </div>
-           <a href="https://wa.me/919311555255?text=Hi%20I%20am%20interested%20in%20${p.name}" 
-   target="_blank"
-   class=" gold-btn w-full mt-3 sm:mt-4 py-2 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
-   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-white">
-      <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.83.74 5.59 2.15 8.02L.5 31.5l7.7-2.07C10.35 30.27 13.12 31 16 31c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28c-2.5 0-4.94-.67-7.06-1.93l-.5-.29-4.57 1.23 1.23-4.57-.29-.5C3.67 20.94 3 18.5 3 16 3 8.82 8.82 3 16 3s13 5.82 13 13-5.82 13-13 13zm7.2-9.98c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.63-.2-.9.2s-1.03 1.26-1.27 1.52c-.23.26-.47.29-.86.1-.39-.2-1.63-.6-3.1-1.92-1.15-1.02-1.92-2.3-2.15-2.69-.23-.39-.02-.6.17-.79.17-.17.39-.46.59-.69.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.69-.1-.2-.9-2.17-1.24-2.97-.33-.8-.67-.69-.9-.7h-.77c-.26 0-.69.1-1.05.49-.36.39-1.37 1.34-1.37 3.26s1.4 3.77 1.59 4.03c.2.26 2.75 4.2 6.67 5.89.93.4 1.65.64 2.21.82.93.3 1.78.26 2.45.16.75-.11 2.3-.94 2.62-1.84.33-.9.33-1.67.23-1.84-.1-.17-.36-.26-.75-.46z"/>
-   </svg>
-   WhatsApp
-</a>
-
-
+            <a href="https://wa.me/919311555255?text=Hi%20I%20am%20interested%20in%20${encodeURIComponent(p.name)}" 
+               target="_blank"
+               class="gold-btn w-full mt-3 sm:mt-4 py-2 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-white">
+                <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.83.74 5.59 2.15 8.02L.5 31.5l7.7-2.07C10.35 30.27 13.12 31 16 31c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28c-2.5 0-4.94-.67-7.06-1.93l-.5-.29-4.57 1.23 1.23-4.57-.29-.5C3.67 20.94 3 18.5 3 16 3 8.82 8.82 3 16 3s13 5.82 13 13-5.82 13-13 13zm7.2-9.98c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.63-.2-.9.2s-1.03 1.26-1.27 1.52c-.23.26-.47.29-.86.1-.39-.2-1.63-.6-3.1-1.92-1.15-1.02-1.92-2.3-2.15-2.69-.23-.39-.02-.6.17-.79.17-.17.39-.46.59-.69.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.69-.1-.2-.9-2.17-1.24-2.97-.33-.8-.67-.69-.9-.7h-.77c-.26 0-.69.1-1.05.49-.36.39-1.37 1.34-1.37 3.26s1.4 3.77 1.59 4.03c.2.26 2.75 4.2 6.67 5.89.93.4 1.65.64 2.21.82.93.3 1.78.26 2.45.16.75-.11 2.3-.94 2.62-1.84.33-.9.33-1.67.23-1.84-.1-.17-.36-.26-.75-.46z"/>
+              </svg>
+              WhatsApp
+            </a>
           </div>
         </article>`;
       }).join('');
 
       grid.innerHTML = items || `
-        <div class="col-span-full text-center py-14">
-          <div class="w-16 h-16 mx-auto rounded-full bg-gray-100 grid place-items-center mb-4">
-            <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
-          </div>
-          <p class="cormorant text-xl text-gray-900">No products found</p>
-          <p class="text-gray-600 text-sm">Try adjusting your filters.</p>
+      <div class="col-span-full text-center py-14">
+        <div class="w-16 h-16 mx-auto rounded-full bg-gray-100 grid place-items-center mb-4">
+          <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
         </div>
-      `;
+        <p class="cormorant text-xl text-gray-900">No products found</p>
+        <p class="text-gray-600 text-sm">Try adjusting your filters.</p>
+      </div>
+    `;
 
-      countEl.textContent = `Showing ${filteredProducts.length}`;
+      if (countEl) {
+        countEl.textContent = `Showing ${filteredProducts.length}`;
+      }
     }
+
+    // product page navigation
+    function openProduct(id) {
+      window.location.href = "product.html?id=" + id;
+    }
+    // function openProductPage(product) {
+    //     const url = "product.html?data=" + encodeURIComponent(JSON.stringify(product));
+    //     window.location.href = url;
+    // }
+
+
 
     function applyFilters() {
       const term = state.search.toLowerCase().trim();
@@ -933,74 +931,74 @@
         applyFilters();
       });
 
-      // Modal controls
-      document.getElementById('closeModal').addEventListener('click', closeProductModal);
-      document.getElementById('xModal').addEventListener('click', closeProductModal);
+      // // Modal controls
+      // document.getElementById('closeModal').addEventListener('click', closeProductModal);
+      // document.getElementById('xModal').addEventListener('click', closeProductModal);
     }
     // Modal
-    function openProductModal(id) {
-      const p = products.find(x => x.id === id);
+    //   function openProductModal(id) {
+    //     const p = products.find(x => x.id === id);
 
-      const content = `
-    <div class="flex flex-col md:grid md:grid-cols-2 gap-6">
+    //     const content = `
+    //   <div class="flex flex-col md:grid md:grid-cols-2 gap-6">
 
-      
-      <!-- Image -->
-      <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100  w-full">
-        ${p.featured ? '<span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[color:var(--gold)] text-black text-xs font-medium">Featured</span>' : ''}
-         <img src="public/images/products/${p.image}"
-             alt="${p.name}"
-             class="w-full h-full object-cover aspect-[2.5/3]"/>
-      </div>
 
-      <!-- Product Details -->
-      <div class="w-full">
-        <span class="chip px-3 py-1 rounded-full text-xs">${p.JarsAndBottles.charAt(0).toUpperCase() + p.JarsAndBottles.slice(1)}</span>
-        <h2 class="cormorant text-3xl text-gray-900 mt-3">${p.name}</h2>
-        <p class="text-gray-600 mt-4">${p.description}</p>
+    //     <!-- Image -->
+    //     <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100  w-full">
+    //       ${p.featured ? '<span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[color:var(--gold)] text-black text-xs font-medium">Featured</span>' : ''}
+    //        <img src="public/images/products/${p.image}"
+    //            alt="${p.name}"
+    //            class="w-full h-full object-cover aspect-[2.5/3]"/>
+    //     </div>
 
-        <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
-          <div class="border border-gray-100 rounded-lg p-3">
-            <div class="text-gray-500">Size</div>
-            <div class="text-gray-900 font-medium">${p.size}</div>
-          </div>
-          </div>
-        </div>
+    //     <!-- Product Details -->
+    //     <div class="w-full">
+    //       <span class="chip px-3 py-1 rounded-full text-xs">${p.JarsAndBottles.charAt(0).toUpperCase() + p.JarsAndBottles.slice(1)}</span>
+    //       <h2 class="cormorant text-3xl text-gray-900 mt-3">${p.name}</h2>
+    //       <p class="text-gray-600 mt-4">${p.description}</p>
 
-       
-        <div class="px-4">
-        <a href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20${p.name}" 
-           target="_blank"
-           class="gold-btn w-full mt-6 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-white">
-            <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.83.74 5.59 2.15 8.02L.5 31.5l7.7-2.07C10.35 30.27 13.12 31 16 31c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28c-2.5 0-4.94-.67-7.06-1.93l-.5-.29-4.57 1.23 1.23-4.57-.29-.5C3.67 20.94 3 18.5 3 16 3 8.82 8.82 3 16 3s13 5.82 13 13-5.82 13-13 13zm7.2-9.98c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.63-.2-.9.2s-1.03 1.26-1.27 1.52c-.23.26-.47.29-.86.1-.39-.2-1.63-.6-3.1-1.92-1.15-1.02-1.92-2.3-2.15-2.69-.23-.39-.02-.6.17-.79.17-.17.39-.46.59-.69.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.69-.1-.2-.9-2.17-1.24-2.97-.33-.8-.67-.69-.9-.7h-.77c-.26 0-.69.1-1.05.49-.36.39-1.37 1.34-1.37 3.26s1.4 3.77 1.59 4.03c.2.26 2.75 4.2 6.67 5.89.93.4 1.65.64 2.21.82.93.3 1.78.26 2.45.16.75-.11 2.3-.94 2.62-1.84.33-.9.33-1.67.23-1.84-.1-.17-.36-.26-.75-.46z"/>
-          </svg>
-          WhatsApp
-        </a>
-      </div>
-    </div>
-  `;
+    //       <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+    //         <div class="border border-gray-100 rounded-lg p-3">
+    //           <div class="text-gray-500">Size</div>
+    //           <div class="text-gray-900 font-medium">${p.size}</div>
+    //         </div>
+    //         </div>
+    //       </div>
 
-      const modal = document.getElementById('productModal');
-      document.getElementById('modalContent').innerHTML = content;
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
 
-      // Use the main modal wrapper's cross button
-      const closeBtn = modal.querySelector('.close-btn');
-      if (closeBtn) {
+    //       <div class="px-4">
+    //       <a href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20${p.name}" 
+    //          target="_blank"
+    //          class="gold-btn w-full mt-6 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+    //         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-white">
+    //           <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.83.74 5.59 2.15 8.02L.5 31.5l7.7-2.07C10.35 30.27 13.12 31 16 31c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28c-2.5 0-4.94-.67-7.06-1.93l-.5-.29-4.57 1.23 1.23-4.57-.29-.5C3.67 20.94 3 18.5 3 16 3 8.82 8.82 3 16 3s13 5.82 13 13-5.82 13-13 13zm7.2-9.98c-.39-.2-2.3-1.13-2.66-1.26-.36-.13-.63-.2-.9.2s-1.03 1.26-1.27 1.52c-.23.26-.47.29-.86.1-.39-.2-1.63-.6-3.1-1.92-1.15-1.02-1.92-2.3-2.15-2.69-.23-.39-.02-.6.17-.79.17-.17.39-.46.59-.69.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.69-.1-.2-.9-2.17-1.24-2.97-.33-.8-.67-.69-.9-.7h-.77c-.26 0-.69.1-1.05.49-.36.39-1.37 1.34-1.37 3.26s1.4 3.77 1.59 4.03c.2.26 2.75 4.2 6.67 5.89.93.4 1.65.64 2.21.82.93.3 1.78.26 2.45.16.75-.11 2.3-.94 2.62-1.84.33-.9.33-1.67.23-1.84-.1-.17-.36-.26-.75-.46z"/>
+    //         </svg>
+    //         WhatsApp
+    //       </a>
+    //     </div>
+    //   </div>
+    // `;
 
-        closeBtn.addEventListener('click', () => {
-          modal.classList.add('hidden');
-          document.body.style.overflow = '';
-        });
-      }
-    }
+    //     const modal = document.getElementById('productModal');
+    //     document.getElementById('modalContent').innerHTML = content;
+    //     modal.classList.remove('hidden');
+    //     document.body.style.overflow = 'hidden';
 
-    function closeProductModal() {
-      document.getElementById('productModal').classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
+    //     // Use the main modal wrapper's cross button
+    //     const closeBtn = modal.querySelector('.close-btn');
+    //     if (closeBtn) {
+
+    //       closeBtn.addEventListener('click', () => {
+    //         modal.classList.add('hidden');
+    //         document.body.style.overflow = '';
+    //       });
+    //     }
+    //   }
+
+    // function closeProductModal() {
+    //   document.getElementById('productModal').classList.add('hidden');
+    //   document.body.style.overflow = 'auto';
+    // }
 
     // Init
     (function init() {
