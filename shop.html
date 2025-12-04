@@ -77,6 +77,10 @@
       border: 1px solid rgba(212, 175, 55, .25)
     }
 
+    .thumbnail-btn:hover img {
+      transform: scale(1.05);
+    }
+
     /* CTA */
     .gold-btn {
       background: linear-gradient(135deg, var(--gold), var(--gold-deep));
@@ -479,15 +483,15 @@
     // Data
     let nextID = 1;
 
-const products = [
+    const products = [
 
-    {
+      {
         id: nextID++,
         name: "Perfume Bottle",
         images: [
-            "fragnances/bottle1.png",
-            "fragnances/bottle11.jpg",
-            "fragnances/bottle1_top.png"
+          "fragnances/bottle1.png",
+          "fragnances/bottle11.jpg",
+          "fragnances/bottle1_top.png"
         ],
         JarsAndBottles: "Perfume Bottles",
         description: "NF: 240",
@@ -504,14 +508,14 @@ const products = [
         neckType: "",
         material: "",
         usage: ""
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Gustav Women",
         images: [
-            "fragnances/bottle2.png",
-            "fragnances/bottle2_side.png"
+          "fragnances/bottle2.png",
+          "fragnances/bottle2_side.png"
         ],
         JarsAndBottles: "Perfume Bottles",
         description: "Clear Bottle",
@@ -528,14 +532,14 @@ const products = [
         neckType: "",
         material: "",
         usage: ""
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Colorful Car Hanging",
         images: [
-            "fragnances/colorfulCarHanging.jpeg",
-            "fragnances/colorfulCarHanging2.jpeg"
+          "fragnances/colorfulCarHanging.jpeg",
+          "fragnances/colorfulCarHanging2.jpeg"
         ],
         JarsAndBottles: "Ittar Bottles",
         description: "Colorful Car hanging bottles for ittars",
@@ -552,13 +556,13 @@ const products = [
         neckType: "",
         material: "",
         usage: ""
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Pharma 1",
         images: [
-            "pharma/pharma1.jpeg"
+          "pharma/pharma1.jpeg"
         ],
         JarsAndBottles: "Clear Glass Bottles",
         description: "Clear Glass Bottles for pharma uses.",
@@ -575,13 +579,13 @@ const products = [
         neckType: "",
         material: "",
         usage: ""
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Pharma 2",
         images: [
-            "pharma/pharma2.jpeg"
+          "pharma/pharma2.jpeg"
         ],
         JarsAndBottles: "Clear Glass Bottles",
         description: "Clear Glass Bottles for pharma uses.",
@@ -598,26 +602,26 @@ const products = [
         neckType: "",
         material: "",
         usage: ""
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Pharma 3",
         images: [
-            "pharma/pharma3.jpeg"
+          "pharma/pharma3.jpeg"
         ],
         JarsAndBottles: "Clear Glass Jars",
         description: "Clear Glass Jars of 50ml for pharma uses.",
         size: "50ml",
         featured: true,
         industry: "pharma"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Floral Fragnance",
         images: [
-            "exquisiteFragnances/Floral.jpeg"
+          "exquisiteFragnances/Floral.jpeg"
         ],
         JarsAndBottles: "",
         description: "Soft, fresh fragrances inspired by blooming flowers and natural petals.",
@@ -625,13 +629,13 @@ const products = [
         featured: true,
         industry: "",
         ExquisiteFragnances: "Floral"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Amber or Musk Fragnance",
         images: [
-            "exquisiteFragnances/Amber.jpeg"
+          "exquisiteFragnances/Amber.jpeg"
         ],
         JarsAndBottles: "",
         description: "Warm, deep, and long-lasting scents with a cozy, sensual feel.",
@@ -639,13 +643,13 @@ const products = [
         featured: true,
         industry: "",
         ExquisiteFragnances: "Amber or Musk"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Citrus Fragnance",
         images: [
-            "exquisiteFragnances/Citrus.jpeg"
+          "exquisiteFragnances/Citrus.jpeg"
         ],
         JarsAndBottles: "",
         description: "Bright, zesty, and refreshing aromas bursting with lemon, orange, and fresh notes.",
@@ -653,13 +657,13 @@ const products = [
         featured: true,
         industry: "",
         ExquisiteFragnances: "Citrus"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Oud Fragnance",
         images: [
-            "exquisiteFragnances/Oud.jpeg"
+          "exquisiteFragnances/Oud.jpeg"
         ],
         JarsAndBottles: "",
         description: "Rich, smoky, and luxurious woody scent known for its bold and exotic character.",
@@ -667,114 +671,114 @@ const products = [
         featured: true,
         industry: "",
         ExquisiteFragnances: "Oud"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Matka Jar",
         images: [
-            "food/food1.jpeg"
+          "food/food1.jpeg"
         ],
         JarsAndBottles: "Clear Glass Jars",
         description: "recyclable materials, these bottles & jars are not only dishwasher safe",
         size: "All sizes available",
         featured: false,
         industry: "food"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Round Jars",
         images: [
-            "food/food5.png"
+          "food/food5.png"
         ],
         JarsAndBottles: "Clear Glass Jars",
         description: "Plastic/Steels caps. dishwasher-safe and recyclable glass",
         size: "All sizes available",
         featured: true,
         industry: "food"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Cylendrical Jars",
         images: [
-            "food/food7.png"
+          "food/food7.png"
         ],
         JarsAndBottles: "Clear Glass Jars",
         description: "PLASTIC CAP, Glassfinity's Cylinderical Jars",
         size: "All sizes available",
         featured: false,
         industry: "food"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Inverted Diamond Jars",
         images: [
-            "fragnances/bottle8.jpg"
+          "fragnances/bottle8.jpg"
         ],
         JarsAndBottles: "Clear Glass Jars",
         description: "Glassfinity's Diamond Jars (JK4) in Cartoon of 48 Pieces",
         size: "150ml",
         featured: false,
         industry: "Fragnances"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Star Jars",
         images: [
-            "fragnances/bottle9.jpg"
+          "fragnances/bottle9.jpg"
         ],
         JarsAndBottles: "Clear Glass Jars",
         description: "Glassfinity's Star Jars With Crown",
         size: "",
         featured: false,
         industry: "Fragnances"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Amber Cuboid Jars",
         images: [
-            "fragnances/bottle11.jpg",
-            "fragnances/bottle10.jpg"
+          "fragnances/bottle11.jpg",
+          "fragnances/bottle10.jpg"
         ],
         JarsAndBottles: "Amber Glass Jars",
         description: "Amber Cuboid Jars with Bulb for Spraying in 48 Piece Cartoon (QN 1)",
         size: "24 ml",
         featured: false,
         industry: "Fragnances"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Cylendrical Viles",
         images: [
-            "fragnances/bottle12.jpg"
+          "fragnances/bottle12.jpg"
         ],
         JarsAndBottles: "Amber Glass Jars",
         description: "Small Cylindrical Viles with Seperated Chamber and Colored Bottom made of Amber Glass in 100 Piece Cartoon (YNP 6ml)",
         size: "6 ml",
         featured: false,
         industry: "Fragnances"
-    },
+      },
 
-    {
+      {
         id: nextID++,
         name: "Perfume Bottle Gold Cap",
         images: [
-            "fragnances/bottle13.jpg"
+          "fragnances/bottle13.jpg"
         ],
         JarsAndBottles: "Clear Glass Jars",
         description: "Elegant Perfume Bottle with Gold Cap and 4 Sides Vertical Strips in Different Sizes (BJP 2) \n3ml in 960 Piece Cartoon\n6ml in 720 Piece Cartoon\n12ml in 480 Piece Cartoon",
         size: "All sizes available",
         featured: false,
         industry: "Fragnances"
-    }
+      }
 
-  ];
+    ];
 
     let filteredProducts = [...products];
     // let cartCount = 0;
@@ -861,17 +865,17 @@ const products = [
       const term = state.search.toLowerCase().trim();
       filteredProducts = products.filter(p => {
         const matchesSearch = !term || p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term);
-         const matchesIndustry = !state.industry || p.industry === state.industry;
+        const matchesIndustry = !state.industry || p.industry === state.industry;
         // Exclusive filter logic:
         // - If neither filter applied (both null) => show everything.
         // - If JarsAndBottles is not null => apply it and ignore exquisiteFragnances.
-       //    * If JarsAndBottles === 'all' => match any product that has a non-empty JarsAndBottles.
+        //    * If JarsAndBottles === 'all' => match any product that has a non-empty JarsAndBottles.
         // - Else if exquisiteFragnances is not null => apply it and ignore JarsAndBottles.
         //    * If exquisiteFragnances === 'all' => match any product that has a non-empty ExquisiteFragnances.
-       let matchesJarsAndBottles = true;
+        let matchesJarsAndBottles = true;
         let matchesExq = true;
         if (state.JarsAndBottles !== null) {
-         if (state.JarsAndBottles === 'all') matchesJarsAndBottles = !!(p.JarsAndBottles && p.JarsAndBottles.toString().trim() !== '');
+          if (state.JarsAndBottles === 'all') matchesJarsAndBottles = !!(p.JarsAndBottles && p.JarsAndBottles.toString().trim() !== '');
           else matchesJarsAndBottles = p.JarsAndBottles === state.JarsAndBottles;
           matchesExq = true; // ignore exq
         } else if (state.exquisiteFragnances !== null) {
@@ -879,7 +883,7 @@ const products = [
           else matchesExq = (p.ExquisiteFragnances || '').toString() === state.exquisiteFragnances;
           matchesJarsAndBottles = true; // ignore jars
         } // else both null -> both remain true (show all)
-         
+
         const matchesNotes = state.notes.size === 0 || [...state.notes].some(n => p.notes.includes(n));
         return matchesSearch && matchesJarsAndBottles && matchesExq && matchesNotes && matchesIndustry;
       });
@@ -927,7 +931,7 @@ const products = [
       const colBtns = document.querySelectorAll('aside .filter-btn');
       const exqBtns = document.querySelectorAll('aside .exq-filter');
       const noteBtns = document.querySelectorAll('aside .note-filter');
-           function setFilterButtonState(btns, disabled) {
+      function setFilterButtonState(btns, disabled) {
         btns.forEach(b => {
           b.disabled = disabled;
           b.classList.toggle('opacity-50', disabled);
@@ -937,7 +941,7 @@ const products = [
 
 
       colBtns.forEach(btn => btn.addEventListener('click', () => {
-     // apply jars filter (including explicit "all") and disable Exquisite Fragnances
+        // apply jars filter (including explicit "all") and disable Exquisite Fragnances
         state.JarsAndBottles = btn.dataset.filter;
         state.exquisiteFragnances = null;
         setActive(colBtns, btn);
@@ -959,7 +963,7 @@ const products = [
       }));
       document.getElementById('applyDesktop').addEventListener('click', applyFilters);
       document.getElementById('clearDesktop').addEventListener('click', () => {
-      // reset all filters -> show everything
+        // reset all filters -> show everything
         state.JarsAndBottles = null;
         state.exquisiteFragnances = null;
         state.notes.clear();
@@ -1004,7 +1008,7 @@ const products = [
         setFilterButtonState(mExqBtns, true);
       }));
       mExqBtns.forEach(btn => btn.addEventListener('click', () => {
-         state.exquisiteFragnances = btn.dataset.exq;
+        state.exquisiteFragnances = btn.dataset.exq;
         state.JarsAndBottles = null;
         setActive(mExqBtns, btn);
         setActive(mColBtns, null);
@@ -1033,12 +1037,12 @@ const products = [
     }
     // Modal
     function openProductModal(id) {
-  const p = products.find(x => x.id === id);
+      const p = products.find(x => x.id === id);
 
-  // Use product images array, fallback to single image
-  const images = (p.images && p.images.length > 0) ? p.images : [p.image];
+      // Use product images array, fallback to single image
+      const images = (p.images && p.images.length > 0) ? p.images : [p.image];
 
-  const content = `
+      const content = `
     <div class="flex flex-col md:grid md:grid-cols-2 gap-6">
 
       <!-- LEFT: main image + thumbnails -->
@@ -1099,8 +1103,8 @@ const products = [
           <a
             id="productWhatsAppBtn"
             href="https://wa.me/919311555255?text=${encodeURIComponent(
-              `Hi I am interested in ${p.name} https://arjanmalattarchand.com/public/images/products/${images[0]}`
-            )}"
+        `Hi I am interested in ${p.name} https://arjanmalattarchand.com/public/images/products/${images[0]}`
+      )}"
             target="_blank"
             class="gold-btn w-full mt-2 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2"
           >
@@ -1114,46 +1118,46 @@ const products = [
     </div>
   `;
 
-  const modal = document.getElementById('productModal');
-  document.getElementById('modalContent').innerHTML = content;
-  modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+      const modal = document.getElementById('productModal');
+      document.getElementById('modalContent').innerHTML = content;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
 
-  const closeBtn = modal.querySelector('.close-btn');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
-    });
-  }
+      const closeBtn = modal.querySelector('.close-btn');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+        });
+      }
 
-  // Thumbnail click logic
-  const mainImgEl = modal.querySelector('#mainProductImage');
-  const waBtn = modal.querySelector('#productWhatsAppBtn');
-  const thumbBtns = modal.querySelectorAll('.thumbnail-btn');
+      // Thumbnail click logic
+      const mainImgEl = modal.querySelector('#mainProductImage');
+      const waBtn = modal.querySelector('#productWhatsAppBtn');
+      const thumbBtns = modal.querySelectorAll('.thumbnail-btn');
 
-  thumbBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const imgName = btn.dataset.img;
+      thumbBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const imgName = btn.dataset.img;
 
-      // Change main image
-      mainImgEl.src = `public/images/products/${imgName}`;
+          // Change main image
+          mainImgEl.src = `public/images/products/${imgName}`;
 
-      // Highlight active thumb
-thumbBtns.forEach(b => {
-  b.classList.remove('border-2', 'border-[color:var(--gold)]');
-  b.classList.add('border', 'border-gray-200');
-});
-btn.classList.remove('border', 'border-gray-200');
-btn.classList.add('border-2', 'border-[color:var(--gold)]');
+          // Highlight active thumb
+          thumbBtns.forEach(b => {
+            b.classList.remove('border-2', 'border-[color:var(--gold)]');
+            b.classList.add('border', 'border-gray-200');
+          });
+          btn.classList.remove('border', 'border-gray-200');
+          btn.classList.add('border-2', 'border-[color:var(--gold)]');
 
-      // Update WhatsApp link
-      const imgUrl = `https://arjanmalattarchand.com/public/images/products/${imgName}`;
-      const msg = `Hi I am interested in ${p.name} ${imgUrl}`;
-      waBtn.href = `https://wa.me/919311555255?text=${encodeURIComponent(msg)}`;
-    });
-  });
-}
+          // Update WhatsApp link
+          const imgUrl = `https://arjanmalattarchand.com/public/images/products/${imgName}`;
+          const msg = `Hi I am interested in ${p.name} ${imgUrl}`;
+          waBtn.href = `https://wa.me/919311555255?text=${encodeURIComponent(msg)}`;
+        });
+      });
+    }
 
 
     function closeProductModal() {
@@ -1163,7 +1167,7 @@ btn.classList.add('border-2', 'border-[color:var(--gold)]');
 
     // Init
     (function init() {
-     setupEvents();
+      setupEvents();
       // No default filter active on load -> show all products
       // ensure all buttons enabled and none visually active
       document.querySelectorAll('aside .filter-btn, aside .exq-filter, .sheet .m-filter, .sheet .m-exq').forEach(b => {
